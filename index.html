@@ -55,7 +55,9 @@
         body.night-mode .comments-toggle,
         body.night-mode .gift-card,
         body.night-mode .memory-card,
-        body.night-mode .message-card {
+        body.night-mode .message-card,
+        body.night-mode .modal-content,
+        body.night-mode .gift-modal-content {
             background: rgba(255, 182, 193, 0.06) !important;
             border-color: rgba(255, 182, 193, 0.08) !important;
             color: #f5e6f0 !important;
@@ -89,16 +91,13 @@
             color: #ffb6c1 !important;
         }
 
-        body.night-mode .modal-content {
-            background: rgba(10, 5, 15, 0.95);
-            border-color: rgba(255, 182, 193, 0.08);
-        }
-
-        body.night-mode .modal-content * {
+        body.night-mode .modal-content *,
+        body.night-mode .gift-modal-content * {
             color: #f5e6f0 !important;
         }
 
-        body.night-mode .modal-close {
+        body.night-mode .modal-close,
+        body.night-mode .gift-modal-close {
             color: #f5e6f0 !important;
             border-color: rgba(255, 182, 193, 0.08);
         }
@@ -118,14 +117,6 @@
 
         body.night-mode .modal-comment-item .comment-time {
             color: rgba(245, 230, 240, 0.3) !important;
-        }
-
-        body.night-mode .gift-modal-content {
-            background: rgba(10, 5, 15, 0.95) !important;
-        }
-
-        body.night-mode .gift-modal-content * {
-            color: #f5e6f0 !important;
         }
 
         .glass-card {
@@ -2217,7 +2208,7 @@
         createBubbles();
 
         // ============================================================
-        // 1. المؤثرات الصوتية (محسنة)
+        // 1. المؤثرات الصوتية (تعمل فقط عند التفاعل)
         // ============================================================
 
         let audioCtx = null;
@@ -2322,6 +2313,7 @@
                 icon.className = 'fas fa-moon';
                 showToast(getText('themeDay'));
             }
+            playClickSound();
         }
 
         // ============================================================
@@ -2334,6 +2326,7 @@
             document.getElementById('settingsPanel').style.display = settingsVisible ? 'flex' : 'none';
             if (settingsVisible) {
                 showToast('⚙️ ' + getText('settings'));
+                playClickSound();
             }
         }
 
@@ -2378,7 +2371,7 @@
         setInterval(updateDaysCounter, 60000);
 
         // ============================================================
-        // 6. عداد تنازلي (محسوب من تاريخ الميلاد)
+        // 6. عداد تنازلي (محسوب من تاريخ الميلاد 7 مايو)
         // ============================================================
         const birthDay = new Date(2004, 4, 7); // 7 مايو 2004
 
@@ -2490,6 +2483,7 @@
             currentSlide = index;
             updateSlide();
             resetSlideInterval();
+            playClickSound();
         }
 
         function nextSlide() {
@@ -2506,6 +2500,7 @@
             currentSlide = (currentSlide - 1 + total) % total;
             updateSlide();
             resetSlideInterval();
+            playClickSound();
         }
 
         function resetSlideInterval() {
@@ -2530,6 +2525,7 @@
             lightboxCounter.textContent = `${index + 1} / ${imageUrls.length}`;
             lightbox.classList.add('show');
             document.body.style.overflow = 'hidden';
+            playClickSound();
         }
 
         function closeLightbox(e) {
@@ -2542,6 +2538,7 @@
             lightboxIndex = (lightboxIndex + d + imageUrls.length) % imageUrls.length;
             lightboxImg.src = imageUrls[lightboxIndex];
             lightboxCounter.textContent = `${lightboxIndex + 1} / ${imageUrls.length}`;
+            playClickSound();
         }
 
         document.addEventListener('keydown', e => {
@@ -2594,6 +2591,7 @@
                 playBtn.innerHTML = '<i class="fas fa-pause"></i>';
                 playBtn.classList.add('playing');
             }
+            playClickSound();
         }
 
         music.addEventListener('timeupdate', () => {
@@ -2607,11 +2605,14 @@
             const rect = e.currentTarget.getBoundingClientRect();
             const pct = (e.clientX - rect.left) / rect.width;
             if (music.duration) music.currentTime = pct * music.duration;
+            playClickSound();
         });
 
-        function prevTrack() { music.currentTime = 0; }
+        function prevTrack() { music.currentTime = 0;
+            playClickSound(); }
 
-        function nextTrack() { music.currentTime = music.duration * 0.8; }
+        function nextTrack() { music.currentTime = music.duration * 0.8;
+            playClickSound(); }
 
         // ============================================================
         // 11. زر القلب + قلوب متطايرة
@@ -2668,6 +2669,7 @@
         function closeGiftModal() {
             document.getElementById('giftModal').classList.remove('show');
             document.body.style.overflow = '';
+            playClickSound();
         }
 
         function confirmSendGift() {
@@ -2701,7 +2703,7 @@
         });
 
         // ============================================================
-        // 13. الترجمة الكاملة (تم إصلاحها)
+        // 13. الترجمة الكاملة (جميع النصوص)
         // ============================================================
         const translations = {
             ar: {
@@ -2765,7 +2767,18 @@
                 mem4: 'وعد الحب',
                 msg1: '"أنتِ أجمل شيء في حياتي، وكل يوم معك هو هدية."',
                 msg2: '"لو كان الحب يكتب، لكنت كتبت عنكِ آلاف الصفحات."',
-                msg3: '"في عينيكِ أرى الكون كله، وفي قلبكِ أجد سعادتي."'
+                msg3: '"في عينيكِ أرى الكون كله، وفي قلبكِ أجد سعادتي."',
+                letterText: `💬 عايز اقولك انك مش مجرد بنت بحبها انتي الحياه اللي اتمنيتها من سنين انتي الحلم اللي صحيت عليه ولقيته قدامي انتي الأمان اللي قلبي ارتاح فيه والدفا اللي بحس بيه انتي أجمل من كل الكلام اللي بيتقال واحن من كل حضن اتخيلته انتي مش بس حبيبتي انتي دنيتي انتي اخت روحي انتي ملاكي اللي ربنا بعتهو ليا 💫
+
+من أول ما عرفتك وانا مش زي زمان كل حاجه بقت ليها طعم تاني الضحكه بقت من القلب والدنيا بقت فيها أمل بقيت بصحى وانا مبسوط عشان انتي في حياتي بقيت بحب اليوم اللي بيعدي وانتي فيه بقيت بضحك على حاجات بسيطة لان وجودك بيكفيني 💕
+
+انتي اللي غيرتيني للأحسن انتي اللي خلتيني أعرف يعني ايه حب حقيقي انتي النور اللي دخل قلبي ومفارقنيش لما بشوفك بضحك من غير ما أحس لما يسمع صوتك بتهدى كل حاجة جوايا لما تبعتيلي مسدج قلبي بيرقص لما بتقوليلي وحشتني بحس اني أسعد إنسان 💖
+
+انتي كل حاجه حلوة حصلتلي انتي اللي بخاف عليها من الهوا انتي اللي بحس اني مش عايز منها غير رضاها انا بحب كل تفاصيلك بحب صوتك بحب ضحكتك بحب عصبيتك بحب طريقتك وانتي بتزعلي وبتصالحيني بعدها زي الأطفال بحب عصبيتك لما بتغيري عليا و بحب طيبة قلبك بحب عيونك و بحب خوفك عليا بـ اهتمامك بيا انتي سبب ضحكتي انتي سندي في الوجع انتي كتفي بتعب انتي قلبي اللي بيدق عشانك كل ثانيه 💗
+
+انتي بتملي حياتي فرحه وضحكة حقيقية من القلب انتي ملاك نزل عشاني انتي هدية ربنا ليا انا كل يوم بدعى انك تفضلي ليا كل يوم بشكر ربنا أنك في حياتي كل يوم بحبك أكثر كل ثانيه بتمر وانتي فيها بتكون أغلى من اللي قبلها انتي بتمثليلي حاجات كتير ميتكتبش عنها غير في كتب انتي معجزة حقيقية وجودك شفاء لقلبي وانتي روحي اللي سكنت جوايا نظرتك لما بتبصيلي كاني أهم حاجه في حياتك بحب خوفك عليا واهتمامك بيا انتي الشخص اللي يدعي يفضل معايا للآخر ده انتي اللي نفسي أعيش معاكي كل لحظه انتي اللي بستني اسمع صوتك كل يوم وكانها أول مرة انتي الحب اللي مستحيل يتكرر انتي حبيبتي ❤️
+
+انتي حبيبتي اللي بحبها من غير سبب انتي اللي مفيش منك 2 ف الدنيا هتفضلي ثابتة جوا قلبي انتي اللي وجودك بيهون عليا كل حاجه انتي اللي بفتكرها أول ما أصحى واخر ما أنام انتي اجد واحن حب واطيب قلب انتي روحي وسر سعادتي وسبب ضحكتي لو عشت الف سنه مش هيكفيني انتي اجمل من كل الوصف انتي اجمل كل الكلمات انتي دنيتي اللي بحمد ربنا عليها كل لحظه بحبك ومفضل احبك وهفضل أحميكي بحبك وحفضل أدعي ربنا يجمعني بيكي على طول بحبك ومفضل اكتب عنك الحد آخر نفس فيا بحبك يا كل حاجه حلا حصلتلي بحبككك ي ست البنات متزعليش 💋`
             },
             en: {
                 title: '💖 The One Who Stole My Heart 💖',
@@ -2828,7 +2841,18 @@
                 mem4: 'Love Promise',
                 msg1: '"You are the most beautiful thing in my life, every day with you is a gift."',
                 msg2: '"If love could be written, I would write thousands of pages about you."',
-                msg3: '"In your eyes I see the whole universe, and in your heart I find my happiness."'
+                msg3: '"In your eyes I see the whole universe, and in your heart I find my happiness."',
+                letterText: `💬 I want to tell you that you are not just a girl I love, you are the life I have dreamed of for years. You are the dream I woke up to and found in front of me. You are the safety my heart found comfort in, and the warmth I feel. You are more beautiful than all the words that are said, and more tender than any embrace I could imagine. You are not just my love, you are my world, you are my soul's sister, you are my angel that God sent to me 💫
+
+From the first moment I knew you, I was not the same as before. Everything had a different taste. Laughter came from the heart, and the world had hope in it. I started waking up happy because you are in my life. I started loving the day that passes with you in it. I started laughing at simple things because your presence is enough for me 💕
+
+You are the one who changed me for the better. You are the one who made me know what true love means. You are the light that entered my heart and never left. When I see you, I smile without realizing it. When I hear your voice, everything inside me calms down. When you send me a message, my heart dances. When you say you missed me, I feel I am the happiest person 💖
+
+You are every beautiful thing that has happened to me. You are the one I fear the wind might harm. You are the one I don't want anything from but your satisfaction. I love every detail of you. I love your voice, I love your laugh, I love your temper, I love your way when you get upset and then make up with me like children. I love your jealousy when you get jealous over me, and I love your kind heart. I love your eyes, and I love your fear for me, your care for me. You are the reason for my smile, you are my support in pain, you are my shoulder when I'm tired, you are my heart that beats for you every second 💗
+
+You fill my life with joy and genuine laughter from the heart. You are an angel sent for me. You are God's gift to me. Every day I pray that you stay for me. Every day I thank God that you are in my life. Every day I love you more. Every second that passes and you are in it, you become more precious than the one before. You represent so many things to me that cannot be written except in books. You are a true miracle. Your presence is healing for my heart, and you are my soul that has settled inside me. Your look when you look at me, as if I am the most important thing in your life. I love your fear for me and your care for me. You are the person I pray stays with me until the end. You are the one I want to live every moment with. You are the one I wait to hear your voice every day as if it's the first time. You are the love that can never be repeated. You are my love ❤️
+
+You are my love whom I love without a reason. You are the one of whom there is no second in this world. You will remain fixed inside my heart. You are the one whose presence makes everything easier for me. You are the one I think of when I wake up and before I sleep. You are the most precious and tender love, and the kindest heart. You are my soul, the secret of my happiness, and the reason for my smile. If I lived a thousand years, it would not be enough for me. You are more beautiful than any description. You are more beautiful than all words. You are my world for which I thank God every moment. I love you and I will always love you, and I will always protect you with my love. I will always pray that God brings us together forever. I love you and I will keep writing about you until my last breath. I love you, oh everything beautiful that has happened to me. I love you, oh queen of all girls, don't be upset 💋`
             },
             fr: {
                 title: '💖 Celle qui a volé mon cœur 💖',
@@ -2891,7 +2915,18 @@
                 mem4: 'Promesse d\'Amour',
                 msg1: '"Tu es la plus belle chose dans ma vie, chaque jour avec toi est un cadeau."',
                 msg2: '"Si l\'amour pouvait s\'écrire, j\'écrirais des milliers de pages sur toi."',
-                msg3: '"Dans tes yeux je vois tout l\'univers, et dans ton cœur je trouve mon bonheur."'
+                msg3: '"Dans tes yeux je vois tout l\'univers, et dans ton cœur je trouve mon bonheur."',
+                letterText: `💬 Je veux te dire que tu n'es pas juste une fille que j'aime, tu es la vie que j'ai rêvée depuis des années. Tu es le rêve dont je me suis réveillé et que j'ai trouvé devant moi. Tu es la sécurité dans laquelle mon cœur s'est reposé, et la chaleur que je ressens. Tu es plus belle que tous les mots qui sont dits, et plus tendre que toute étreinte que j'aurais pu imaginer. Tu n'es pas seulement mon amour, tu es mon monde, tu es la sœur de mon âme, tu es mon ange que Dieu m'a envoyé 💫
+
+Dès le premier moment où je t'ai connue, je n'étais plus comme avant. Tout avait un goût différent. Le rire venait du cœur, et le monde avait de l'espoir. Je me suis réveillé heureux parce que tu es dans ma vie. J'ai commencé à aimer la journée qui passe avec toi dedans. Je me suis mis à rire des choses simples parce que ta présence me suffit 💕
+
+C'est toi qui m'as changé pour le meilleur. C'est toi qui m'as fait savoir ce qu'est le véritable amour. Tu es la lumière qui est entrée dans mon cœur et qui ne l'a jamais quitté. Quand je te vois, je souris sans m'en rendre compte. Quand j'entends ta voix, tout en moi s'apaise. Quand tu m'envoies un message, mon cœur danse. Quand tu me dis que je t'ai manqué, je me sens la personne la plus heureuse 💖
+
+Tu es chaque belle chose qui m'est arrivée. Tu es celle dont j'ai peur que le vent ne la blesse. Tu es celle dont je ne veux rien d'autre que ta satisfaction. J'aime chaque détail de toi. J'aime ta voix, j'aime ton rire, j'aime ton caractère, j'aime ta façon de te fâcher et de te réconcilier avec moi comme des enfants. J'aime ta jalousie quand tu es jalouse de moi, et j'aime la gentillesse de ton cœur. J'aime tes yeux, et j'aime ta peur pour moi, ton attention pour moi. Tu es la raison de mon sourire, tu es mon soutien dans la douleur, tu es mon épaule quand je suis fatigué, tu es mon cœur qui bat pour toi à chaque seconde 💗
+
+Tu remplis ma vie de joie et de rires sincères venant du cœur. Tu es un ange envoyé pour moi. Tu es le cadeau de Dieu pour moi. Chaque jour je prie pour que tu restes pour moi. Chaque jour je remercie Dieu que tu sois dans ma vie. Chaque jour je t'aime davantage. Chaque seconde qui passe et où tu es, tu deviens plus précieuse que la précédente. Tu représentes tant de choses pour moi qui ne peuvent être écrites que dans des livres. Tu es un véritable miracle. Ta présence est une guérison pour mon cœur, et tu es mon âme qui s'est installée en moi. Ton regard quand tu me regardes, comme si j'étais la chose la plus importante dans ta vie. J'aime ta peur pour moi et ton attention pour moi. Tu es la personne pour qui je prie qu'elle reste avec moi jusqu'à la fin. Tu es celle avec qui je veux vivre chaque moment. Tu es celle dont j'attends d'entendre ta voix chaque jour comme si c'était la première fois. Tu es l'amour qui ne peut jamais être répété. Tu es mon amour ❤️
+
+Tu es mon amour que j'aime sans raison. Tu es celle dont il n'y a pas de seconde dans ce monde. Tu resteras fixée dans mon cœur. Tu es celle dont la présence rend tout plus facile pour moi. Tu es celle à qui je pense quand je me réveille et avant de dormir. Tu es l'amour le plus précieux et le plus tendre, et le cœur le plus gentil. Tu es mon âme, le secret de mon bonheur, et la raison de mon sourire. Si je vivais mille ans, cela ne me suffirait pas. Tu es plus belle que toute description. Tu es plus belle que tous les mots. Tu es mon monde pour lequel je remercie Dieu à chaque instant. Je t'aime et je t'aimerai toujours, et je te protégerai toujours avec mon amour. Je prierai toujours pour que Dieu nous réunisse pour toujours. Je t'aime et je continuerai à écrire sur toi jusqu'à mon dernier souffle. Je t'aime, toi tout ce qui est beau qui m'est arrivé. Je t'aime, ô reine de toutes les filles, ne sois pas triste 💋`
             }
         };
 
@@ -2906,7 +2941,7 @@
             const t = translations[lang];
             document.querySelectorAll('.lang-btn').forEach(b => b.classList.toggle('active', b.dataset.lang === lang));
 
-            // تحديث كل النصوص
+            // تحديث جميع النصوص
             document.getElementById('mainTitle').innerHTML = t.title;
             document.getElementById('subTitle').innerHTML = t.sub;
             document.getElementById('birthdayText').innerHTML = t.birthday;
@@ -2944,6 +2979,7 @@
             document.getElementById('msg1').innerHTML = t.msg1;
             document.getElementById('msg2').innerHTML = t.msg2;
             document.getElementById('msg3').innerHTML = t.msg3;
+            document.getElementById('letterContent').innerHTML = t.letterText;
 
             // تحديث نصوص معرض الصور
             const texts = slideTexts[lang] || slideTexts.ar;
@@ -2961,6 +2997,7 @@
             }
 
             showToast('✅ ' + getText('toastLang'));
+            playClickSound();
         }
 
         // ============================================================
@@ -3057,11 +3094,13 @@
             document.body.style.overflow = 'hidden';
             renderModalComments();
             setTimeout(() => document.getElementById('modalInput').focus(), 300);
+            playClickSound();
         }
 
         function closeCommentsModal() {
             document.getElementById('commentsModal').classList.remove('show');
             document.body.style.overflow = '';
+            playClickSound();
         }
 
         function addModalComment() {
@@ -3076,6 +3115,7 @@
             renderAllComments();
             input.value = '';
             showToast('✅ ' + getText('commentAdded'));
+            playClickSound();
             startCommentRotation();
         }
 
@@ -3084,6 +3124,7 @@
             if (comment) {
                 comment.likes = (comment.likes || 0) + 1;
                 renderAllComments();
+                playClickSound();
             }
         }
 
@@ -3096,6 +3137,7 @@
                     comment.replies.push({ name: '💝 أنت', text: replyText.trim(), time: new Date() });
                     renderAllComments();
                     showToast('✅ تم إضافة الرد!');
+                    playClickSound();
                 }
             }
         }
@@ -3131,15 +3173,18 @@
                     .then(() => showToast('✅ ' + getText('copyLink')))
                     .catch(() => showToast('📋 ' + getText('linkCopied') + window.location.href));
             }
+            playClickSound();
         }
 
-        function printPage() { window.print(); }
+        function printPage() { window.print();
+            playClickSound(); }
 
         const loveKeys = ['loveMsg1', 'loveMsg2', 'loveMsg3', 'loveMsg4', 'loveMsg5', 'loveMsg6', 'loveMsg7'];
 
         function showLoveMessage() {
             const key = loveKeys[Math.floor(Math.random() * loveKeys.length)];
             showToast(getText(key));
+            playClickSound();
             createHearts(8);
         }
 
@@ -3156,12 +3201,12 @@
         // ============================================================
         setTimeout(() => showToast(getText('toastWelcome')), 1000);
 
-        console.log('❤️ جميع المشاكل تم إصلاحها!');
-        console.log('✅ صوت النقرات أصبح يعمل فقط عند التفاعل');
+        console.log('❤️ تم إصلاح جميع المشاكل بنجاح!');
+        console.log('✅ صوت النقرات يعمل فقط عند التفاعل');
         console.log('✅ معرض الصور يعمل ويتحرك تلقائياً');
-        console.log('✅ الترجمة تعمل لكل النصوص');
-        console.log('✅ الهدايا تعمل مع مودال منبثق');
-        console.log('✅ العداد التنازلي يحسب من تاريخ الميلاد');
+        console.log('✅ الترجمة تعمل لكل النصوص بما فيها النص الطويل');
+        console.log('✅ الهدايا تعمل مع مودال منبثق وزر إرسال');
+        console.log('✅ العداد التنازلي يحسب من تاريخ الميلاد (7 مايو)');
     </script>
 </body>
 </html>
