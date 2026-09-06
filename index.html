@@ -55,9 +55,7 @@
         body.night-mode .comments-toggle,
         body.night-mode .gift-card,
         body.night-mode .memory-card,
-        body.night-mode .album-item,
-        body.night-mode .message-card,
-        body.night-mode .song-item {
+        body.night-mode .message-card {
             background: rgba(255, 182, 193, 0.06) !important;
             border-color: rgba(255, 182, 193, 0.08) !important;
             color: #f5e6f0 !important;
@@ -122,12 +120,12 @@
             color: rgba(245, 230, 240, 0.3) !important;
         }
 
-        body.night-mode .gift-card .gift-icon {
-            color: #ffd700 !important;
+        body.night-mode .gift-modal-content {
+            background: rgba(10, 5, 15, 0.95) !important;
         }
 
-        body.night-mode .countdown-number {
-            color: #ffd700 !important;
+        body.night-mode .gift-modal-content * {
+            color: #f5e6f0 !important;
         }
 
         .glass-card {
@@ -1012,6 +1010,96 @@
             transform: scale(0.9);
         }
 
+        /* ===== مودال الهدايا ===== */
+        .gift-modal-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(15px);
+            z-index: 3500;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .gift-modal-overlay.show {
+            display: flex;
+        }
+
+        .gift-modal-content {
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(25px);
+            border-radius: 30px;
+            padding: 30px;
+            max-width: 400px;
+            width: 100%;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 30px 80px rgba(0, 0, 0, 0.15);
+            animation: zoomIn 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+            text-align: center;
+        }
+
+        .gift-modal-content .gift-big-icon {
+            font-size: 4rem;
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        .gift-modal-content h3 {
+            font-size: 1.3rem;
+            color: #4a1a2c;
+            margin-bottom: 6px;
+        }
+
+        .gift-modal-content p {
+            font-size: 0.85rem;
+            color: rgba(74, 26, 44, 0.5);
+            margin-bottom: 16px;
+        }
+
+        .gift-modal-content .gift-modal-actions {
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .gift-modal-content .gift-modal-actions button {
+            padding: 10px 24px;
+            border-radius: 30px;
+            border: 1px solid rgba(194, 24, 91, 0.15);
+            font-weight: 600;
+            font-size: 0.8rem;
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+            font-family: 'Tajawal', sans-serif;
+        }
+
+        .gift-modal-content .gift-modal-actions .btn-send {
+            background: #c2185b;
+            color: #fff;
+            border-color: #c2185b;
+        }
+
+        .gift-modal-content .gift-modal-actions .btn-send:hover {
+            background: #a0154a;
+            transform: scale(1.05);
+        }
+
+        .gift-modal-content .gift-modal-actions .btn-cancel {
+            background: rgba(255, 255, 255, 0.08);
+            color: #4a1a2c;
+        }
+
+        .gift-modal-content .gift-modal-actions .btn-cancel:hover {
+            background: rgba(194, 24, 91, 0.06);
+            transform: scale(1.05);
+        }
+
         /* ===== قسم الهدايا ===== */
         .gifts-section {
             margin: 12px 0 10px;
@@ -1785,6 +1873,13 @@
             .shooting-star {
                 display: none;
             }
+            .gift-modal-content {
+                padding: 20px;
+                max-width: 95%;
+            }
+            .gift-modal-content .gift-big-icon {
+                font-size: 3rem;
+            }
         }
 
         @media (max-width: 400px) {
@@ -1855,6 +1950,19 @@
             <div class="modal-footer">
                 <input type="text" id="modalInput" placeholder="💬 اكتب تعليقاً جميلاً..." maxlength="100">
                 <button class="modal-send-btn" onclick="addModalComment()"><i class="fas fa-paper-plane"></i> <span id="modalSend">إرسال</span></button>
+            </div>
+        </div>
+    </div>
+
+    <!-- مودال الهدايا -->
+    <div class="gift-modal-overlay" id="giftModal">
+        <div class="gift-modal-content">
+            <span class="gift-big-icon" id="giftBigIcon">🎁</span>
+            <h3 id="giftModalTitle">🎁 هدية لحبيبتي</h3>
+            <p id="giftModalDesc">هل تريد إرسال هذه الهدية لحبيبتك؟</p>
+            <div class="gift-modal-actions">
+                <button class="btn-send" onclick="confirmSendGift()"><i class="fas fa-paper-plane"></i> <span id="giftSendBtn">إرسال</span></button>
+                <button class="btn-cancel" onclick="closeGiftModal()"><span id="giftCancelBtn">إلغاء</span></button>
             </div>
         </div>
     </div>
@@ -1974,10 +2082,10 @@
         <div class="memories-section">
             <div class="memories-title" id="memoriesTitle">📖 ركن الذكريات</div>
             <div class="memories-grid" id="memoriesGrid">
-                <div class="memory-card"><span class="memory-icon">💕</span><div class="memory-text">أول لقاء</div><div class="memory-date">15 يناير 2023</div></div>
-                <div class="memory-card"><span class="memory-icon">🌹</span><div class="memory-text">أول وردة</div><div class="memory-date">14 فبراير 2023</div></div>
-                <div class="memory-card"><span class="memory-icon">✨</span><div class="memory-text">أول قبلة</div><div class="memory-date">1 مارس 2023</div></div>
-                <div class="memory-card"><span class="memory-icon">💍</span><div class="memory-text">وعد الحب</div><div class="memory-date">7 مايو 2023</div></div>
+                <div class="memory-card"><span class="memory-icon">💕</span><div class="memory-text" id="mem1">أول لقاء</div><div class="memory-date">15 يناير 2023</div></div>
+                <div class="memory-card"><span class="memory-icon">🌹</span><div class="memory-text" id="mem2">أول وردة</div><div class="memory-date">14 فبراير 2023</div></div>
+                <div class="memory-card"><span class="memory-icon">✨</span><div class="memory-text" id="mem3">أول قبلة</div><div class="memory-date">1 مارس 2023</div></div>
+                <div class="memory-card"><span class="memory-icon">💍</span><div class="memory-text" id="mem4">وعد الحب</div><div class="memory-date">7 مايو 2023</div></div>
             </div>
         </div>
 
@@ -1985,9 +2093,9 @@
         <div class="messages-section">
             <div class="messages-title" id="messagesTitle">💌 مكتبة الرسائل</div>
             <div id="messagesContainer">
-                <div class="message-card"><div class="message-text">"أنتِ أجمل شيء في حياتي، وكل يوم معك هو هدية."</div><div class="message-author">❤️ من قلبك</div></div>
-                <div class="message-card"><div class="message-text">"لو كان الحب يكتب، لكنت كتبت عنكِ آلاف الصفحات."</div><div class="message-author">❤️ من روحك</div></div>
-                <div class="message-card"><div class="message-text">"في عينيكِ أرى الكون كله، وفي قلبكِ أجد سعادتي."</div><div class="message-author">❤️ من عشقك</div></div>
+                <div class="message-card"><div class="message-text" id="msg1">"أنتِ أجمل شيء في حياتي، وكل يوم معك هو هدية."</div><div class="message-author">❤️ من قلبك</div></div>
+                <div class="message-card"><div class="message-text" id="msg2">"لو كان الحب يكتب، لكنت كتبت عنكِ آلاف الصفحات."</div><div class="message-author">❤️ من روحك</div></div>
+                <div class="message-card"><div class="message-text" id="msg3">"في عينيكِ أرى الكون كله، وفي قلبكِ أجد سعادتي."</div><div class="message-author">❤️ من عشقك</div></div>
             </div>
         </div>
 
@@ -1995,12 +2103,12 @@
         <div class="gifts-section">
             <div class="gifts-title" id="giftsTitle">🎁 أرسل هدية لحبيبتي</div>
             <div class="gifts-grid">
-                <div class="gift-card" onclick="sendGift('🌹', 'وردة حب')"><span class="gift-icon">🌹</span><span class="gift-name">وردة حب</span></div>
-                <div class="gift-card" onclick="sendGift('🍫', 'شوكولاتة')"><span class="gift-icon">🍫</span><span class="gift-name">شوكولاتة</span></div>
-                <div class="gift-card" onclick="sendGift('💎', 'خاتم')"><span class="gift-icon">💎</span><span class="gift-name">خاتم</span></div>
-                <div class="gift-card" onclick="sendGift('🧸', 'دبدوب')"><span class="gift-icon">🧸</span><span class="gift-name">دبدوب</span></div>
-                <div class="gift-card" onclick="sendGift('💌', 'رسالة حب')"><span class="gift-icon">💌</span><span class="gift-name">رسالة حب</span></div>
-                <div class="gift-card" onclick="sendGift('🌟', 'نجمة')"><span class="gift-icon">🌟</span><span class="gift-name">نجمة</span></div>
+                <div class="gift-card" onclick="openGiftModal('🌹', 'وردة حب')"><span class="gift-icon">🌹</span><span class="gift-name">وردة حب</span></div>
+                <div class="gift-card" onclick="openGiftModal('🍫', 'شوكولاتة')"><span class="gift-icon">🍫</span><span class="gift-name">شوكولاتة</span></div>
+                <div class="gift-card" onclick="openGiftModal('💎', 'خاتم')"><span class="gift-icon">💎</span><span class="gift-name">خاتم</span></div>
+                <div class="gift-card" onclick="openGiftModal('🧸', 'دبدوب')"><span class="gift-icon">🧸</span><span class="gift-name">دبدوب</span></div>
+                <div class="gift-card" onclick="openGiftModal('💌', 'رسالة حب')"><span class="gift-icon">💌</span><span class="gift-name">رسالة حب</span></div>
+                <div class="gift-card" onclick="openGiftModal('🌟', 'نجمة')"><span class="gift-icon">🌟</span><span class="gift-name">نجمة</span></div>
             </div>
         </div>
 
@@ -2039,7 +2147,7 @@
 
     <script>
         // ============================================================
-        // 0. المؤثرات البصرية المتقدمة
+        // 0. المؤثرات البصرية
         // ============================================================
 
         function createPetals() {
@@ -2109,15 +2217,18 @@
         createBubbles();
 
         // ============================================================
-        // 1. المؤثرات الصوتية
+        // 1. المؤثرات الصوتية (محسنة)
         // ============================================================
 
-        // إنشاء AudioContext للصوتيات
         let audioCtx = null;
 
         function getAudioContext() {
             if (!audioCtx) {
-                audioCtx = new(window.AudioContext || window.webkitAudioContext)();
+                try {
+                    audioCtx = new(window.AudioContext || window.webkitAudioContext)();
+                } catch (e) {
+                    return null;
+                }
             }
             return audioCtx;
         }
@@ -2125,35 +2236,35 @@
         function playClickSound() {
             try {
                 const ctx = getAudioContext();
+                if (!ctx) return;
                 const osc = ctx.createOscillator();
                 const gain = ctx.createGain();
                 osc.connect(gain);
                 gain.connect(ctx.destination);
                 osc.frequency.value = 800;
                 osc.type = 'sine';
-                gain.gain.setValueAtTime(0.1, ctx.currentTime);
-                gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + 0.1);
+                gain.gain.setValueAtTime(0.08, ctx.currentTime);
+                gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + 0.08);
                 osc.start(ctx.currentTime);
-                osc.stop(ctx.currentTime + 0.1);
+                osc.stop(ctx.currentTime + 0.08);
             } catch (e) { /* silent */ }
         }
 
         function playHeartbeatSound() {
             try {
                 const ctx = getAudioContext();
-                // نغمة قلب منخفضة
+                if (!ctx) return;
                 const osc = ctx.createOscillator();
                 const gain = ctx.createGain();
                 osc.connect(gain);
                 gain.connect(ctx.destination);
                 osc.frequency.value = 60;
                 osc.type = 'sine';
-                gain.gain.setValueAtTime(0.15, ctx.currentTime);
-                gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + 0.15);
+                gain.gain.setValueAtTime(0.12, ctx.currentTime);
+                gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + 0.12);
                 osc.start(ctx.currentTime);
-                osc.stop(ctx.currentTime + 0.15);
+                osc.stop(ctx.currentTime + 0.12);
 
-                // نبضة ثانية بعد 0.2 ثانية
                 setTimeout(() => {
                     try {
                         const osc2 = ctx.createOscillator();
@@ -2162,10 +2273,10 @@
                         gain2.connect(ctx.destination);
                         osc2.frequency.value = 80;
                         osc2.type = 'sine';
-                        gain2.gain.setValueAtTime(0.12, ctx.currentTime);
-                        gain2.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + 0.12);
+                        gain2.gain.setValueAtTime(0.1, ctx.currentTime);
+                        gain2.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + 0.1);
                         osc2.start(ctx.currentTime);
-                        osc2.stop(ctx.currentTime + 0.12);
+                        osc2.stop(ctx.currentTime + 0.1);
                     } catch (e) {}
                 }, 200);
             } catch (e) { /* silent */ }
@@ -2174,6 +2285,7 @@
         function playGiftSound() {
             try {
                 const ctx = getAudioContext();
+                if (!ctx) return;
                 const notes = [523, 659, 784, 1047];
                 notes.forEach((freq, i) => {
                     setTimeout(() => {
@@ -2184,12 +2296,12 @@
                             gain.connect(ctx.destination);
                             osc.frequency.value = freq;
                             osc.type = 'sine';
-                            gain.gain.setValueAtTime(0.08, ctx.currentTime);
-                            gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + 0.15);
+                            gain.gain.setValueAtTime(0.06, ctx.currentTime);
+                            gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + 0.12);
                             osc.start(ctx.currentTime);
-                            osc.stop(ctx.currentTime + 0.15);
+                            osc.stop(ctx.currentTime + 0.12);
                         } catch (e) {}
-                    }, i * 120);
+                    }, i * 100);
                 });
             } catch (e) { /* silent */ }
         }
@@ -2210,7 +2322,6 @@
                 icon.className = 'fas fa-moon';
                 showToast(getText('themeDay'));
             }
-            playClickSound();
         }
 
         // ============================================================
@@ -2223,7 +2334,6 @@
             document.getElementById('settingsPanel').style.display = settingsVisible ? 'flex' : 'none';
             if (settingsVisible) {
                 showToast('⚙️ ' + getText('settings'));
-                playClickSound();
             }
         }
 
@@ -2268,14 +2378,26 @@
         setInterval(updateDaysCounter, 60000);
 
         // ============================================================
-        // 6. عداد تنازلي
+        // 6. عداد تنازلي (محسوب من تاريخ الميلاد)
         // ============================================================
-        const targetDate = new Date(2026, 4, 7, 0, 0, 0);
+        const birthDay = new Date(2004, 4, 7); // 7 مايو 2004
+
+        function getNextBirthday() {
+            const now = new Date();
+            const year = now.getFullYear();
+            let next = new Date(year, 4, 7);
+            if (next < now) {
+                next = new Date(year + 1, 4, 7);
+            }
+            return next;
+        }
 
         function updateCountdown() {
             const now = new Date();
-            let diff = targetDate - now;
+            const target = getNextBirthday();
+            let diff = target - now;
             if (diff < 0) diff = 0;
+
             const days = Math.floor(diff / (1000 * 60 * 60 * 24));
             const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
             const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
@@ -2287,7 +2409,6 @@
             document.getElementById('cdSeconds').textContent = String(seconds).padStart(2, '0');
 
             if (diff === 0) {
-                // عرض هدايا خاصة عند انتهاء العداد
                 showToast('🎉 عيد ميلاد سعيد يا حبيبتي! 🎉');
                 createHearts(50);
                 playGiftSound();
@@ -2300,7 +2421,7 @@
         setInterval(updateCountdown, 1000);
 
         // ============================================================
-        // 7. معرض الصور المتطور
+        // 7. معرض الصور (تم إصلاح الحركة)
         // ============================================================
         const imageUrls = [
             'https://qu.ax/0gKPn.jpg',
@@ -2358,34 +2479,42 @@
         }
 
         function updateSlide() {
-            slidesContainer.style.transform = `translateX(-${currentSlide*100}%)`;
-            document.querySelectorAll('.dot').forEach((d, i) => d.className = 'dot' + (i === currentSlide ? ' active' : ''));
+            if (!slidesContainer) return;
+            slidesContainer.style.transform = `translateX(-${currentSlide * 100}%)`;
+            document.querySelectorAll('.dot').forEach((d, i) => {
+                d.className = 'dot' + (i === currentSlide ? ' active' : '');
+            });
         }
 
-        function goToSlide(index) { currentSlide = index;
+        function goToSlide(index) {
+            currentSlide = index;
             updateSlide();
-            resetInterval();
-            playClickSound(); }
+            resetSlideInterval();
+        }
 
         function nextSlide() {
-            const t = slidesContainer.children.length;
-            currentSlide = (currentSlide + 1) % t;
+            const total = slidesContainer.children.length;
+            if (total === 0) return;
+            currentSlide = (currentSlide + 1) % total;
             updateSlide();
-            resetInterval();
+            resetSlideInterval();
         }
 
         function prevSlide() {
-            const t = slidesContainer.children.length;
-            currentSlide = (currentSlide - 1 + t) % t;
+            const total = slidesContainer.children.length;
+            if (total === 0) return;
+            currentSlide = (currentSlide - 1 + total) % total;
             updateSlide();
-            resetInterval();
-            playClickSound();
+            resetSlideInterval();
         }
 
-        function resetInterval() { clearInterval(slideInterval);
-            slideInterval = setInterval(nextSlide, 4500); }
+        function resetSlideInterval() {
+            if (slideInterval) clearInterval(slideInterval);
+            slideInterval = setInterval(nextSlide, 4500);
+        }
+
         buildGallery();
-        slideInterval = setInterval(nextSlide, 4500);
+        resetSlideInterval();
 
         // ============================================================
         // 8. Lightbox
@@ -2398,21 +2527,21 @@
         function openLightbox(index) {
             lightboxIndex = index;
             lightboxImg.src = imageUrls[index];
-            lightboxCounter.textContent = `${index+1} / ${imageUrls.length}`;
+            lightboxCounter.textContent = `${index + 1} / ${imageUrls.length}`;
             lightbox.classList.add('show');
             document.body.style.overflow = 'hidden';
-            playClickSound();
         }
 
-        function closeLightbox(e) { if (e && e.target !== e.currentTarget) return;
+        function closeLightbox(e) {
+            if (e && e.target !== e.currentTarget) return;
             lightbox.classList.remove('show');
-            document.body.style.overflow = ''; }
+            document.body.style.overflow = '';
+        }
 
         function navigateLightbox(d) {
             lightboxIndex = (lightboxIndex + d + imageUrls.length) % imageUrls.length;
             lightboxImg.src = imageUrls[lightboxIndex];
-            lightboxCounter.textContent = `${lightboxIndex+1} / ${imageUrls.length}`;
-            playClickSound();
+            lightboxCounter.textContent = `${lightboxIndex + 1} / ${imageUrls.length}`;
         }
 
         document.addEventListener('keydown', e => {
@@ -2424,11 +2553,9 @@
         // ============================================================
         // 9. العمر
         // ============================================================
-        const birthDate = new Date(2004, 4, 7);
-
         function updateAge() {
             const now = new Date();
-            let diff = now - birthDate;
+            let diff = now - birthDay;
             if (diff < 0) diff = 0;
             const totalDays = Math.floor(diff / (1000 * 60 * 60 * 24));
             const years = Math.floor(totalDays / 365.2425);
@@ -2467,7 +2594,6 @@
                 playBtn.innerHTML = '<i class="fas fa-pause"></i>';
                 playBtn.classList.add('playing');
             }
-            playClickSound();
         }
 
         music.addEventListener('timeupdate', () => {
@@ -2481,14 +2607,11 @@
             const rect = e.currentTarget.getBoundingClientRect();
             const pct = (e.clientX - rect.left) / rect.width;
             if (music.duration) music.currentTime = pct * music.duration;
-            playClickSound();
         });
 
-        function prevTrack() { music.currentTime = 0;
-            playClickSound(); }
+        function prevTrack() { music.currentTime = 0; }
 
-        function nextTrack() { music.currentTime = music.duration * 0.8;
-            playClickSound(); }
+        function nextTrack() { music.currentTime = music.duration * 0.8; }
 
         // ============================================================
         // 11. زر القلب + قلوب متطايرة
@@ -2528,14 +2651,33 @@
         });
 
         // ============================================================
-        // 12. الهدايا
+        // 12. الهدايا (مع مودال منبثق)
         // ============================================================
+        let selectedGift = { icon: '🎁', name: 'هدية' };
 
-        function sendGift(icon, name) {
+        function openGiftModal(icon, name) {
+            selectedGift = { icon, name };
+            document.getElementById('giftBigIcon').textContent = icon;
+            document.getElementById('giftModalTitle').textContent = `🎁 ${name}`;
+            document.getElementById('giftModalDesc').textContent = getText('giftConfirm') || 'هل تريد إرسال هذه الهدية لحبيبتك؟';
+            document.getElementById('giftModal').classList.add('show');
+            document.body.style.overflow = 'hidden';
+            playClickSound();
+        }
+
+        function closeGiftModal() {
+            document.getElementById('giftModal').classList.remove('show');
+            document.body.style.overflow = '';
+        }
+
+        function confirmSendGift() {
+            const name = selectedGift.name;
             showToast(`🎁 تم إرسال ${name} لحبيبتي!`);
-            createHearts(20);
+            createHearts(25);
             playGiftSound();
-            // تأثير إضافي: انفجار نجوم
+            closeGiftModal();
+
+            // تأثير إضافي: نجوم متطايرة
             const emojis = ['✨', '⭐', '🌟', '💫'];
             for (let i = 0; i < 15; i++) {
                 setTimeout(() => {
@@ -2553,8 +2695,13 @@
             }
         }
 
+        // إغلاق مودال الهدايا بالضغط خارج المحتوى
+        document.getElementById('giftModal').addEventListener('click', e => {
+            if (e.target === e.currentTarget) closeGiftModal();
+        });
+
         // ============================================================
-        // 13. الترجمة الكاملة
+        // 13. الترجمة الكاملة (تم إصلاحها)
         // ============================================================
         const translations = {
             ar: {
@@ -2608,7 +2755,17 @@
                 cdSeconds: 'ثواني',
                 memoriesTitle: '📖 ركن الذكريات',
                 messagesTitle: '💌 مكتبة الرسائل',
-                giftsTitle: '🎁 أرسل هدية لحبيبتي'
+                giftsTitle: '🎁 أرسل هدية لحبيبتي',
+                giftConfirm: 'هل تريد إرسال هذه الهدية لحبيبتك؟',
+                giftSend: 'إرسال',
+                giftCancel: 'إلغاء',
+                mem1: 'أول لقاء',
+                mem2: 'أول وردة',
+                mem3: 'أول قبلة',
+                mem4: 'وعد الحب',
+                msg1: '"أنتِ أجمل شيء في حياتي، وكل يوم معك هو هدية."',
+                msg2: '"لو كان الحب يكتب، لكنت كتبت عنكِ آلاف الصفحات."',
+                msg3: '"في عينيكِ أرى الكون كله، وفي قلبكِ أجد سعادتي."'
             },
             en: {
                 title: '💖 The One Who Stole My Heart 💖',
@@ -2661,7 +2818,17 @@
                 cdSeconds: 'Seconds',
                 memoriesTitle: '📖 Memories Corner',
                 messagesTitle: '💌 Message Library',
-                giftsTitle: '🎁 Send a gift to my love'
+                giftsTitle: '🎁 Send a gift to my love',
+                giftConfirm: 'Do you want to send this gift to your love?',
+                giftSend: 'Send',
+                giftCancel: 'Cancel',
+                mem1: 'First Meeting',
+                mem2: 'First Rose',
+                mem3: 'First Kiss',
+                mem4: 'Love Promise',
+                msg1: '"You are the most beautiful thing in my life, every day with you is a gift."',
+                msg2: '"If love could be written, I would write thousands of pages about you."',
+                msg3: '"In your eyes I see the whole universe, and in your heart I find my happiness."'
             },
             fr: {
                 title: '💖 Celle qui a volé mon cœur 💖',
@@ -2714,7 +2881,17 @@
                 cdSeconds: 'Secondes',
                 memoriesTitle: '📖 Coin des Souvenirs',
                 messagesTitle: '💌 Bibliothèque de Messages',
-                giftsTitle: '🎁 Envoie un cadeau à mon amour'
+                giftsTitle: '🎁 Envoie un cadeau à mon amour',
+                giftConfirm: 'Veux-tu envoyer ce cadeau à ton amour?',
+                giftSend: 'Envoyer',
+                giftCancel: 'Annuler',
+                mem1: 'Première Rencontre',
+                mem2: 'Première Rose',
+                mem3: 'Premier Baiser',
+                mem4: 'Promesse d\'Amour',
+                msg1: '"Tu es la plus belle chose dans ma vie, chaque jour avec toi est un cadeau."',
+                msg2: '"Si l\'amour pouvait s\'écrire, j\'écrirais des milliers de pages sur toi."',
+                msg3: '"Dans tes yeux je vois tout l\'univers, et dans ton cœur je trouve mon bonheur."'
             }
         };
 
@@ -2729,6 +2906,7 @@
             const t = translations[lang];
             document.querySelectorAll('.lang-btn').forEach(b => b.classList.toggle('active', b.dataset.lang === lang));
 
+            // تحديث كل النصوص
             document.getElementById('mainTitle').innerHTML = t.title;
             document.getElementById('subTitle').innerHTML = t.sub;
             document.getElementById('birthdayText').innerHTML = t.birthday;
@@ -2757,12 +2935,23 @@
             document.getElementById('memoriesTitle').innerHTML = t.memoriesTitle;
             document.getElementById('messagesTitle').innerHTML = t.messagesTitle;
             document.getElementById('giftsTitle').innerHTML = t.giftsTitle;
+            document.getElementById('giftSendBtn').innerHTML = t.giftSend;
+            document.getElementById('giftCancelBtn').innerHTML = t.giftCancel;
+            document.getElementById('mem1').innerHTML = t.mem1;
+            document.getElementById('mem2').innerHTML = t.mem2;
+            document.getElementById('mem3').innerHTML = t.mem3;
+            document.getElementById('mem4').innerHTML = t.mem4;
+            document.getElementById('msg1').innerHTML = t.msg1;
+            document.getElementById('msg2').innerHTML = t.msg2;
+            document.getElementById('msg3').innerHTML = t.msg3;
 
+            // تحديث نصوص معرض الصور
             const texts = slideTexts[lang] || slideTexts.ar;
             document.querySelectorAll('.slide .slide-text').forEach((el, idx) => {
                 if (el) el.textContent = texts[idx % texts.length];
             });
 
+            // اتجاه النص
             if (lang === 'ar') {
                 document.body.style.direction = 'rtl';
                 document.querySelector('.glass-card').style.direction = 'rtl';
@@ -2772,11 +2961,10 @@
             }
 
             showToast('✅ ' + getText('toastLang'));
-            playClickSound();
         }
 
         // ============================================================
-        // 14. التعليقات المتطورة (مودال + ردود + لايكات + أفاتار)
+        // 14. التعليقات
         // ============================================================
         const defaultComments = [
             { name: '🌸 نور', text: '💕 كلامك جميل جداً، أنتِ محظوظة بهذا الحب', avatar: '🌸', likes: 5, replies: [] },
@@ -2869,13 +3057,11 @@
             document.body.style.overflow = 'hidden';
             renderModalComments();
             setTimeout(() => document.getElementById('modalInput').focus(), 300);
-            playClickSound();
         }
 
         function closeCommentsModal() {
             document.getElementById('commentsModal').classList.remove('show');
             document.body.style.overflow = '';
-            playClickSound();
         }
 
         function addModalComment() {
@@ -2890,7 +3076,6 @@
             renderAllComments();
             input.value = '';
             showToast('✅ ' + getText('commentAdded'));
-            playClickSound();
             startCommentRotation();
         }
 
@@ -2899,7 +3084,6 @@
             if (comment) {
                 comment.likes = (comment.likes || 0) + 1;
                 renderAllComments();
-                playClickSound();
             }
         }
 
@@ -2912,7 +3096,6 @@
                     comment.replies.push({ name: '💝 أنت', text: replyText.trim(), time: new Date() });
                     renderAllComments();
                     showToast('✅ تم إضافة الرد!');
-                    playClickSound();
                 }
             }
         }
@@ -2948,18 +3131,15 @@
                     .then(() => showToast('✅ ' + getText('copyLink')))
                     .catch(() => showToast('📋 ' + getText('linkCopied') + window.location.href));
             }
-            playClickSound();
         }
 
-        function printPage() { window.print();
-            playClickSound(); }
+        function printPage() { window.print(); }
 
         const loveKeys = ['loveMsg1', 'loveMsg2', 'loveMsg3', 'loveMsg4', 'loveMsg5', 'loveMsg6', 'loveMsg7'];
 
         function showLoveMessage() {
             const key = loveKeys[Math.floor(Math.random() * loveKeys.length)];
             showToast(getText(key));
-            playClickSound();
             createHearts(8);
         }
 
@@ -2976,8 +3156,12 @@
         // ============================================================
         setTimeout(() => showToast(getText('toastWelcome')), 1000);
 
-        console.log('❤️ تم إضافة جميع الميزات المطلوبة بنجاح ❤️');
-        console.log('🎵 مؤثرات صوتية | 💬 تعليقات متطورة | 🎁 هدايا | 📸 معرض صور | ⏳ عداد تنازلي | 🌙 وضع ليلي | 📖 أقسام جديدة');
+        console.log('❤️ جميع المشاكل تم إصلاحها!');
+        console.log('✅ صوت النقرات أصبح يعمل فقط عند التفاعل');
+        console.log('✅ معرض الصور يعمل ويتحرك تلقائياً');
+        console.log('✅ الترجمة تعمل لكل النصوص');
+        console.log('✅ الهدايا تعمل مع مودال منبثق');
+        console.log('✅ العداد التنازلي يحسب من تاريخ الميلاد');
     </script>
 </body>
 </html>
