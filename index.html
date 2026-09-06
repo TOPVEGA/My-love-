@@ -56,7 +56,8 @@
         body.night-mode .lang-btn,
         body.night-mode .gallery-nav button,
         body.night-mode .music-controls button,
-        body.night-mode .days-counter {
+        body.night-mode .days-counter,
+        body.night-mode .comment-item {
             background: rgba(255, 255, 255, 0.06) !important;
             border-color: rgba(255, 255, 255, 0.08) !important;
             color: #f0e6f0 !important;
@@ -579,6 +580,7 @@
             border: 1px solid rgba(255, 255, 255, 0.06);
             box-shadow: 0 8px 30px rgba(0, 0, 0, 0.02);
             cursor: pointer;
+            will-change: transform;
         }
 
         .gallery-slider .slides {
@@ -586,6 +588,7 @@
             width: 100%;
             height: 100%;
             transition: transform 0.8s cubic-bezier(0.34, 1.56, 0.64, 1);
+            will-change: transform;
         }
 
         .gallery-slider .slide {
@@ -605,6 +608,7 @@
             object-fit: cover;
             display: block;
             transition: transform 0.3s ease;
+            will-change: transform;
         }
 
         .gallery-slider .slide:hover img {
@@ -686,7 +690,7 @@
             border-radius: 20px;
             padding: 16px 20px;
             margin: 10px 0 12px;
-            max-height: 180px;
+            max-height: 300px;
             overflow-y: auto;
             border: 1px solid rgba(255, 255, 255, 0.04);
             line-height: 1.8;
@@ -694,6 +698,7 @@
             color: #4a1a2c;
             font-weight: 400;
             scroll-behavior: smooth;
+            transition: all 0.3s ease;
         }
 
         .love-letter::-webkit-scrollbar {
@@ -706,6 +711,178 @@
         .love-letter::-webkit-scrollbar-thumb {
             background: rgba(194, 24, 91, 0.2);
             border-radius: 20px;
+        }
+
+        /* ===== قسم التعليقات ===== */
+        .comments-section {
+            margin: 12px 0 10px;
+            background: rgba(255, 255, 255, 0.06);
+            backdrop-filter: blur(8px);
+            border-radius: 20px;
+            padding: 14px 16px;
+            border: 1px solid rgba(255, 255, 255, 0.04);
+            transition: all 0.3s ease;
+        }
+
+        .comments-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+
+        .comments-header h3 {
+            font-size: 0.9rem;
+            color: rgba(74, 26, 44, 0.6);
+            font-weight: 600;
+        }
+
+        .comments-header i {
+            color: #c2185b;
+        }
+
+        .comment-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            padding: 8px 12px;
+            margin-bottom: 6px;
+            background: rgba(255, 255, 255, 0.04);
+            border-radius: 16px;
+            border: 1px solid rgba(255, 255, 255, 0.04);
+            transition: all 0.3s ease;
+            animation: slideInComment 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+
+        @keyframes slideInComment {
+            0% { opacity: 0; transform: translateY(-10px) scale(0.95); }
+            100% { opacity: 1; transform: translateY(0) scale(1); }
+        }
+
+        .comment-item .avatar {
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #c2185b, #ff6b81);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            font-size: 0.6rem;
+            font-weight: 700;
+            flex-shrink: 0;
+        }
+
+        .comment-item .comment-content {
+            flex: 1;
+        }
+
+        .comment-item .comment-name {
+            font-size: 0.7rem;
+            font-weight: 700;
+            color: #c2185b;
+        }
+
+        .comment-item .comment-text {
+            font-size: 0.75rem;
+            color: rgba(74, 26, 44, 0.7);
+            margin-top: 1px;
+            line-height: 1.4;
+        }
+
+        .comment-item .comment-time {
+            font-size: 0.55rem;
+            color: rgba(74, 26, 44, 0.3);
+            margin-top: 2px;
+        }
+
+        .comment-input-area {
+            display: flex;
+            gap: 8px;
+            margin-top: 10px;
+            flex-wrap: wrap;
+        }
+
+        .comment-input-area input {
+            flex: 1;
+            min-width: 120px;
+            padding: 8px 14px;
+            border-radius: 30px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            background: rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(4px);
+            font-family: 'Tajawal', sans-serif;
+            font-size: 0.75rem;
+            color: #4a1a2c;
+            outline: none;
+            transition: all 0.3s ease;
+        }
+
+        .comment-input-area input:focus {
+            border-color: #c2185b;
+            background: rgba(255, 255, 255, 0.12);
+        }
+
+        .comment-input-area input::placeholder {
+            color: rgba(74, 26, 44, 0.3);
+        }
+
+        .comment-input-area button {
+            padding: 8px 18px;
+            border-radius: 30px;
+            border: 1px solid rgba(194, 24, 91, 0.15);
+            background: rgba(194, 24, 91, 0.06);
+            color: #c2185b;
+            font-weight: 600;
+            font-size: 0.7rem;
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+            font-family: 'Tajawal', sans-serif;
+        }
+
+        .comment-input-area button:hover {
+            background: rgba(194, 24, 91, 0.12);
+            transform: scale(1.02);
+        }
+
+        .comment-input-area button:active {
+            transform: scale(0.9);
+        }
+
+        body.night-mode .comment-input-area input {
+            background: rgba(255, 255, 255, 0.06);
+            color: #f0e6f0;
+            border-color: rgba(255, 255, 255, 0.06);
+        }
+
+        body.night-mode .comment-input-area input::placeholder {
+            color: rgba(240, 230, 240, 0.3);
+        }
+
+        body.night-mode .comment-input-area button {
+            background: rgba(255, 215, 0, 0.06);
+            color: #ffd700;
+            border-color: rgba(255, 215, 0, 0.15);
+        }
+
+        body.night-mode .comment-input-area button:hover {
+            background: rgba(255, 215, 0, 0.12);
+        }
+
+        body.night-mode .comments-header h3 {
+            color: rgba(240, 230, 240, 0.6);
+        }
+
+        body.night-mode .comment-item .comment-text {
+            color: rgba(240, 230, 240, 0.7);
+        }
+
+        body.night-mode .comment-item .comment-time {
+            color: rgba(240, 230, 240, 0.3);
+        }
+
+        body.night-mode .comment-item .comment-name {
+            color: #ffd700;
         }
 
         /* ===== زر القلب ===== */
@@ -957,6 +1134,7 @@
             animation: fall linear infinite;
             pointer-events: none;
             transform-origin: center;
+            will-change: transform, opacity;
         }
 
         @keyframes fall {
@@ -989,6 +1167,7 @@
             animation: twinkle 2s ease-in-out infinite alternate;
             opacity: 0;
             pointer-events: none;
+            will-change: transform, opacity;
         }
 
         @keyframes twinkle {
@@ -1063,6 +1242,7 @@
             animation: rise linear infinite;
             opacity: 0.4;
             pointer-events: none;
+            will-change: transform, opacity;
         }
 
         @keyframes rise {
@@ -1089,7 +1269,7 @@
             .stat-item { font-size: 0.7rem; padding: 2px 8px; }
             .action-btn { font-size: 0.65rem; padding: 5px 10px; }
             .days-counter .days-num { font-size: 1.1rem; }
-            .love-letter { max-height: 140px; font-size: 0.78rem; padding: 12px 14px; }
+            .love-letter { max-height: 200px; font-size: 0.78rem; padding: 12px 14px; }
             .top-bar .brand { font-size: 0.7rem; }
             .settings-btn { width: 34px; height: 34px; font-size: 0.9rem; }
             .lang-btn { font-size: 0.55rem; padding: 2px 8px; }
@@ -1104,6 +1284,10 @@
             .petal { font-size: 1.2rem; }
             .star { font-size: 0.7rem; }
             .bubble { font-size: 0.9rem; }
+            .comments-section { padding: 10px 12px; }
+            .comment-item { padding: 6px 10px; }
+            .comment-input-area input { font-size: 0.65rem; padding: 6px 12px; }
+            .comment-input-area button { font-size: 0.65rem; padding: 6px 14px; }
         }
 
         @media (max-width: 400px) {
@@ -1111,8 +1295,10 @@
             .age-counter { gap: 2px 6px; padding: 4px 8px; }
             .age-item .num { font-size: 0.8rem; min-width: 16px; }
             .age-item .label { font-size: 0.5rem; }
-            .love-letter { font-size: 0.7rem; padding: 10px 12px; max-height: 120px; }
+            .love-letter { font-size: 0.7rem; padding: 10px 12px; max-height: 160px; }
             .heart-btn { width: 54px; height: 54px; font-size: 2.2rem; }
+            .comment-item .comment-text { font-size: 0.65rem; }
+            .comment-item .comment-name { font-size: 0.6rem; }
         }
     </style>
 </head>
@@ -1269,6 +1455,21 @@
 
 انتي حبيبتي اللي بحبها من غير سبب انتي اللي مفيش منك 2 ف الدنيا هتفضلي ثابتة جوا قلبي انتي اللي وجودك بيهون عليا كل حاجه انتي اللي بفتكرها أول ما أصحى واخر ما أنام انتي اجد واحن حب واطيب قلب انتي روحي وسر سعادتي وسبب ضحكتي لو عشت الف سنه مش هيكفيني انتي اجمل من كل الوصف انتي اجمل كل الكلمات انتي دنيتي اللي بحمد ربنا عليها كل لحظه بحبك ومفضل احبك وهفضل أحميكي بحبك وحفضل أدعي ربنا يجمعني بيكي على طول بحبك ومفضل اكتب عنك الحد آخر نفس فيا بحبك يا كل حاجه حلا حصلتلي بحبككك ي ست البنات متزعليش 💋
             </p>
+        </div>
+
+        <!-- ===== قسم التعليقات ===== -->
+        <div class="comments-section">
+            <div class="comments-header">
+                <h3><i class="fas fa-comments"></i> التعليقات <span id="commentCount">(5)</span></h3>
+                <i class="fas fa-heart" style="color: #c2185b;"></i>
+            </div>
+            <div id="commentsContainer">
+                <!-- سيتم إضافة التعليقات هنا بواسطة JavaScript -->
+            </div>
+            <div class="comment-input-area">
+                <input type="text" id="commentInput" placeholder="💬 اكتب تعليقاً جميلاً..." maxlength="100">
+                <button onclick="addComment()"><i class="fas fa-paper-plane"></i> إرسال</button>
+            </div>
         </div>
 
         <!-- ===== زر القلب ===== -->
@@ -1805,7 +2006,104 @@
         }
 
         // ============================================================
-        // 12. تشغيل تلقائي للموسيقى
+        // 12. التعليقات
+        // ============================================================
+        const defaultComments = [
+            { name: '🌸 نور', text: '💕 كلامك جميل جداً، أنتِ محظوظة بهذا الحب' },
+            { name: '💖 سارة', text: '❤️ ما شاء الله، حب نقي و صادق' },
+            { name: '🌟 ليلى', text: '✨ أنتِ فعلاً أجمل بنت في الدنيا' },
+            { name: '🌹 رنا', text: '💗 كلماتك وصلت للقلب، الله يسعدكم' },
+            { name: '💫 مريم', text: '🌺 حب يستحق كل هذه المشاعر الجميلة' }
+        ];
+
+        let comments = [];
+        let commentInterval;
+
+        function loadComments() {
+            comments = defaultComments.map(c => ({ ...c, time: new Date() }));
+            renderComments();
+            startCommentRotation();
+        }
+
+        function renderComments() {
+            const container = document.getElementById('commentsContainer');
+            container.innerHTML = '';
+            const sorted = [...comments].reverse();
+            sorted.forEach((comment, index) => {
+                const div = document.createElement('div');
+                div.className = 'comment-item';
+                div.style.animationDelay = (index * 0.05) + 's';
+                div.innerHTML = `
+                    <div class="avatar">${comment.name.charAt(0)}</div>
+                    <div class="comment-content">
+                        <div class="comment-name">${comment.name}</div>
+                        <div class="comment-text">${comment.text}</div>
+                        <div class="comment-time">${formatTime(comment.time)}</div>
+                    </div>
+                `;
+                container.appendChild(div);
+            });
+            document.getElementById('commentCount').textContent = `(${comments.length})`;
+        }
+
+        function formatTime(date) {
+            const now = new Date();
+            const diff = (now - date) / 1000;
+            if (diff < 60) return 'الآن';
+            if (diff < 3600) return Math.floor(diff / 60) + ' دقيقة';
+            if (diff < 86400) return Math.floor(diff / 3600) + ' ساعة';
+            return Math.floor(diff / 86400) + ' يوم';
+        }
+
+        function startCommentRotation() {
+            if (commentInterval) clearInterval(commentInterval);
+            let index = 0;
+            commentInterval = setInterval(() => {
+                if (comments.length > 0) {
+                    const newComment = defaultComments[index % defaultComments.length];
+                    comments.push({ ...newComment, time: new Date() });
+                    renderComments();
+                    index++;
+                    // إبقاء عدد التعليقات معقولاً
+                    if (comments.length > 20) {
+                        comments.splice(0, 5);
+                        renderComments();
+                    }
+                }
+            }, 5000);
+        }
+
+        function addComment() {
+            const input = document.getElementById('commentInput');
+            const text = input.value.trim();
+            if (!text) {
+                showToast('💬 اكتب تعليقاً أولاً!');
+                return;
+            }
+
+            const name = '💝 ' + ['محب', 'معجب', 'قلب', 'روح', 'عاشق'][Math.floor(Math.random() * 5)];
+            comments.push({ name: name + ' ❤️', text: text, time: new Date() });
+            renderComments();
+            input.value = '';
+            showToast('✅ تم إضافة تعليقك الجميل!');
+
+            // إعادة تعيين المؤقت لإعطاء الأولوية للتعليقات الجديدة
+            startCommentRotation();
+        }
+
+        // إضافة التعليق عند الضغط على Enter
+        document.getElementById('commentInput').addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') {
+                e.preventDefault();
+                addComment();
+            }
+        });
+
+        // تحميل التعليقات
+        loadComments();
+
+        // ============================================================
+        // 13. تشغيل تلقائي للموسيقى
         // ============================================================
         document.addEventListener('click', function firstClick() {
             if (!isPlaying) {
@@ -1815,7 +2113,7 @@
         }, { once: true });
 
         // ============================================================
-        // 13. الترحيب
+        // 14. الترحيب
         // ============================================================
         setTimeout(() => {
             showToast('💖 مرحباً يا أجمل بنت في الدنيا 💖');
