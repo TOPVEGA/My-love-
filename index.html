@@ -27,23 +27,23 @@
             align-items: center;
             padding: 20px;
             direction: rtl;
-            transition: background 0.6s ease, color 0.6s ease;
+            transition: background 0.8s ease, color 0.8s ease;
             position: relative;
             overflow: hidden;
         }
 
-        /* ===== وضع ليلي ===== */
+        /* ===== وضع ليلي أنثوي ===== */
         body.night-mode {
-            background: linear-gradient(145deg, #0a0a1a, #141432, #1a1a3e);
+            background: linear-gradient(145deg, #1a0a1a, #2d1b2e, #3d1f3d);
         }
 
         body.night-mode .glass-card {
-            background: rgba(10, 10, 30, 0.6);
-            border-color: rgba(255, 255, 255, 0.08);
+            background: rgba(20, 10, 25, 0.7);
+            border-color: rgba(255, 182, 193, 0.08);
         }
 
         body.night-mode .glass-card * {
-            color: #f0e6f0 !important;
+            color: #f5e6f0 !important;
         }
 
         body.night-mode .stat-item,
@@ -57,34 +57,59 @@
         body.night-mode .gallery-nav button,
         body.night-mode .music-controls button,
         body.night-mode .days-counter,
-        body.night-mode .comment-item {
-            background: rgba(255, 255, 255, 0.06) !important;
-            border-color: rgba(255, 255, 255, 0.08) !important;
-            color: #f0e6f0 !important;
+        body.night-mode .comment-item,
+        body.night-mode .comments-section {
+            background: rgba(255, 182, 193, 0.06) !important;
+            border-color: rgba(255, 182, 193, 0.08) !important;
+            color: #f5e6f0 !important;
         }
 
         body.night-mode .hero-title h1 {
-            background: linear-gradient(135deg, #f06292, #ec407a, #ffd700) !important;
+            background: linear-gradient(135deg, #ff6b9d, #ff4081, #ffd700) !important;
             -webkit-background-clip: text !important;
             -webkit-text-fill-color: transparent !important;
             background-clip: text !important;
         }
 
         body.night-mode .age-item .num {
-            background: linear-gradient(135deg, #f06292, #ffd700) !important;
+            background: linear-gradient(135deg, #ff6b9d, #ffd700) !important;
             -webkit-background-clip: text !important;
             -webkit-text-fill-color: transparent !important;
             background-clip: text !important;
         }
 
         body.night-mode .lang-btn.active {
-            background: rgba(255, 215, 0, 0.2) !important;
+            background: rgba(255, 215, 0, 0.15) !important;
             border-color: #ffd700 !important;
             color: #ffd700 !important;
         }
 
         body.night-mode .days-counter .days-num {
             color: #ffd700 !important;
+        }
+
+        body.night-mode .star {
+            color: #ffb6c1 !important;
+        }
+
+        body.night-mode .comment-input-area input {
+            background: rgba(255, 182, 193, 0.06);
+            color: #f5e6f0;
+            border-color: rgba(255, 182, 193, 0.08);
+        }
+
+        body.night-mode .comment-input-area input::placeholder {
+            color: rgba(245, 230, 240, 0.3);
+        }
+
+        body.night-mode .comment-input-area button {
+            background: rgba(255, 215, 0, 0.06);
+            color: #ffd700;
+            border-color: rgba(255, 215, 0, 0.15);
+        }
+
+        body.night-mode .comment-input-area button:hover {
+            background: rgba(255, 215, 0, 0.12);
         }
 
         /* ===== Glass Card ===== */
@@ -98,7 +123,7 @@
             padding: 30px 28px 28px;
             border: 1px solid rgba(255, 255, 255, 0.25);
             box-shadow: 0 30px 80px rgba(0, 0, 0, 0.08), inset 0 1px 0 rgba(255, 255, 255, 0.2);
-            transition: all 0.5s ease;
+            transition: all 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
             animation: fadeUp 0.8s cubic-bezier(0.34, 1.56, 0.64, 1);
             position: relative;
             z-index: 10;
@@ -124,7 +149,7 @@
             100% { opacity: 1; transform: translateY(0) scale(1); }
         }
 
-        /* ===== شريط علوي (Top Bar) ===== */
+        /* ===== شريط علوي ===== */
         .top-bar {
             display: flex;
             justify-content: space-between;
@@ -155,7 +180,6 @@
             flex-wrap: wrap;
         }
 
-        /* ===== زر الإعدادات (درس) ===== */
         .settings-btn {
             background: rgba(255, 255, 255, 0.12);
             border: 1px solid rgba(255, 255, 255, 0.1);
@@ -183,7 +207,7 @@
         }
 
         body.night-mode .settings-btn {
-            background: rgba(255, 255, 255, 0.06);
+            background: rgba(255, 182, 193, 0.06);
             color: #ffd700;
             border-color: rgba(255, 215, 0, 0.15);
         }
@@ -399,7 +423,7 @@
             transition: width 0.1s linear;
         }
 
-        /* ===== زر اللغات (في شريط الإعدادات) ===== */
+        /* ===== زر اللغات ===== */
         .lang-group {
             display: flex;
             gap: 4px;
@@ -434,17 +458,16 @@
         }
 
         body.night-mode .lang-btn {
-            color: rgba(240, 230, 240, 0.4);
+            color: rgba(245, 230, 240, 0.4);
         }
         body.night-mode .lang-btn.active {
             background: rgba(255, 215, 0, 0.15);
             color: #ffd700;
         }
         body.night-mode .lang-btn:hover {
-            color: #f0e6f0;
+            color: #f5e6f0;
         }
 
-        /* ===== زر ليل/نهار (في شريط الإعدادات) ===== */
         .theme-toggle-small {
             background: rgba(255, 255, 255, 0.08);
             border: 1px solid rgba(255, 255, 255, 0.08);
@@ -471,7 +494,7 @@
         }
 
         body.night-mode .theme-toggle-small {
-            background: rgba(255, 255, 255, 0.06);
+            background: rgba(255, 182, 193, 0.06);
             color: #ffd700;
             border-color: rgba(255, 215, 0, 0.15);
         }
@@ -488,6 +511,7 @@
             color: #4a1a2c;
             letter-spacing: 1px;
             text-shadow: 0 4px 20px rgba(194, 24, 91, 0.05);
+            transition: all 0.3s ease;
         }
 
         .hero-title .sub-text {
@@ -497,7 +521,6 @@
             letter-spacing: 2px;
         }
 
-        /* ===== تاريخ الميلاد ===== */
         .birthday-box {
             background: rgba(255, 255, 255, 0.12);
             backdrop-filter: blur(8px);
@@ -713,45 +736,146 @@
             border-radius: 20px;
         }
 
-        /* ===== قسم التعليقات ===== */
-        .comments-section {
-            margin: 12px 0 10px;
-            background: rgba(255, 255, 255, 0.06);
+        /* ===== أيقونة التعليقات المنبثقة ===== */
+        .comments-toggle {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 16px;
+            background: rgba(255, 255, 255, 0.08);
             backdrop-filter: blur(8px);
-            border-radius: 20px;
-            padding: 14px 16px;
-            border: 1px solid rgba(255, 255, 255, 0.04);
-            transition: all 0.3s ease;
+            border-radius: 30px;
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+            margin: 6px 0 8px;
+            justify-content: center;
+            color: #4a1a2c;
+            font-weight: 600;
+            font-size: 0.85rem;
         }
 
-        .comments-header {
+        .comments-toggle:hover {
+            background: rgba(194, 24, 91, 0.06);
+            border-color: #c2185b;
+            transform: scale(1.02);
+        }
+
+        .comments-toggle i {
+            color: #c2185b;
+            font-size: 1.1rem;
+        }
+
+        body.night-mode .comments-toggle {
+            background: rgba(255, 182, 193, 0.06);
+            color: #f5e6f0;
+            border-color: rgba(255, 182, 193, 0.08);
+        }
+
+        /* ===== مودال التعليقات ===== */
+        .comments-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(15px);
+            z-index: 3000;
+            justify-content: center;
+            align-items: center;
+            animation: fadeIn 0.4s ease;
+            padding: 20px;
+        }
+
+        .comments-modal.show {
+            display: flex;
+        }
+
+        .comments-modal-content {
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(25px);
+            border-radius: 30px;
+            padding: 25px;
+            max-width: 500px;
+            width: 100%;
+            max-height: 80vh;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 30px 80px rgba(0, 0, 0, 0.15);
+            animation: zoomIn 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .comments-modal-header {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin-bottom: 10px;
+            margin-bottom: 15px;
         }
 
-        .comments-header h3 {
-            font-size: 0.9rem;
-            color: rgba(74, 26, 44, 0.6);
-            font-weight: 600;
+        .comments-modal-header h3 {
+            font-size: 1.1rem;
+            color: #4a1a2c;
+            font-weight: 700;
         }
 
-        .comments-header i {
+        .comments-modal-header h3 i {
             color: #c2185b;
+            margin-left: 8px;
         }
 
-        .comment-item {
+        .comments-modal-close {
+            background: rgba(255, 255, 255, 0.08);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            color: #4a1a2c;
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 1rem;
             display: flex;
-            align-items: flex-start;
-            gap: 10px;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .comments-modal-close:hover {
+            background: rgba(194, 24, 91, 0.08);
+            border-color: #c2185b;
+            transform: rotate(90deg);
+        }
+
+        .comments-modal-body {
+            flex: 1;
+            overflow-y: auto;
+            margin-bottom: 15px;
+            padding-right: 5px;
+        }
+
+        .comments-modal-body::-webkit-scrollbar {
+            width: 3px;
+        }
+        .comments-modal-body::-webkit-scrollbar-track {
+            background: rgba(0, 0, 0, 0.01);
+            border-radius: 20px;
+        }
+        .comments-modal-body::-webkit-scrollbar-thumb {
+            background: rgba(194, 24, 91, 0.2);
+            border-radius: 20px;
+        }
+
+        .comments-modal-body .comment-item {
             padding: 8px 12px;
             margin-bottom: 6px;
             background: rgba(255, 255, 255, 0.04);
             border-radius: 16px;
             border: 1px solid rgba(255, 255, 255, 0.04);
-            transition: all 0.3s ease;
-            animation: slideInComment 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            animation: slideInComment 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
         }
 
         @keyframes slideInComment {
@@ -759,7 +883,7 @@
             100% { opacity: 1; transform: translateY(0) scale(1); }
         }
 
-        .comment-item .avatar {
+        .comments-modal-body .comment-item .avatar {
             width: 28px;
             height: 28px;
             border-radius: 50%;
@@ -773,37 +897,36 @@
             flex-shrink: 0;
         }
 
-        .comment-item .comment-content {
+        .comments-modal-body .comment-item .comment-content {
             flex: 1;
         }
 
-        .comment-item .comment-name {
+        .comments-modal-body .comment-item .comment-name {
             font-size: 0.7rem;
             font-weight: 700;
             color: #c2185b;
         }
 
-        .comment-item .comment-text {
+        .comments-modal-body .comment-item .comment-text {
             font-size: 0.75rem;
             color: rgba(74, 26, 44, 0.7);
             margin-top: 1px;
             line-height: 1.4;
         }
 
-        .comment-item .comment-time {
+        .comments-modal-body .comment-item .comment-time {
             font-size: 0.55rem;
             color: rgba(74, 26, 44, 0.3);
             margin-top: 2px;
         }
 
-        .comment-input-area {
+        .comments-modal-footer {
             display: flex;
             gap: 8px;
-            margin-top: 10px;
             flex-wrap: wrap;
         }
 
-        .comment-input-area input {
+        .comments-modal-footer input {
             flex: 1;
             min-width: 120px;
             padding: 8px 14px;
@@ -818,16 +941,16 @@
             transition: all 0.3s ease;
         }
 
-        .comment-input-area input:focus {
+        .comments-modal-footer input:focus {
             border-color: #c2185b;
             background: rgba(255, 255, 255, 0.12);
         }
 
-        .comment-input-area input::placeholder {
+        .comments-modal-footer input::placeholder {
             color: rgba(74, 26, 44, 0.3);
         }
 
-        .comment-input-area button {
+        .comments-modal-footer button {
             padding: 8px 18px;
             border-radius: 30px;
             border: 1px solid rgba(194, 24, 91, 0.15);
@@ -840,49 +963,68 @@
             font-family: 'Tajawal', sans-serif;
         }
 
-        .comment-input-area button:hover {
+        .comments-modal-footer button:hover {
             background: rgba(194, 24, 91, 0.12);
             transform: scale(1.02);
         }
 
-        .comment-input-area button:active {
+        .comments-modal-footer button:active {
             transform: scale(0.9);
         }
 
-        body.night-mode .comment-input-area input {
-            background: rgba(255, 255, 255, 0.06);
-            color: #f0e6f0;
-            border-color: rgba(255, 255, 255, 0.06);
+        body.night-mode .comments-modal-content {
+            background: rgba(20, 10, 25, 0.9);
+            border-color: rgba(255, 182, 193, 0.08);
         }
 
-        body.night-mode .comment-input-area input::placeholder {
-            color: rgba(240, 230, 240, 0.3);
+        body.night-mode .comments-modal-content * {
+            color: #f5e6f0 !important;
         }
 
-        body.night-mode .comment-input-area button {
+        body.night-mode .comments-modal-header h3 {
+            color: #f5e6f0 !important;
+        }
+
+        body.night-mode .comments-modal-close {
+            color: #f5e6f0 !important;
+            border-color: rgba(255, 182, 193, 0.08);
+        }
+
+        body.night-mode .comments-modal-body .comment-item {
+            background: rgba(255, 182, 193, 0.04);
+            border-color: rgba(255, 182, 193, 0.06);
+        }
+
+        body.night-mode .comments-modal-body .comment-item .comment-name {
+            color: #ffd700 !important;
+        }
+
+        body.night-mode .comments-modal-body .comment-item .comment-text {
+            color: rgba(245, 230, 240, 0.7) !important;
+        }
+
+        body.night-mode .comments-modal-body .comment-item .comment-time {
+            color: rgba(245, 230, 240, 0.3) !important;
+        }
+
+        body.night-mode .comments-modal-footer input {
+            background: rgba(255, 182, 193, 0.06);
+            color: #f5e6f0;
+            border-color: rgba(255, 182, 193, 0.08);
+        }
+
+        body.night-mode .comments-modal-footer input::placeholder {
+            color: rgba(245, 230, 240, 0.3);
+        }
+
+        body.night-mode .comments-modal-footer button {
             background: rgba(255, 215, 0, 0.06);
             color: #ffd700;
             border-color: rgba(255, 215, 0, 0.15);
         }
 
-        body.night-mode .comment-input-area button:hover {
+        body.night-mode .comments-modal-footer button:hover {
             background: rgba(255, 215, 0, 0.12);
-        }
-
-        body.night-mode .comments-header h3 {
-            color: rgba(240, 230, 240, 0.6);
-        }
-
-        body.night-mode .comment-item .comment-text {
-            color: rgba(240, 230, 240, 0.7);
-        }
-
-        body.night-mode .comment-item .comment-time {
-            color: rgba(240, 230, 240, 0.3);
-        }
-
-        body.night-mode .comment-item .comment-name {
-            color: #ffd700;
         }
 
         /* ===== زر القلب ===== */
@@ -1114,7 +1256,6 @@
         }
 
         /* ===== الخلفيات المؤثرة ===== */
-        /* بتلات الورد */
         .petals-container {
             position: fixed;
             top: 0;
@@ -1130,25 +1271,25 @@
             position: absolute;
             top: -40px;
             font-size: 1.8rem;
-            opacity: 0.6;
+            opacity: 0.5;
             animation: fall linear infinite;
             pointer-events: none;
             transform-origin: center;
             will-change: transform, opacity;
+            filter: drop-shadow(0 0 6px rgba(255, 182, 193, 0.3));
         }
 
         @keyframes fall {
             0% {
                 transform: translateY(0) rotate(0deg) scale(1);
-                opacity: 0.7;
+                opacity: 0.6;
             }
             100% {
-                transform: translateY(110vh) rotate(720deg) scale(0.5);
-                opacity: 0.1;
+                transform: translateY(110vh) rotate(720deg) scale(0.3);
+                opacity: 0;
             }
         }
 
-        /* النجوم المتلألئة */
         .stars-container {
             position: fixed;
             top: 0;
@@ -1162,24 +1303,26 @@
 
         .star {
             position: absolute;
-            color: #ffd700;
+            color: #ffb6c1;
             font-size: 1rem;
-            animation: twinkle 2s ease-in-out infinite alternate;
+            animation: twinkle 3s ease-in-out infinite alternate;
             opacity: 0;
             pointer-events: none;
             will-change: transform, opacity;
+            filter: drop-shadow(0 0 8px rgba(255, 182, 193, 0.5));
         }
 
         @keyframes twinkle {
-            0% { opacity: 0; transform: scale(0.5); }
-            100% { opacity: 1; transform: scale(1.2); }
+            0% { opacity: 0; transform: scale(0.3) rotate(0deg); }
+            50% { opacity: 0.8; transform: scale(1.2) rotate(15deg); }
+            100% { opacity: 0.3; transform: scale(0.7) rotate(-10deg); }
         }
 
         body.night-mode .star {
-            color: #fff4c4;
+            color: #ffb6c1;
+            filter: drop-shadow(0 0 12px rgba(255, 182, 193, 0.3));
         }
 
-        /* الشموع */
         .candles-container {
             position: fixed;
             bottom: 20px;
@@ -1189,7 +1332,7 @@
             gap: 30px;
             pointer-events: none;
             z-index: 2;
-            opacity: 0.5;
+            opacity: 0.4;
         }
 
         .candle {
@@ -1202,15 +1345,16 @@
             font-size: 2rem;
             animation: flicker 1.5s ease-in-out infinite alternate;
             display: block;
+            filter: drop-shadow(0 0 20px rgba(255, 182, 193, 0.4));
         }
 
         .candle .body {
             width: 12px;
             height: 30px;
-            background: linear-gradient(180deg, #f5e6d3, #e8d5c4);
+            background: linear-gradient(180deg, #fce4ec, #f8bbd0);
             border-radius: 4px 4px 6px 6px;
             margin-top: -5px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            box-shadow: 0 4px 15px rgba(255, 182, 193, 0.1);
         }
 
         @keyframes flicker {
@@ -1220,10 +1364,9 @@
         }
 
         body.night-mode .candles-container {
-            opacity: 0.8;
+            opacity: 0.6;
         }
 
-        /* فقاعات الحب */
         .bubbles-container {
             position: fixed;
             bottom: 0;
@@ -1240,19 +1383,20 @@
             bottom: -30px;
             font-size: 1.2rem;
             animation: rise linear infinite;
-            opacity: 0.4;
+            opacity: 0.3;
             pointer-events: none;
             will-change: transform, opacity;
+            filter: drop-shadow(0 0 10px rgba(255, 182, 193, 0.2));
         }
 
         @keyframes rise {
             0% {
-                transform: translateY(0) scale(0.5);
-                opacity: 0.3;
+                transform: translateY(0) scale(0.3) rotate(0deg);
+                opacity: 0.2;
             }
-            50% { opacity: 0.6; }
+            50% { opacity: 0.5; }
             100% {
-                transform: translateY(-110vh) scale(1.2);
+                transform: translateY(-110vh) scale(1.1) rotate(180deg);
                 opacity: 0;
             }
         }
@@ -1284,10 +1428,11 @@
             .petal { font-size: 1.2rem; }
             .star { font-size: 0.7rem; }
             .bubble { font-size: 0.9rem; }
-            .comments-section { padding: 10px 12px; }
-            .comment-item { padding: 6px 10px; }
-            .comment-input-area input { font-size: 0.65rem; padding: 6px 12px; }
-            .comment-input-area button { font-size: 0.65rem; padding: 6px 14px; }
+            .comments-modal-content { padding: 18px; max-width: 95%; }
+            .comments-modal-body .comment-item { padding: 6px 10px; }
+            .comments-modal-footer input { font-size: 0.65rem; padding: 6px 12px; }
+            .comments-modal-footer button { font-size: 0.65rem; padding: 6px 14px; }
+            .comments-toggle { font-size: 0.75rem; padding: 6px 12px; }
         }
 
         @media (max-width: 400px) {
@@ -1297,8 +1442,6 @@
             .age-item .label { font-size: 0.5rem; }
             .love-letter { font-size: 0.7rem; padding: 10px 12px; max-height: 160px; }
             .heart-btn { width: 54px; height: 54px; font-size: 2.2rem; }
-            .comment-item .comment-text { font-size: 0.65rem; }
-            .comment-item .comment-name { font-size: 0.6rem; }
         }
     </style>
 </head>
@@ -1332,6 +1475,23 @@
         <div class="lightbox-counter" id="lightboxCounter">1 / 9</div>
     </div>
 
+    <!-- ===== مودال التعليقات ===== -->
+    <div class="comments-modal" id="commentsModal">
+        <div class="comments-modal-content">
+            <div class="comments-modal-header">
+                <h3><i class="fas fa-comments"></i> <span id="modalCommentsTitle">التعليقات</span> <span id="modalCommentCount">(5)</span></h3>
+                <button class="comments-modal-close" onclick="closeCommentsModal()"><i class="fas fa-times"></i></button>
+            </div>
+            <div class="comments-modal-body" id="modalCommentsContainer">
+                <!-- سيتم إضافة التعليقات هنا -->
+            </div>
+            <div class="comments-modal-footer">
+                <input type="text" id="modalCommentInput" placeholder="💬 اكتب تعليقاً جميلاً..." maxlength="100">
+                <button onclick="addModalComment()"><i class="fas fa-paper-plane"></i> <span id="modalSendBtn">إرسال</span></button>
+            </div>
+        </div>
+    </div>
+
     <!-- ===== البطاقة الرئيسية ===== -->
     <div class="glass-card">
 
@@ -1339,14 +1499,12 @@
         <div class="top-bar">
             <div class="brand">
                 <i class="fas fa-heart"></i>
-                <span>❤️ حبيبتي</span>
+                <span id="brandText">❤️ حبيبتي</span>
             </div>
             <div class="controls-group">
-                <!-- زر الإعدادات (درس) -->
                 <button class="settings-btn" onclick="toggleSettings()" title="الإعدادات">
                     <i class="fas fa-cog"></i>
                 </button>
-                <!-- مجموعة اللغة والثيم (تظهر عند الضغط على الإعدادات) -->
                 <div id="settingsPanel" style="display: none; align-items: center; gap: 6px; background: rgba(255,255,255,0.05); border-radius: 30px; padding: 3px 10px; border: 1px solid rgba(255,255,255,0.05);">
                     <div class="lang-group">
                         <button class="lang-btn active" data-lang="ar" onclick="changeLanguage('ar')">ع</button>
@@ -1374,17 +1532,17 @@
                 <i class="fas fa-user-friends"></i>
                 <span class="count">1.5k</span>
             </div>
-            <div class="stat-item">
+            <div class="stat-item" onclick="openCommentsModal()">
                 <i class="fas fa-comment"></i>
-                <span class="count">342</span>
+                <span class="count" id="statCommentCount">342</span>
             </div>
         </div>
 
         <!-- ===== عداد الأيام ===== -->
         <div class="days-counter">
-            <span class="days-label">💕 منذ لقائنا</span>
+            <span class="days-label" id="daysLabel">💕 منذ لقائنا</span>
             <span class="days-num" id="daysCount">0</span>
-            <span class="days-label">يوم</span>
+            <span class="days-label" id="daysUnitLabel">يوم</span>
             <span class="days-heart"><i class="fas fa-heart"></i></span>
         </div>
 
@@ -1440,7 +1598,7 @@
             <div class="gallery-dots" id="dotsContainer"></div>
         </div>
 
-        <!-- ===== النص الكامل (في لوح زجاجي بدون تمرير) ===== -->
+        <!-- ===== النص الكامل ===== -->
         <div class="love-letter" id="loveLetter">
             <p id="letterContent">
 💬 عايز اقولك انك مش مجرد بنت بحبها انتي الحياه اللي اتمنيتها من سنين انتي الحلم اللي صحيت عليه ولقيته قدامي انتي الأمان اللي قلبي ارتاح فيه والدفا اللي بحس بيه انتي أجمل من كل الكلام اللي بيتقال واحن من كل حضن اتخيلته انتي مش بس حبيبتي انتي دنيتي انتي اخت روحي انتي ملاكي اللي ربنا بعتهو ليا 💫
@@ -1457,19 +1615,11 @@
             </p>
         </div>
 
-        <!-- ===== قسم التعليقات ===== -->
-        <div class="comments-section">
-            <div class="comments-header">
-                <h3><i class="fas fa-comments"></i> التعليقات <span id="commentCount">(5)</span></h3>
-                <i class="fas fa-heart" style="color: #c2185b;"></i>
-            </div>
-            <div id="commentsContainer">
-                <!-- سيتم إضافة التعليقات هنا بواسطة JavaScript -->
-            </div>
-            <div class="comment-input-area">
-                <input type="text" id="commentInput" placeholder="💬 اكتب تعليقاً جميلاً..." maxlength="100">
-                <button onclick="addComment()"><i class="fas fa-paper-plane"></i> إرسال</button>
-            </div>
+        <!-- ===== أيقونة التعليقات المنبثقة ===== -->
+        <div class="comments-toggle" onclick="openCommentsModal()">
+            <i class="fas fa-comments"></i>
+            <span id="commentsToggleText">💬 التعليقات</span>
+            <span id="commentsToggleCount">(5)</span>
         </div>
 
         <!-- ===== زر القلب ===== -->
@@ -1482,13 +1632,13 @@
         <!-- ===== أزرار الإجراءات ===== -->
         <div class="action-buttons">
             <button class="action-btn" onclick="shareWebsite()">
-                <i class="fas fa-share-alt"></i> مشاركة
+                <i class="fas fa-share-alt"></i> <span id="shareBtnText">مشاركة</span>
             </button>
             <button class="action-btn" onclick="printPage()">
-                <i class="fas fa-print"></i> طباعة
+                <i class="fas fa-print"></i> <span id="printBtnText">طباعة</span>
             </button>
             <button class="action-btn" onclick="showLoveMessage()">
-                <i class="fas fa-heart"></i> رسالة
+                <i class="fas fa-heart"></i> <span id="messageBtnText">رسالة</span>
             </button>
         </div>
 
@@ -1510,63 +1660,62 @@
 
     <script>
         // ============================================================
-        // 0. المؤثرات البصرية
+        // 0. المؤثرات البصرية (نساء وأنوثة)
         // ============================================================
 
-        // === بتلات الورد ===
         function createPetals() {
             const container = document.getElementById('petalsContainer');
-            const emojis = ['🌸', '🌹', '🌺', '💮', '🌷'];
-            for (let i = 0; i < 25; i++) {
+            const emojis = ['🌸', '🌹', '🌺', '💮', '🌷', '🪷', '🌼'];
+            for (let i = 0; i < 30; i++) {
                 const petal = document.createElement('div');
                 petal.className = 'petal';
                 petal.textContent = emojis[Math.floor(Math.random() * emojis.length)];
                 petal.style.left = Math.random() * 100 + '%';
-                petal.style.animationDuration = (6 + Math.random() * 8) + 's';
-                petal.style.animationDelay = (Math.random() * 15) + 's';
-                petal.style.fontSize = (1 + Math.random() * 1.8) + 'rem';
+                petal.style.animationDuration = (8 + Math.random() * 10) + 's';
+                petal.style.animationDelay = (Math.random() * 20) + 's';
+                petal.style.fontSize = (1.2 + Math.random() * 2) + 'rem';
                 petal.style.opacity = 0.3 + Math.random() * 0.4;
+                petal.style.transform = `rotate(${Math.random() * 360}deg)`;
                 container.appendChild(petal);
             }
         }
         createPetals();
 
-        // === النجوم المتلألئة ===
         function createStars() {
             const container = document.getElementById('starsContainer');
-            for (let i = 0; i < 60; i++) {
+            const emojis = ['✦', '✧', '⭐', '🌟', '✨', '💫'];
+            for (let i = 0; i < 70; i++) {
                 const star = document.createElement('div');
                 star.className = 'star';
-                star.textContent = ['✦', '✧', '⭐', '🌟', '✨'][Math.floor(Math.random() * 5)];
+                star.textContent = emojis[Math.floor(Math.random() * emojis.length)];
                 star.style.left = Math.random() * 100 + '%';
                 star.style.top = Math.random() * 100 + '%';
-                star.style.animationDelay = (Math.random() * 5) + 's';
-                star.style.animationDuration = (1.5 + Math.random() * 3) + 's';
-                star.style.fontSize = (0.6 + Math.random() * 1.2) + 'rem';
+                star.style.animationDelay = (Math.random() * 6) + 's';
+                star.style.animationDuration = (2 + Math.random() * 4) + 's';
+                star.style.fontSize = (0.6 + Math.random() * 1.5) + 'rem';
                 container.appendChild(star);
             }
         }
         createStars();
 
-        // === فقاعات الحب ===
         function createBubbles() {
             const container = document.getElementById('bubblesContainer');
-            const emojis = ['💕', '💖', '💗', '💓', '❤️', '🩷'];
-            for (let i = 0; i < 15; i++) {
+            const emojis = ['💕', '💖', '💗', '💓', '❤️', '🩷', '🌸'];
+            for (let i = 0; i < 20; i++) {
                 const bubble = document.createElement('div');
                 bubble.className = 'bubble';
                 bubble.textContent = emojis[Math.floor(Math.random() * emojis.length)];
                 bubble.style.left = Math.random() * 100 + '%';
-                bubble.style.animationDuration = (8 + Math.random() * 12) + 's';
-                bubble.style.animationDelay = (Math.random() * 20) + 's';
-                bubble.style.fontSize = (0.8 + Math.random() * 1.5) + 'rem';
+                bubble.style.animationDuration = (10 + Math.random() * 15) + 's';
+                bubble.style.animationDelay = (Math.random() * 25) + 's';
+                bubble.style.fontSize = (0.8 + Math.random() * 1.8) + 'rem';
                 container.appendChild(bubble);
             }
         }
         createBubbles();
 
         // ============================================================
-        // 1. وضع ليلي/نهاري
+        // 1. الثيمات
         // ============================================================
         let isNight = false;
 
@@ -1576,15 +1725,15 @@
             const icon = document.querySelector('#themeIconSmall');
             if (isNight) {
                 icon.className = 'fas fa-sun';
-                showToast('🌙 تم تفعيل الوضع الليلي');
+                showToast(getTranslation('themeNight'));
             } else {
                 icon.className = 'fas fa-moon';
-                showToast('☀️ تم تفعيل الوضع النهاري');
+                showToast(getTranslation('themeDay'));
             }
         }
 
         // ============================================================
-        // 2. إظهار/إخفاء الإعدادات
+        // 2. الإعدادات
         // ============================================================
         let settingsVisible = false;
 
@@ -1592,7 +1741,7 @@
             settingsVisible = !settingsVisible;
             document.getElementById('settingsPanel').style.display = settingsVisible ? 'flex' : 'none';
             if (settingsVisible) {
-                showToast('⚙️ الإعدادات');
+                showToast('⚙️ ' + getTranslation('settings'));
             }
         }
 
@@ -1613,7 +1762,7 @@
                 likes++;
                 isLiked = true;
                 btn.classList.add('liked');
-                showToast('❤️ شكراً لكِ يا حبيبتي!');
+                showToast('❤️ ' + getTranslation('likeMsg'));
                 createHearts(12);
             }
             count.textContent = formatNumber(likes);
@@ -1653,11 +1802,11 @@
             'https://qu.ax/joJjb.jpg'
         ];
 
-        const slideTexts = [
-            '❤️ حبيبتي الجميلة', '🌹 وردة حياتي', '💕 حبّي الأبدي',
-            '✨ نور عيني', '🌸 أجمل بنت', '💖 روحي وحياتي',
-            '🌺 أنتِ ملاكي', '💗 عشق عمري', '🌟 نجمة قلبي'
-        ];
+        const slideTexts = {
+            ar: ['❤️ حبيبتي الجميلة', '🌹 وردة حياتي', '💕 حبّي الأبدي', '✨ نور عيني', '🌸 أجمل بنت', '💖 روحي وحياتي', '🌺 أنتِ ملاكي', '💗 عشق عمري', '🌟 نجمة قلبي'],
+            en: ['❤️ My Beautiful Love', '🌹 Rose of My Life', '💕 My Eternal Love', '✨ Light of My Eyes', '🌸 Most Beautiful Girl', '💖 My Soul and Life', '🌺 You Are My Angel', '💗 Love of My Life', '🌟 Star of My Heart'],
+            fr: ['❤️ Mon Bel Amour', '🌹 Rose de Ma Vie', '💕 Mon Amour Éternel', '✨ Lumière de Mes Yeux', '🌸 La Plus Belle Fille', '💖 Mon Âme et Ma Vie', '🌺 Tu Es Mon Ange', '💗 Amour de Ma Vie', '🌟 Étoile de Mon Cœur']
+        };
 
         let currentSlide = 0;
         const slidesContainer = document.getElementById('slidesContainer');
@@ -1674,12 +1823,14 @@
                 [shuffledIndices[i], shuffledIndices[j]] = [shuffledIndices[j], shuffledIndices[i]];
             }
 
+            const texts = slideTexts[currentLang] || slideTexts.ar;
+
             shuffledIndices.forEach((idx, index) => {
                 const slide = document.createElement('div');
                 slide.className = 'slide';
                 slide.innerHTML = `
                     <img src="${imageUrls[idx]}" alt="صورة حبيبتي" loading="lazy" />
-                    <div class="slide-text">${slideTexts[idx % slideTexts.length]}</div>
+                    <div class="slide-text">${texts[idx % texts.length]}</div>
                 `;
                 slidesContainer.appendChild(slide);
 
@@ -1843,14 +1994,14 @@
 
         function createHearts(count = 15) {
             const container = document.getElementById('petalsContainer');
-            const emojis = ['❤️', '💖', '💕', '💗', '💓', '🌸', '✨', '⭐'];
+            const emojis = ['❤️', '💖', '💕', '💗', '💓', '🌸', '✨', '⭐', '🌹', '🩷'];
             for (let i = 0; i < count; i++) {
                 const heart = document.createElement('div');
                 heart.className = 'petal';
                 heart.textContent = emojis[Math.floor(Math.random() * emojis.length)];
                 heart.style.left = (10 + Math.random() * 80) + '%';
                 heart.style.top = (30 + Math.random() * 40) + '%';
-                heart.style.fontSize = (0.8 + Math.random() * 1.5) + 'rem';
+                heart.style.fontSize = (0.8 + Math.random() * 1.8) + 'rem';
                 heart.style.animationDuration = (1.8 + Math.random() * 1.5) + 's';
                 heart.style.animationDelay = (Math.random() * 0.3) + 's';
                 heart.style.opacity = 0.7 + Math.random() * 0.3;
@@ -1862,7 +2013,7 @@
         heartBtn.addEventListener('click', function() {
             heartCount++;
             const icon = this.querySelector('i');
-            const colors = ['#c2185b', '#ff4757', '#ff6b81', '#ff9ff3', '#feca57'];
+            const colors = ['#c2185b', '#ff4757', '#ff6b81', '#ff9ff3', '#feca57', '#ff4081'];
             icon.style.color = colors[heartCount % colors.length];
             this.style.transform = 'scale(0.7)';
             setTimeout(() => { this.style.transform = ''; }, 200);
@@ -1870,17 +2021,17 @@
             createHearts(25);
 
             const msgs = [
-                '❤️ أحبك يا أجمل بنت!',
-                '💖 أنتِ كل شيء في حياتي!',
-                '💕 روحي وحياتي!',
-                '✨ أنتِ ملاكي!',
-                '🌹 وردة عمري!'
+                '❤️ ' + getTranslation('heartMsg1'),
+                '💖 ' + getTranslation('heartMsg2'),
+                '💕 ' + getTranslation('heartMsg3'),
+                '✨ ' + getTranslation('heartMsg4'),
+                '🌹 ' + getTranslation('heartMsg5')
             ];
             showToast(msgs[heartCount % msgs.length]);
         });
 
         // ============================================================
-        // 10. تغيير اللغة
+        // 10. الترجمة الكاملة للموقع
         // ============================================================
         const translations = {
             ar: {
@@ -1894,7 +2045,41 @@
                 hours: 'ساعات',
                 gallery: '📸 ذكرياتنا الجميلة',
                 track: '🎵 أغنية حبك ❤️',
-                daysLabel: '💕 منذ لقائنا'
+                daysLabel: '💕 منذ لقائنا',
+                daysUnit: 'يوم',
+                brand: '❤️ حبيبتي',
+                comments: '💬 التعليقات',
+                share: 'مشاركة',
+                print: 'طباعة',
+                message: 'رسالة',
+                settings: 'الإعدادات',
+                themeNight: '🌙 تم تفعيل الوضع الليلي',
+                themeDay: '☀️ تم تفعيل الوضع النهاري',
+                likeMsg: 'شكراً لكِ يا حبيبتي!',
+                heartMsg1: 'أحبك يا أجمل بنت!',
+                heartMsg2: 'أنتِ كل شيء في حياتي!',
+                heartMsg3: 'روحي وحياتي!',
+                heartMsg4: 'أنتِ ملاكي!',
+                heartMsg5: 'وردة عمري!',
+                modalTitle: 'التعليقات',
+                modalSend: 'إرسال',
+                modalPlaceholder: '💬 اكتب تعليقاً جميلاً...',
+                commentAdded: '✅ تم إضافة تعليقك الجميل!',
+                writeFirst: '💬 اكتب تعليقاً أولاً!',
+                toastWelcome: '💖 مرحباً يا أجمل بنت في الدنيا 💖',
+                toastLang: '✅ تم التبديل إلى العربية',
+                toastEn: '✅ تم التبديل إلى الإنجليزية',
+                toastFr: '✅ تم التبديل إلى الفرنسية',
+                shareMsg: 'شوف هذا الموقع الجميل عن حبيبتي 💕',
+                copyLink: '✅ تم نسخ الرابط! شاركه مع من تحب ❤️',
+                linkCopied: '📋 الرابط: ',
+                loveMsg1: '💖 أنتِ أجمل شيء في حياتي',
+                loveMsg2: '❤️ بحبك أكثر من أي شيء',
+                loveMsg3: '💕 أنتِ كل شيء بالنسبة لي',
+                loveMsg4: '🌸 وجودك في حياتي نعمة',
+                loveMsg5: '💗 أنتِ حلمي اللي تحقق',
+                loveMsg6: '✨ أنتِ نور عيني',
+                loveMsg7: '🌺 أنتِ أجمل بنت في الدنيا'
             },
             en: {
                 title: '💖 The One Who Stole My Heart 💖',
@@ -1907,7 +2092,41 @@
                 hours: 'Hours',
                 gallery: '📸 Our Beautiful Memories',
                 track: '🎵 Your Love Song ❤️',
-                daysLabel: '💕 Since We Met'
+                daysLabel: '💕 Since We Met',
+                daysUnit: 'Day',
+                brand: '❤️ My Love',
+                comments: '💬 Comments',
+                share: 'Share',
+                print: 'Print',
+                message: 'Message',
+                settings: 'Settings',
+                themeNight: '🌙 Night mode activated',
+                themeDay: '☀️ Day mode activated',
+                likeMsg: 'Thank you my love!',
+                heartMsg1: 'I love you, most beautiful girl!',
+                heartMsg2: 'You are everything in my life!',
+                heartMsg3: 'My soul and life!',
+                heartMsg4: 'You are my angel!',
+                heartMsg5: 'Rose of my life!',
+                modalTitle: 'Comments',
+                modalSend: 'Send',
+                modalPlaceholder: '💬 Write a beautiful comment...',
+                commentAdded: '✅ Your beautiful comment has been added!',
+                writeFirst: '💬 Please write a comment first!',
+                toastWelcome: '💖 Welcome, most beautiful girl in the world 💖',
+                toastLang: '✅ Switched to English',
+                toastEn: '✅ Switched to English',
+                toastFr: '✅ Switched to French',
+                shareMsg: 'Check out this beautiful website about my love 💕',
+                copyLink: '✅ Link copied! Share it with someone you love ❤️',
+                linkCopied: '📋 Link: ',
+                loveMsg1: '💖 You are the most beautiful thing in my life',
+                loveMsg2: '❤️ I love you more than anything',
+                loveMsg3: '💕 You are everything to me',
+                loveMsg4: '🌸 Having you in my life is a blessing',
+                loveMsg5: '💗 You are my dream come true',
+                loveMsg6: '✨ You are the light of my eyes',
+                loveMsg7: '🌺 You are the most beautiful girl in the world'
             },
             fr: {
                 title: '💖 Celle qui a volé mon cœur 💖',
@@ -1920,11 +2139,49 @@
                 hours: 'Heures',
                 gallery: '📸 Nos Beaux Souvenirs',
                 track: '🎵 Ta Chanson d\'Amour ❤️',
-                daysLabel: '💕 Depuis Notre Rencontre'
+                daysLabel: '💕 Depuis Notre Rencontre',
+                daysUnit: 'Jour',
+                brand: '❤️ Mon Amour',
+                comments: '💬 Commentaires',
+                share: 'Partager',
+                print: 'Imprimer',
+                message: 'Message',
+                settings: 'Paramètres',
+                themeNight: '🌙 Mode nuit activé',
+                themeDay: '☀️ Mode jour activé',
+                likeMsg: 'Merci ma chérie!',
+                heartMsg1: 'Je t\'aime, la plus belle fille!',
+                heartMsg2: 'Tu es tout dans ma vie!',
+                heartMsg3: 'Mon âme et ma vie!',
+                heartMsg4: 'Tu es mon ange!',
+                heartMsg5: 'Rose de ma vie!',
+                modalTitle: 'Commentaires',
+                modalSend: 'Envoyer',
+                modalPlaceholder: '💬 Écris un beau commentaire...',
+                commentAdded: '✅ Ton beau commentaire a été ajouté!',
+                writeFirst: '💬 Écris un commentaire d\'abord!',
+                toastWelcome: '💖 Bienvenue, la plus belle fille du monde 💖',
+                toastLang: '✅ Passé à l\'arabe',
+                toastEn: '✅ Passé à l\'anglais',
+                toastFr: '✅ Passé au français',
+                shareMsg: 'Regarde ce beau site sur mon amour 💕',
+                copyLink: '✅ Lien copié! Partage-le avec quelqu\'un que tu aimes ❤️',
+                linkCopied: '📋 Lien: ',
+                loveMsg1: '💖 Tu es la plus belle chose dans ma vie',
+                loveMsg2: '❤️ Je t\'aime plus que tout',
+                loveMsg3: '💕 Tu es tout pour moi',
+                loveMsg4: '🌸 T\'avoir dans ma vie est une bénédiction',
+                loveMsg5: '💗 Tu es mon rêve devenu réalité',
+                loveMsg6: '✨ Tu es la lumière de mes yeux',
+                loveMsg7: '🌺 Tu es la plus belle fille du monde'
             }
         };
 
         let currentLang = 'ar';
+
+        function getTranslation(key) {
+            return (translations[currentLang] && translations[currentLang][key]) || translations.ar[key] || key;
+        }
 
         function changeLanguage(lang) {
             currentLang = lang;
@@ -1934,6 +2191,7 @@
                 btn.classList.toggle('active', btn.dataset.lang === lang);
             });
 
+            // تحديث كل النصوص
             document.getElementById('mainTitle').innerHTML = t.title;
             document.getElementById('subTitle').innerHTML = t.sub;
             document.getElementById('birthdayText').innerHTML = t.birthday;
@@ -1944,8 +2202,24 @@
             document.getElementById('lblHours').innerHTML = t.hours;
             document.getElementById('galleryTitle').innerHTML = t.gallery;
             document.getElementById('trackName').innerHTML = t.track;
-            document.querySelector('.days-label').innerHTML = t.daysLabel;
+            document.getElementById('daysLabel').innerHTML = t.daysLabel;
+            document.getElementById('daysUnitLabel').innerHTML = t.daysUnit;
+            document.getElementById('brandText').innerHTML = t.brand;
+            document.getElementById('commentsToggleText').innerHTML = t.comments;
+            document.getElementById('shareBtnText').innerHTML = t.share;
+            document.getElementById('printBtnText').innerHTML = t.print;
+            document.getElementById('messageBtnText').innerHTML = t.message;
+            document.getElementById('modalCommentsTitle').innerHTML = t.modalTitle;
+            document.getElementById('modalSendBtn').innerHTML = t.modalSend;
+            document.getElementById('modalCommentInput').placeholder = t.modalPlaceholder;
 
+            // تحديث نصوص معرض الصور
+            const texts = slideTexts[lang] || slideTexts.ar;
+            document.querySelectorAll('.slide .slide-text').forEach((el, idx) => {
+                if (el) el.textContent = texts[idx % texts.length];
+            });
+
+            // اتجاه النص
             if (lang === 'ar') {
                 document.body.style.direction = 'rtl';
                 document.querySelector('.glass-card').style.direction = 'rtl';
@@ -1954,11 +2228,141 @@
                 document.querySelector('.glass-card').style.direction = 'ltr';
             }
 
-            showToast(`✅ تم التبديل إلى ${lang === 'ar' ? 'العربية' : lang === 'en' ? 'الإنجليزية' : 'الفرنسية'}`);
+            const langNames = { ar: 'العربية', en: 'الإنجليزية', fr: 'الفرنسية' };
+            showToast(`✅ ${getTranslation('toastLang')}`);
         }
 
         // ============================================================
-        // 11. الإجراءات
+        // 11. التعليقات (مودال منبثق)
+        // ============================================================
+        const defaultComments = [
+            { name: '🌸 نور', text: '💕 كلامك جميل جداً، أنتِ محظوظة بهذا الحب' },
+            { name: '💖 سارة', text: '❤️ ما شاء الله، حب نقي و صادق' },
+            { name: '🌟 ليلى', text: '✨ أنتِ فعلاً أجمل بنت في الدنيا' },
+            { name: '🌹 رنا', text: '💗 كلماتك وصلت للقلب، الله يسعدكم' },
+            { name: '💫 مريم', text: '🌺 حب يستحق كل هذه المشاعر الجميلة' }
+        ];
+
+        let comments = [];
+        let commentInterval;
+
+        function loadComments() {
+            comments = defaultComments.map(c => ({ ...c, time: new Date() }));
+            renderAllComments();
+            startCommentRotation();
+        }
+
+        function renderAllComments() {
+            renderModalComments();
+            updateCommentCounts();
+        }
+
+        function renderModalComments() {
+            const container = document.getElementById('modalCommentsContainer');
+            container.innerHTML = '';
+            const sorted = [...comments].reverse();
+            sorted.forEach((comment) => {
+                const div = document.createElement('div');
+                div.className = 'comment-item';
+                div.innerHTML = `
+                    <div class="avatar">${comment.name.charAt(0)}</div>
+                    <div class="comment-content">
+                        <div class="comment-name">${comment.name}</div>
+                        <div class="comment-text">${comment.text}</div>
+                        <div class="comment-time">${formatTime(comment.time)}</div>
+                    </div>
+                `;
+                container.appendChild(div);
+            });
+        }
+
+        function updateCommentCounts() {
+            const count = comments.length;
+            document.getElementById('modalCommentCount').textContent = `(${count})`;
+            document.getElementById('commentsToggleCount').textContent = `(${count})`;
+            document.getElementById('statCommentCount').textContent = formatNumber(count);
+        }
+
+        function formatTime(date) {
+            const now = new Date();
+            const diff = (now - date) / 1000;
+            if (diff < 60) return getTranslation('justNow') || 'الآن';
+            if (diff < 3600) return Math.floor(diff / 60) + ' ' + (getTranslation('minute') || 'دقيقة');
+            if (diff < 86400) return Math.floor(diff / 3600) + ' ' + (getTranslation('hour') || 'ساعة');
+            return Math.floor(diff / 86400) + ' ' + (getTranslation('day') || 'يوم');
+        }
+
+        function startCommentRotation() {
+            if (commentInterval) clearInterval(commentInterval);
+            let index = 0;
+            commentInterval = setInterval(() => {
+                if (comments.length > 0) {
+                    const newComment = defaultComments[index % defaultComments.length];
+                    comments.push({ ...newComment, time: new Date() });
+                    renderAllComments();
+                    index++;
+                    if (comments.length > 20) {
+                        comments.splice(0, 5);
+                        renderAllComments();
+                    }
+                }
+            }, 5000);
+        }
+
+        function openCommentsModal() {
+            document.getElementById('commentsModal').classList.add('show');
+            document.body.style.overflow = 'hidden';
+            renderModalComments();
+            // التركيز على حقل الإدخال
+            setTimeout(() => {
+                document.getElementById('modalCommentInput').focus();
+            }, 300);
+        }
+
+        function closeCommentsModal() {
+            document.getElementById('commentsModal').classList.remove('show');
+            document.body.style.overflow = '';
+        }
+
+        function addModalComment() {
+            const input = document.getElementById('modalCommentInput');
+            const text = input.value.trim();
+            if (!text) {
+                showToast('💬 ' + getTranslation('writeFirst'));
+                return;
+            }
+
+            const names = ['💝 محب', '💝 معجب', '💝 قلب', '💝 روح', '💝 عاشق', '🌸 زهرة', '🌹 وردة', '✨ نجمة'];
+            const name = names[Math.floor(Math.random() * names.length)] + ' ❤️';
+            comments.push({ name: name, text: text, time: new Date() });
+            renderAllComments();
+            input.value = '';
+            showToast('✅ ' + getTranslation('commentAdded'));
+
+            // إعادة تعيين المؤقت
+            startCommentRotation();
+        }
+
+        // إضافة تعليق عند الضغط على Enter في المودال
+        document.getElementById('modalCommentInput').addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') {
+                e.preventDefault();
+                addModalComment();
+            }
+        });
+
+        // إغلاق المودال عند الضغط خارج المحتوى
+        document.getElementById('commentsModal').addEventListener('click', (e) => {
+            if (e.target === e.currentTarget) {
+                closeCommentsModal();
+            }
+        });
+
+        // تحميل التعليقات
+        loadComments();
+
+        // ============================================================
+        // 12. الإجراءات العامة
         // ============================================================
         function showToast(message) {
             const toast = document.getElementById('toast');
@@ -1974,14 +2378,14 @@
             if (navigator.share) {
                 navigator.share({
                     title: '❤️ حبيبتي الغالية ❤️',
-                    text: 'شوف هذا الموقع الجميل عن حبيبتي 💕',
+                    text: getTranslation('shareMsg'),
                     url: window.location.href,
                 }).catch(() => {});
             } else {
                 navigator.clipboard.writeText(window.location.href).then(() => {
-                    showToast('✅ تم نسخ الرابط! شاركه مع من تحب ❤️');
+                    showToast('✅ ' + getTranslation('copyLink'));
                 }).catch(() => {
-                    showToast('📋 الرابط: ' + window.location.href);
+                    showToast('📋 ' + getTranslation('linkCopied') + window.location.href);
                 });
             }
         }
@@ -1991,116 +2395,13 @@
         }
 
         const loveMessages = [
-            '💖 أنتِ أجمل شيء في حياتي',
-            '❤️ بحبك أكثر من أي شيء',
-            '💕 أنتِ كل شيء بالنسبة لي',
-            '🌸 وجودك في حياتي نعمة',
-            '💗 أنتِ حلمي اللي تحقق',
-            '✨ أنتِ نور عيني',
-            '🌺 أنتِ أجمل بنت في الدنيا'
+            'loveMsg1', 'loveMsg2', 'loveMsg3', 'loveMsg4', 'loveMsg5', 'loveMsg6', 'loveMsg7'
         ];
 
         function showLoveMessage() {
-            const msg = loveMessages[Math.floor(Math.random() * loveMessages.length)];
-            showToast(msg);
+            const key = loveMessages[Math.floor(Math.random() * loveMessages.length)];
+            showToast(getTranslation(key));
         }
-
-        // ============================================================
-        // 12. التعليقات
-        // ============================================================
-        const defaultComments = [
-            { name: '🌸 نور', text: '💕 كلامك جميل جداً، أنتِ محظوظة بهذا الحب' },
-            { name: '💖 سارة', text: '❤️ ما شاء الله، حب نقي و صادق' },
-            { name: '🌟 ليلى', text: '✨ أنتِ فعلاً أجمل بنت في الدنيا' },
-            { name: '🌹 رنا', text: '💗 كلماتك وصلت للقلب، الله يسعدكم' },
-            { name: '💫 مريم', text: '🌺 حب يستحق كل هذه المشاعر الجميلة' }
-        ];
-
-        let comments = [];
-        let commentInterval;
-
-        function loadComments() {
-            comments = defaultComments.map(c => ({ ...c, time: new Date() }));
-            renderComments();
-            startCommentRotation();
-        }
-
-        function renderComments() {
-            const container = document.getElementById('commentsContainer');
-            container.innerHTML = '';
-            const sorted = [...comments].reverse();
-            sorted.forEach((comment, index) => {
-                const div = document.createElement('div');
-                div.className = 'comment-item';
-                div.style.animationDelay = (index * 0.05) + 's';
-                div.innerHTML = `
-                    <div class="avatar">${comment.name.charAt(0)}</div>
-                    <div class="comment-content">
-                        <div class="comment-name">${comment.name}</div>
-                        <div class="comment-text">${comment.text}</div>
-                        <div class="comment-time">${formatTime(comment.time)}</div>
-                    </div>
-                `;
-                container.appendChild(div);
-            });
-            document.getElementById('commentCount').textContent = `(${comments.length})`;
-        }
-
-        function formatTime(date) {
-            const now = new Date();
-            const diff = (now - date) / 1000;
-            if (diff < 60) return 'الآن';
-            if (diff < 3600) return Math.floor(diff / 60) + ' دقيقة';
-            if (diff < 86400) return Math.floor(diff / 3600) + ' ساعة';
-            return Math.floor(diff / 86400) + ' يوم';
-        }
-
-        function startCommentRotation() {
-            if (commentInterval) clearInterval(commentInterval);
-            let index = 0;
-            commentInterval = setInterval(() => {
-                if (comments.length > 0) {
-                    const newComment = defaultComments[index % defaultComments.length];
-                    comments.push({ ...newComment, time: new Date() });
-                    renderComments();
-                    index++;
-                    // إبقاء عدد التعليقات معقولاً
-                    if (comments.length > 20) {
-                        comments.splice(0, 5);
-                        renderComments();
-                    }
-                }
-            }, 5000);
-        }
-
-        function addComment() {
-            const input = document.getElementById('commentInput');
-            const text = input.value.trim();
-            if (!text) {
-                showToast('💬 اكتب تعليقاً أولاً!');
-                return;
-            }
-
-            const name = '💝 ' + ['محب', 'معجب', 'قلب', 'روح', 'عاشق'][Math.floor(Math.random() * 5)];
-            comments.push({ name: name + ' ❤️', text: text, time: new Date() });
-            renderComments();
-            input.value = '';
-            showToast('✅ تم إضافة تعليقك الجميل!');
-
-            // إعادة تعيين المؤقت لإعطاء الأولوية للتعليقات الجديدة
-            startCommentRotation();
-        }
-
-        // إضافة التعليق عند الضغط على Enter
-        document.getElementById('commentInput').addEventListener('keypress', (e) => {
-            if (e.key === 'Enter') {
-                e.preventDefault();
-                addComment();
-            }
-        });
-
-        // تحميل التعليقات
-        loadComments();
 
         // ============================================================
         // 13. تشغيل تلقائي للموسيقى
@@ -2116,10 +2417,10 @@
         // 14. الترحيب
         // ============================================================
         setTimeout(() => {
-            showToast('💖 مرحباً يا أجمل بنت في الدنيا 💖');
+            showToast(getTranslation('toastWelcome'));
         }, 1000);
 
-        console.log('❤️ موقع حبك لحبيبتي - تصميم جديد بالكامل مع كل المؤثرات ❤️');
+        console.log('❤️ موقع حبك لحبيبتي - تصميم أنثوي بالكامل مع ترجمة ثلاث لغات ❤️');
     </script>
 </body>
 </html>
