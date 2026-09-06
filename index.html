@@ -4,8 +4,13 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.5, user-scalable=yes" />
     <title>❤️ حبيبتي الغالية ❤️</title>
+
+    <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
+    <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet" />
+
     <style>
         * {
             margin: 0;
@@ -22,22 +27,23 @@
             align-items: center;
             padding: 20px;
             direction: rtl;
-            transition: background 0.8s ease;
+            transition: background 0.6s ease, color 0.6s ease;
             position: relative;
             overflow: hidden;
         }
 
+        /* ===== وضع ليلي ===== */
         body.night-mode {
-            background: linear-gradient(145deg, #0a0510, #1a0a1a, #2d1b2e);
+            background: linear-gradient(145deg, #0a0a1a, #141432, #1a1a3e);
         }
 
         body.night-mode .glass-card {
-            background: rgba(10, 5, 15, 0.75);
-            border-color: rgba(255, 182, 193, 0.08);
+            background: rgba(10, 10, 30, 0.6);
+            border-color: rgba(255, 255, 255, 0.08);
         }
 
         body.night-mode .glass-card * {
-            color: #f5e6f0 !important;
+            color: #f0e6f0 !important;
         }
 
         body.night-mode .stat-item,
@@ -51,34 +57,28 @@
         body.night-mode .gallery-nav button,
         body.night-mode .music-controls button,
         body.night-mode .days-counter,
-        body.night-mode .comment-item,
-        body.night-mode .comments-toggle,
-        body.night-mode .gift-card,
-        body.night-mode .memory-card,
-        body.night-mode .message-card,
-        body.night-mode .modal-content,
-        body.night-mode .gift-modal-content {
-            background: rgba(255, 182, 193, 0.06) !important;
-            border-color: rgba(255, 182, 193, 0.08) !important;
-            color: #f5e6f0 !important;
+        body.night-mode .comment-item {
+            background: rgba(255, 255, 255, 0.06) !important;
+            border-color: rgba(255, 255, 255, 0.08) !important;
+            color: #f0e6f0 !important;
         }
 
         body.night-mode .hero-title h1 {
-            background: linear-gradient(135deg, #ff6b9d, #ff4081, #ffd700) !important;
+            background: linear-gradient(135deg, #f06292, #ec407a, #ffd700) !important;
             -webkit-background-clip: text !important;
             -webkit-text-fill-color: transparent !important;
             background-clip: text !important;
         }
 
         body.night-mode .age-item .num {
-            background: linear-gradient(135deg, #ff6b9d, #ffd700) !important;
+            background: linear-gradient(135deg, #f06292, #ffd700) !important;
             -webkit-background-clip: text !important;
             -webkit-text-fill-color: transparent !important;
             background-clip: text !important;
         }
 
         body.night-mode .lang-btn.active {
-            background: rgba(255, 215, 0, 0.15) !important;
+            background: rgba(255, 215, 0, 0.2) !important;
             border-color: #ffd700 !important;
             color: #ffd700 !important;
         }
@@ -87,40 +87,9 @@
             color: #ffd700 !important;
         }
 
-        body.night-mode .star {
-            color: #ffb6c1 !important;
-        }
-
-        body.night-mode .modal-content *,
-        body.night-mode .gift-modal-content * {
-            color: #f5e6f0 !important;
-        }
-
-        body.night-mode .modal-close,
-        body.night-mode .gift-modal-close {
-            color: #f5e6f0 !important;
-            border-color: rgba(255, 182, 193, 0.08);
-        }
-
-        body.night-mode .modal-comment-item {
-            background: rgba(255, 182, 193, 0.04);
-            border-color: rgba(255, 182, 193, 0.06);
-        }
-
-        body.night-mode .modal-comment-item .comment-name {
-            color: #ffd700 !important;
-        }
-
-        body.night-mode .modal-comment-item .comment-text {
-            color: rgba(245, 230, 240, 0.7) !important;
-        }
-
-        body.night-mode .modal-comment-item .comment-time {
-            color: rgba(245, 230, 240, 0.3) !important;
-        }
-
+        /* ===== Glass Card ===== */
         .glass-card {
-            max-width: 960px;
+            max-width: 860px;
             width: 100%;
             background: rgba(255, 255, 255, 0.2);
             backdrop-filter: blur(25px);
@@ -129,7 +98,7 @@
             padding: 30px 28px 28px;
             border: 1px solid rgba(255, 255, 255, 0.25);
             box-shadow: 0 30px 80px rgba(0, 0, 0, 0.08), inset 0 1px 0 rgba(255, 255, 255, 0.2);
-            transition: all 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+            transition: all 0.5s ease;
             animation: fadeUp 0.8s cubic-bezier(0.34, 1.56, 0.64, 1);
             position: relative;
             z-index: 10;
@@ -151,16 +120,11 @@
         }
 
         @keyframes fadeUp {
-            0% {
-                opacity: 0;
-                transform: translateY(30px) scale(0.98);
-            }
-            100% {
-                opacity: 1;
-                transform: translateY(0) scale(1);
-            }
+            0% { opacity: 0; transform: translateY(30px) scale(0.98); }
+            100% { opacity: 1; transform: translateY(0) scale(1); }
         }
 
+        /* ===== شريط علوي (Top Bar) ===== */
         .top-bar {
             display: flex;
             justify-content: space-between;
@@ -191,6 +155,7 @@
             flex-wrap: wrap;
         }
 
+        /* ===== زر الإعدادات (درس) ===== */
         .settings-btn {
             background: rgba(255, 255, 255, 0.12);
             border: 1px solid rgba(255, 255, 255, 0.1);
@@ -217,6 +182,13 @@
             transform: scale(0.85);
         }
 
+        body.night-mode .settings-btn {
+            background: rgba(255, 255, 255, 0.06);
+            color: #ffd700;
+            border-color: rgba(255, 215, 0, 0.15);
+        }
+
+        /* ===== شريط الإحصائيات ===== */
         .stats-bar {
             display: flex;
             justify-content: space-around;
@@ -272,17 +244,12 @@
         }
 
         @keyframes heartPop {
-            0% {
-                transform: scale(1);
-            }
-            50% {
-                transform: scale(1.5);
-            }
-            100% {
-                transform: scale(1);
-            }
+            0% { transform: scale(1); }
+            50% { transform: scale(1.5); }
+            100% { transform: scale(1); }
         }
 
+        /* ===== عداد الأيام ===== */
         .days-counter {
             background: rgba(255, 255, 255, 0.12);
             backdrop-filter: blur(10px);
@@ -317,23 +284,14 @@
         }
 
         @keyframes heartbeat {
-            0% {
-                transform: scale(1);
-            }
-            25% {
-                transform: scale(1.2);
-            }
-            50% {
-                transform: scale(1);
-            }
-            75% {
-                transform: scale(1.1);
-            }
-            100% {
-                transform: scale(1);
-            }
+            0% { transform: scale(1); }
+            25% { transform: scale(1.2); }
+            50% { transform: scale(1); }
+            75% { transform: scale(1.1); }
+            100% { transform: scale(1); }
         }
 
+        /* ===== شريط الموسيقى ===== */
         .music-bar {
             background: rgba(255, 255, 255, 0.12);
             backdrop-filter: blur(12px);
@@ -371,12 +329,8 @@
         }
 
         @keyframes spin {
-            0% {
-                transform: rotate(0deg);
-            }
-            100% {
-                transform: rotate(360deg);
-            }
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
         }
 
         .music-controls {
@@ -417,15 +371,9 @@
         }
 
         @keyframes pulseMusic {
-            0% {
-                box-shadow: 0 0 0 0 rgba(194, 24, 91, 0.15);
-            }
-            70% {
-                box-shadow: 0 0 0 8px rgba(194, 24, 91, 0);
-            }
-            100% {
-                box-shadow: 0 0 0 0 rgba(194, 24, 91, 0);
-            }
+            0% { box-shadow: 0 0 0 0 rgba(194, 24, 91, 0.15); }
+            70% { box-shadow: 0 0 0 8px rgba(194, 24, 91, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(194, 24, 91, 0); }
         }
 
         .music-progress {
@@ -451,6 +399,7 @@
             transition: width 0.1s linear;
         }
 
+        /* ===== زر اللغات (في شريط الإعدادات) ===== */
         .lang-group {
             display: flex;
             gap: 4px;
@@ -484,6 +433,18 @@
             color: #c2185b;
         }
 
+        body.night-mode .lang-btn {
+            color: rgba(240, 230, 240, 0.4);
+        }
+        body.night-mode .lang-btn.active {
+            background: rgba(255, 215, 0, 0.15);
+            color: #ffd700;
+        }
+        body.night-mode .lang-btn:hover {
+            color: #f0e6f0;
+        }
+
+        /* ===== زر ليل/نهار (في شريط الإعدادات) ===== */
         .theme-toggle-small {
             background: rgba(255, 255, 255, 0.08);
             border: 1px solid rgba(255, 255, 255, 0.08);
@@ -509,6 +470,13 @@
             transform: scale(0.85);
         }
 
+        body.night-mode .theme-toggle-small {
+            background: rgba(255, 255, 255, 0.06);
+            color: #ffd700;
+            border-color: rgba(255, 215, 0, 0.15);
+        }
+
+        /* ===== العنوان ===== */
         .hero-title {
             text-align: center;
             margin: 2px 0 6px;
@@ -520,7 +488,6 @@
             color: #4a1a2c;
             letter-spacing: 1px;
             text-shadow: 0 4px 20px rgba(194, 24, 91, 0.05);
-            transition: all 0.3s ease;
         }
 
         .hero-title .sub-text {
@@ -530,6 +497,7 @@
             letter-spacing: 2px;
         }
 
+        /* ===== تاريخ الميلاد ===== */
         .birthday-box {
             background: rgba(255, 255, 255, 0.12);
             backdrop-filter: blur(8px);
@@ -552,6 +520,7 @@
             margin-left: 4px;
         }
 
+        /* ===== العمر ===== */
         .age-counter {
             background: rgba(255, 255, 255, 0.08);
             backdrop-filter: blur(10px);
@@ -589,6 +558,7 @@
             font-weight: 500;
         }
 
+        /* ===== معرض الصور ===== */
         .gallery-section {
             margin: 10px 0 12px;
         }
@@ -637,12 +607,12 @@
             height: 100%;
             object-fit: cover;
             display: block;
-            transition: transform 0.5s ease;
+            transition: transform 0.3s ease;
             will-change: transform;
         }
 
         .gallery-slider .slide:hover img {
-            transform: scale(1.03);
+            transform: scale(1.02);
         }
 
         .gallery-slider .slide .slide-text {
@@ -659,7 +629,7 @@
             font-weight: 500;
             border: 1px solid rgba(255, 255, 255, 0.05);
             white-space: nowrap;
-            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+            text-shadow: 0 2px 10px rgba(0,0,0,0.2);
         }
 
         .gallery-nav {
@@ -713,6 +683,7 @@
             border-radius: 10px;
         }
 
+        /* ===== النص ===== */
         .love-letter {
             background: rgba(255, 255, 255, 0.06);
             backdrop-filter: blur(8px);
@@ -742,128 +713,35 @@
             border-radius: 20px;
         }
 
-        .comments-toggle {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            padding: 8px 16px;
-            background: rgba(255, 255, 255, 0.08);
+        /* ===== قسم التعليقات ===== */
+        .comments-section {
+            margin: 12px 0 10px;
+            background: rgba(255, 255, 255, 0.06);
             backdrop-filter: blur(8px);
-            border-radius: 30px;
-            border: 1px solid rgba(255, 255, 255, 0.06);
-            cursor: pointer;
-            transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
-            margin: 6px 0 8px;
-            justify-content: center;
-            color: #4a1a2c;
-            font-weight: 600;
-            font-size: 0.85rem;
+            border-radius: 20px;
+            padding: 14px 16px;
+            border: 1px solid rgba(255, 255, 255, 0.04);
+            transition: all 0.3s ease;
         }
 
-        .comments-toggle:hover {
-            background: rgba(194, 24, 91, 0.06);
-            border-color: #c2185b;
-            transform: scale(1.02);
-        }
-
-        .comments-toggle i {
-            color: #c2185b;
-            font-size: 1.1rem;
-        }
-
-        .modal-overlay {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.5);
-            backdrop-filter: blur(15px);
-            z-index: 3000;
-            justify-content: center;
-            align-items: center;
-            padding: 20px;
-        }
-
-        .modal-overlay.show {
-            display: flex;
-        }
-
-        .modal-content {
-            background: rgba(255, 255, 255, 0.85);
-            backdrop-filter: blur(25px);
-            border-radius: 30px;
-            padding: 25px;
-            max-width: 500px;
-            width: 100%;
-            max-height: 80vh;
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            box-shadow: 0 30px 80px rgba(0, 0, 0, 0.15);
-            animation: zoomIn 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
-            display: flex;
-            flex-direction: column;
-        }
-
-        .modal-header {
+        .comments-header {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin-bottom: 15px;
+            margin-bottom: 10px;
         }
 
-        .modal-header h3 {
-            font-size: 1.1rem;
-            color: #4a1a2c;
-            font-weight: 700;
+        .comments-header h3 {
+            font-size: 0.9rem;
+            color: rgba(74, 26, 44, 0.6);
+            font-weight: 600;
         }
 
-        .modal-header h3 i {
+        .comments-header i {
             color: #c2185b;
-            margin-left: 8px;
         }
 
-        .modal-close {
-            background: rgba(255, 255, 255, 0.08);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            color: #4a1a2c;
-            width: 36px;
-            height: 36px;
-            border-radius: 50%;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            font-size: 1rem;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .modal-close:hover {
-            background: rgba(194, 24, 91, 0.08);
-            border-color: #c2185b;
-            transform: rotate(90deg);
-        }
-
-        .modal-body {
-            flex: 1;
-            overflow-y: auto;
-            margin-bottom: 15px;
-            padding-right: 5px;
-        }
-
-        .modal-body::-webkit-scrollbar {
-            width: 3px;
-        }
-        .modal-body::-webkit-scrollbar-track {
-            background: rgba(0, 0, 0, 0.01);
-            border-radius: 20px;
-        }
-        .modal-body::-webkit-scrollbar-thumb {
-            background: rgba(194, 24, 91, 0.2);
-            border-radius: 20px;
-        }
-
-        .modal-comment-item {
+        .comment-item {
             display: flex;
             align-items: flex-start;
             gap: 10px;
@@ -872,21 +750,16 @@
             background: rgba(255, 255, 255, 0.04);
             border-radius: 16px;
             border: 1px solid rgba(255, 255, 255, 0.04);
-            animation: slideInComment 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+            transition: all 0.3s ease;
+            animation: slideInComment 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
         }
 
         @keyframes slideInComment {
-            0% {
-                opacity: 0;
-                transform: translateY(-10px) scale(0.95);
-            }
-            100% {
-                opacity: 1;
-                transform: translateY(0) scale(1);
-            }
+            0% { opacity: 0; transform: translateY(-10px) scale(0.95); }
+            100% { opacity: 1; transform: translateY(0) scale(1); }
         }
 
-        .modal-comment-item .avatar {
+        .comment-item .avatar {
             width: 28px;
             height: 28px;
             border-radius: 50%;
@@ -900,62 +773,37 @@
             flex-shrink: 0;
         }
 
-        .modal-comment-item .comment-content {
+        .comment-item .comment-content {
             flex: 1;
         }
 
-        .modal-comment-item .comment-name {
+        .comment-item .comment-name {
             font-size: 0.7rem;
             font-weight: 700;
             color: #c2185b;
         }
 
-        .modal-comment-item .comment-text {
+        .comment-item .comment-text {
             font-size: 0.75rem;
             color: rgba(74, 26, 44, 0.7);
             margin-top: 1px;
             line-height: 1.4;
         }
 
-        .modal-comment-item .comment-time {
+        .comment-item .comment-time {
             font-size: 0.55rem;
             color: rgba(74, 26, 44, 0.3);
             margin-top: 2px;
         }
 
-        .modal-comment-item .comment-actions {
+        .comment-input-area {
             display: flex;
             gap: 8px;
-            margin-top: 4px;
-        }
-
-        .modal-comment-item .comment-actions button {
-            background: none;
-            border: none;
-            font-size: 0.6rem;
-            color: rgba(74, 26, 44, 0.3);
-            cursor: pointer;
-            transition: all 0.3s ease;
-            display: flex;
-            align-items: center;
-            gap: 3px;
-        }
-
-        .modal-comment-item .comment-actions button:hover {
-            color: #c2185b;
-        }
-
-        .modal-comment-item .comment-actions button.liked {
-            color: #ff4757;
-        }
-
-        .modal-footer {
-            display: flex;
-            gap: 8px;
+            margin-top: 10px;
             flex-wrap: wrap;
         }
 
-        .modal-footer input {
+        .comment-input-area input {
             flex: 1;
             min-width: 120px;
             padding: 8px 14px;
@@ -970,16 +818,16 @@
             transition: all 0.3s ease;
         }
 
-        .modal-footer input:focus {
+        .comment-input-area input:focus {
             border-color: #c2185b;
             background: rgba(255, 255, 255, 0.12);
         }
 
-        .modal-footer input::placeholder {
+        .comment-input-area input::placeholder {
             color: rgba(74, 26, 44, 0.3);
         }
 
-        .modal-footer button {
+        .comment-input-area button {
             padding: 8px 18px;
             border-radius: 30px;
             border: 1px solid rgba(194, 24, 91, 0.15);
@@ -992,313 +840,52 @@
             font-family: 'Tajawal', sans-serif;
         }
 
-        .modal-footer button:hover {
+        .comment-input-area button:hover {
             background: rgba(194, 24, 91, 0.12);
             transform: scale(1.02);
         }
 
-        .modal-footer button:active {
+        .comment-input-area button:active {
             transform: scale(0.9);
         }
 
-        /* ===== مودال الهدايا ===== */
-        .gift-modal-overlay {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.5);
-            backdrop-filter: blur(15px);
-            z-index: 3500;
-            justify-content: center;
-            align-items: center;
-            padding: 20px;
-        }
-
-        .gift-modal-overlay.show {
-            display: flex;
-        }
-
-        .gift-modal-content {
-            background: rgba(255, 255, 255, 0.85);
-            backdrop-filter: blur(25px);
-            border-radius: 30px;
-            padding: 30px;
-            max-width: 400px;
-            width: 100%;
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            box-shadow: 0 30px 80px rgba(0, 0, 0, 0.15);
-            animation: zoomIn 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
-            text-align: center;
-        }
-
-        .gift-modal-content .gift-big-icon {
-            font-size: 4rem;
-            display: block;
-            margin-bottom: 10px;
-        }
-
-        .gift-modal-content h3 {
-            font-size: 1.3rem;
-            color: #4a1a2c;
-            margin-bottom: 6px;
-        }
-
-        .gift-modal-content p {
-            font-size: 0.85rem;
-            color: rgba(74, 26, 44, 0.5);
-            margin-bottom: 16px;
-        }
-
-        .gift-modal-content .gift-modal-actions {
-            display: flex;
-            gap: 10px;
-            justify-content: center;
-            flex-wrap: wrap;
-        }
-
-        .gift-modal-content .gift-modal-actions button {
-            padding: 10px 24px;
-            border-radius: 30px;
-            border: 1px solid rgba(194, 24, 91, 0.15);
-            font-weight: 600;
-            font-size: 0.8rem;
-            cursor: pointer;
-            transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
-            font-family: 'Tajawal', sans-serif;
-        }
-
-        .gift-modal-content .gift-modal-actions .btn-send {
-            background: #c2185b;
-            color: #fff;
-            border-color: #c2185b;
-        }
-
-        .gift-modal-content .gift-modal-actions .btn-send:hover {
-            background: #a0154a;
-            transform: scale(1.05);
-        }
-
-        .gift-modal-content .gift-modal-actions .btn-cancel {
-            background: rgba(255, 255, 255, 0.08);
-            color: #4a1a2c;
-        }
-
-        .gift-modal-content .gift-modal-actions .btn-cancel:hover {
-            background: rgba(194, 24, 91, 0.06);
-            transform: scale(1.05);
-        }
-
-        /* ===== قسم الهدايا ===== */
-        .gifts-section {
-            margin: 12px 0 10px;
-        }
-
-        .gifts-title {
-            color: rgba(74, 26, 44, 0.4);
-            font-size: 0.8rem;
-            text-align: center;
-            margin-bottom: 8px;
-            letter-spacing: 2px;
-        }
-
-        .gifts-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
-            gap: 10px;
-        }
-
-        .gift-card {
+        body.night-mode .comment-input-area input {
             background: rgba(255, 255, 255, 0.06);
-            backdrop-filter: blur(8px);
-            border-radius: 20px;
-            padding: 12px 8px;
-            text-align: center;
-            border: 1px solid rgba(255, 255, 255, 0.04);
-            cursor: pointer;
-            transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+            color: #f0e6f0;
+            border-color: rgba(255, 255, 255, 0.06);
         }
 
-        .gift-card:hover {
-            transform: translateY(-5px) scale(1.03);
+        body.night-mode .comment-input-area input::placeholder {
+            color: rgba(240, 230, 240, 0.3);
+        }
+
+        body.night-mode .comment-input-area button {
             background: rgba(255, 215, 0, 0.06);
-            border-color: #c2185b;
+            color: #ffd700;
+            border-color: rgba(255, 215, 0, 0.15);
         }
 
-        .gift-card:active {
-            transform: scale(0.9);
+        body.night-mode .comment-input-area button:hover {
+            background: rgba(255, 215, 0, 0.12);
         }
 
-        .gift-card .gift-icon {
-            font-size: 2.2rem;
-            display: block;
-            margin-bottom: 4px;
-            transition: all 0.3s ease;
+        body.night-mode .comments-header h3 {
+            color: rgba(240, 230, 240, 0.6);
         }
 
-        .gift-card:hover .gift-icon {
-            animation: bounceGift 0.6s ease;
+        body.night-mode .comment-item .comment-text {
+            color: rgba(240, 230, 240, 0.7);
         }
 
-        @keyframes bounceGift {
-            0%,
-            100% {
-                transform: translateY(0);
-            }
-            50% {
-                transform: translateY(-10px);
-            }
+        body.night-mode .comment-item .comment-time {
+            color: rgba(240, 230, 240, 0.3);
         }
 
-        .gift-card .gift-name {
-            font-size: 0.65rem;
-            color: rgba(74, 26, 44, 0.5);
-            font-weight: 500;
+        body.night-mode .comment-item .comment-name {
+            color: #ffd700;
         }
 
-        /* ===== عداد تنازلي ===== */
-        .countdown-section {
-            margin: 10px 0 12px;
-            background: rgba(255, 255, 255, 0.06);
-            backdrop-filter: blur(8px);
-            border-radius: 20px;
-            padding: 14px 16px;
-            border: 1px solid rgba(255, 255, 255, 0.04);
-            text-align: center;
-        }
-
-        .countdown-title {
-            font-size: 0.8rem;
-            color: rgba(74, 26, 44, 0.4);
-            margin-bottom: 6px;
-            letter-spacing: 1px;
-        }
-
-        .countdown-grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 8px;
-            max-width: 300px;
-            margin: 0 auto;
-        }
-
-        .countdown-item {
-            background: rgba(255, 255, 255, 0.04);
-            border-radius: 16px;
-            padding: 6px 4px;
-        }
-
-        .countdown-number {
-            font-size: 1.6rem;
-            font-weight: 800;
-            color: #c2185b;
-            display: block;
-            line-height: 1.2;
-        }
-
-        .countdown-label {
-            font-size: 0.55rem;
-            color: rgba(74, 26, 44, 0.3);
-            display: block;
-        }
-
-        /* ===== ركن الذكريات ===== */
-        .memories-section {
-            margin: 10px 0 12px;
-        }
-
-        .memories-title {
-            color: rgba(74, 26, 44, 0.4);
-            font-size: 0.8rem;
-            text-align: center;
-            margin-bottom: 8px;
-            letter-spacing: 2px;
-        }
-
-        .memories-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-            gap: 10px;
-        }
-
-        .memory-card {
-            background: rgba(255, 255, 255, 0.06);
-            backdrop-filter: blur(8px);
-            border-radius: 16px;
-            padding: 10px;
-            border: 1px solid rgba(255, 255, 255, 0.04);
-            text-align: center;
-            transition: all 0.3s ease;
-            cursor: pointer;
-        }
-
-        .memory-card:hover {
-            transform: translateY(-3px);
-            background: rgba(255, 215, 0, 0.04);
-            border-color: #c2185b;
-        }
-
-        .memory-card .memory-icon {
-            font-size: 1.8rem;
-            display: block;
-            margin-bottom: 4px;
-        }
-
-        .memory-card .memory-text {
-            font-size: 0.7rem;
-            color: rgba(74, 26, 44, 0.5);
-            font-weight: 500;
-        }
-
-        .memory-card .memory-date {
-            font-size: 0.55rem;
-            color: rgba(74, 26, 44, 0.3);
-        }
-
-        /* ===== مكتبة الرسائل ===== */
-        .messages-section {
-            margin: 10px 0 12px;
-        }
-
-        .messages-title {
-            color: rgba(74, 26, 44, 0.4);
-            font-size: 0.8rem;
-            text-align: center;
-            margin-bottom: 8px;
-            letter-spacing: 2px;
-        }
-
-        .message-card {
-            background: rgba(255, 255, 255, 0.06);
-            backdrop-filter: blur(8px);
-            border-radius: 16px;
-            padding: 12px 16px;
-            border: 1px solid rgba(255, 255, 255, 0.04);
-            margin-bottom: 6px;
-            transition: all 0.3s ease;
-            cursor: pointer;
-        }
-
-        .message-card:hover {
-            background: rgba(255, 215, 0, 0.04);
-            border-color: #c2185b;
-        }
-
-        .message-card .message-text {
-            font-size: 0.8rem;
-            color: rgba(74, 26, 44, 0.7);
-            line-height: 1.6;
-        }
-
-        .message-card .message-author {
-            font-size: 0.6rem;
-            color: rgba(74, 26, 44, 0.3);
-            margin-top: 4px;
-        }
-
-        /* ===== أزرار الإجراءات ===== */
+        /* ===== زر القلب ===== */
         .heart-section {
             display: flex;
             flex-direction: column;
@@ -1334,6 +921,7 @@
             transform: scale(0.8);
         }
 
+        /* ===== أزرار الإجراءات ===== */
         .action-buttons {
             display: flex;
             justify-content: center;
@@ -1375,6 +963,7 @@
             font-size: 0.8rem;
         }
 
+        /* ===== التذييل ===== */
         .footer-icons {
             display: flex;
             justify-content: center;
@@ -1395,6 +984,7 @@
             transform: scale(1.1);
         }
 
+        /* ===== Toast ===== */
         .toast {
             position: fixed;
             top: 80px;
@@ -1420,6 +1010,7 @@
             transform: translateX(-50%) translateY(0);
         }
 
+        /* ===== Lightbox ===== */
         .lightbox {
             display: none;
             position: fixed;
@@ -1513,25 +1104,17 @@
         }
 
         @keyframes fadeIn {
-            from {
-                opacity: 0;
-            }
-            to {
-                opacity: 1;
-            }
+            from { opacity: 0; }
+            to { opacity: 1; }
         }
 
         @keyframes zoomIn {
-            from {
-                transform: scale(0.85);
-                opacity: 0;
-            }
-            to {
-                transform: scale(1);
-                opacity: 1;
-            }
+            from { transform: scale(0.85); opacity: 0; }
+            to { transform: scale(1); opacity: 1; }
         }
 
+        /* ===== الخلفيات المؤثرة ===== */
+        /* بتلات الورد */
         .petals-container {
             position: fixed;
             top: 0;
@@ -1547,25 +1130,25 @@
             position: absolute;
             top: -40px;
             font-size: 1.8rem;
-            opacity: 0.5;
+            opacity: 0.6;
             animation: fall linear infinite;
             pointer-events: none;
             transform-origin: center;
             will-change: transform, opacity;
-            filter: drop-shadow(0 0 6px rgba(255, 182, 193, 0.3));
         }
 
         @keyframes fall {
             0% {
                 transform: translateY(0) rotate(0deg) scale(1);
-                opacity: 0.6;
+                opacity: 0.7;
             }
             100% {
-                transform: translateY(110vh) rotate(720deg) scale(0.3);
-                opacity: 0;
+                transform: translateY(110vh) rotate(720deg) scale(0.5);
+                opacity: 0.1;
             }
         }
 
+        /* النجوم المتلألئة */
         .stars-container {
             position: fixed;
             top: 0;
@@ -1579,68 +1162,68 @@
 
         .star {
             position: absolute;
-            color: #ffb6c1;
+            color: #ffd700;
             font-size: 1rem;
-            animation: twinkle 3s ease-in-out infinite alternate;
+            animation: twinkle 2s ease-in-out infinite alternate;
             opacity: 0;
             pointer-events: none;
             will-change: transform, opacity;
-            filter: drop-shadow(0 0 8px rgba(255, 182, 193, 0.5));
         }
 
         @keyframes twinkle {
-            0% {
-                opacity: 0;
-                transform: scale(0.3) rotate(0deg);
-            }
-            50% {
-                opacity: 0.8;
-                transform: scale(1.2) rotate(15deg);
-            }
-            100% {
-                opacity: 0.3;
-                transform: scale(0.7) rotate(-10deg);
-            }
+            0% { opacity: 0; transform: scale(0.5); }
+            100% { opacity: 1; transform: scale(1.2); }
         }
 
         body.night-mode .star {
-            color: #ffb6c1;
-            filter: drop-shadow(0 0 12px rgba(255, 182, 193, 0.3));
+            color: #fff4c4;
         }
 
-        .shooting-stars-container {
+        /* الشموع */
+        .candles-container {
             position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 30px;
             pointer-events: none;
-            z-index: 1;
-            overflow: hidden;
-            opacity: 0.3;
+            z-index: 2;
+            opacity: 0.5;
         }
 
-        .shooting-star {
-            position: absolute;
-            width: 2px;
-            height: 2px;
-            background: #fff;
-            border-radius: 50%;
-            box-shadow: 0 0 6px 2px rgba(255, 255, 255, 0.3);
-            animation: shoot linear infinite;
+        .candle {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
 
-        @keyframes shoot {
-            0% {
-                transform: translate(0, 0) scale(1);
-                opacity: 1;
-            }
-            100% {
-                transform: translate(-300px, 300px) scale(0);
-                opacity: 0;
-            }
+        .candle .flame {
+            font-size: 2rem;
+            animation: flicker 1.5s ease-in-out infinite alternate;
+            display: block;
         }
 
+        .candle .body {
+            width: 12px;
+            height: 30px;
+            background: linear-gradient(180deg, #f5e6d3, #e8d5c4);
+            border-radius: 4px 4px 6px 6px;
+            margin-top: -5px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+        }
+
+        @keyframes flicker {
+            0% { transform: scale(1) rotate(-3deg); opacity: 0.9; }
+            50% { transform: scale(1.15) rotate(3deg); opacity: 1; }
+            100% { transform: scale(0.9) rotate(-2deg); opacity: 0.8; }
+        }
+
+        body.night-mode .candles-container {
+            opacity: 0.8;
+        }
+
+        /* فقاعات الحب */
         .bubbles-container {
             position: fixed;
             bottom: 0;
@@ -1657,271 +1240,90 @@
             bottom: -30px;
             font-size: 1.2rem;
             animation: rise linear infinite;
-            opacity: 0.3;
+            opacity: 0.4;
             pointer-events: none;
             will-change: transform, opacity;
-            filter: drop-shadow(0 0 10px rgba(255, 182, 193, 0.2));
         }
 
         @keyframes rise {
             0% {
-                transform: translateY(0) scale(0.3) rotate(0deg);
-                opacity: 0.2;
+                transform: translateY(0) scale(0.5);
+                opacity: 0.3;
             }
-            50% {
-                opacity: 0.5;
-            }
+            50% { opacity: 0.6; }
             100% {
-                transform: translateY(-110vh) scale(1.1) rotate(180deg);
+                transform: translateY(-110vh) scale(1.2);
                 opacity: 0;
             }
         }
 
-        .candles-container {
-            position: fixed;
-            bottom: 20px;
-            left: 50%;
-            transform: translateX(-50%);
-            display: flex;
-            gap: 30px;
-            pointer-events: none;
-            z-index: 2;
-            opacity: 0.4;
-        }
-
-        .candle {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-
-        .candle .flame {
-            font-size: 2rem;
-            animation: flicker 1.5s ease-in-out infinite alternate;
-            display: block;
-            filter: drop-shadow(0 0 20px rgba(255, 182, 193, 0.4));
-        }
-
-        .candle .body {
-            width: 12px;
-            height: 30px;
-            background: linear-gradient(180deg, #fce4ec, #f8bbd0);
-            border-radius: 4px 4px 6px 6px;
-            margin-top: -5px;
-            box-shadow: 0 4px 15px rgba(255, 182, 193, 0.1);
-        }
-
-        @keyframes flicker {
-            0% {
-                transform: scale(1) rotate(-3deg);
-                opacity: 0.9;
-            }
-            50% {
-                transform: scale(1.15) rotate(3deg);
-                opacity: 1;
-            }
-            100% {
-                transform: scale(0.9) rotate(-2deg);
-                opacity: 0.8;
-            }
-        }
-
-        body.night-mode .candles-container {
-            opacity: 0.6;
-        }
-
+        /* ===== توافق مع الشاشات الصغيرة ===== */
         @media (max-width: 600px) {
-            .glass-card {
-                padding: 18px 14px;
-                border-radius: 28px;
-                max-height: 92vh;
-            }
-            .hero-title h1 {
-                font-size: 1.6rem;
-            }
-            .age-item .num {
-                font-size: 1rem;
-                min-width: 22px;
-            }
-            .music-bar {
-                padding: 6px 10px;
-                gap: 6px;
-            }
-            .music-controls button {
-                width: 28px;
-                height: 28px;
-                font-size: 0.7rem;
-            }
-            .gallery-slider {
-                aspect-ratio: 4 / 3;
-            }
-            .gallery-slider .slide .slide-text {
-                font-size: 0.65rem;
-                padding: 3px 12px;
-                white-space: normal;
-            }
-            .stat-item {
-                font-size: 0.7rem;
-                padding: 2px 8px;
-            }
-            .action-btn {
-                font-size: 0.65rem;
-                padding: 5px 10px;
-            }
-            .days-counter .days-num {
-                font-size: 1.1rem;
-            }
-            .love-letter {
-                max-height: 200px;
-                font-size: 0.78rem;
-                padding: 12px 14px;
-            }
-            .top-bar .brand {
-                font-size: 0.7rem;
-            }
-            .settings-btn {
-                width: 34px;
-                height: 34px;
-                font-size: 0.9rem;
-            }
-            .lang-btn {
-                font-size: 0.55rem;
-                padding: 2px 8px;
-            }
-            .theme-toggle-small {
-                width: 28px;
-                height: 28px;
-                font-size: 0.75rem;
-            }
-            .lightbox .lightbox-nav {
-                width: 36px;
-                height: 36px;
-                font-size: 0.8rem;
-            }
-            .lightbox .lightbox-nav.prev {
-                left: 10px;
-            }
-            .lightbox .lightbox-nav.next {
-                right: 10px;
-            }
-            .lightbox .close-lightbox {
-                width: 36px;
-                height: 36px;
-                font-size: 1rem;
-                top: 15px;
-                right: 15px;
-            }
-            .candles-container {
-                gap: 15px;
-            }
-            .candle .flame {
-                font-size: 1.5rem;
-            }
-            .candle .body {
-                width: 8px;
-                height: 22px;
-            }
-            .petal {
-                font-size: 1.2rem;
-            }
-            .star {
-                font-size: 0.7rem;
-            }
-            .bubble {
-                font-size: 0.9rem;
-            }
-            .modal-content {
-                padding: 18px;
-                max-width: 95%;
-            }
-            .modal-comment-item {
-                padding: 6px 10px;
-            }
-            .modal-footer input {
-                font-size: 0.65rem;
-                padding: 6px 12px;
-            }
-            .modal-footer button {
-                font-size: 0.65rem;
-                padding: 6px 14px;
-            }
-            .comments-toggle {
-                font-size: 0.75rem;
-                padding: 6px 12px;
-            }
-            .gifts-grid {
-                grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
-            }
-            .gift-card .gift-icon {
-                font-size: 1.8rem;
-            }
-            .countdown-number {
-                font-size: 1.2rem;
-            }
-            .memories-grid {
-                grid-template-columns: repeat(auto-fit, minmax(110px, 1fr));
-            }
-            .shooting-star {
-                display: none;
-            }
-            .gift-modal-content {
-                padding: 20px;
-                max-width: 95%;
-            }
-            .gift-modal-content .gift-big-icon {
-                font-size: 3rem;
-            }
+            .glass-card { padding: 18px 14px; border-radius: 28px; max-height: 92vh; }
+            .hero-title h1 { font-size: 1.6rem; }
+            .age-item .num { font-size: 1rem; min-width: 22px; }
+            .music-bar { padding: 6px 10px; gap: 6px; }
+            .music-controls button { width: 28px; height: 28px; font-size: 0.7rem; }
+            .gallery-slider { aspect-ratio: 4 / 3; }
+            .gallery-slider .slide .slide-text { font-size: 0.65rem; padding: 3px 12px; white-space: normal; }
+            .stat-item { font-size: 0.7rem; padding: 2px 8px; }
+            .action-btn { font-size: 0.65rem; padding: 5px 10px; }
+            .days-counter .days-num { font-size: 1.1rem; }
+            .love-letter { max-height: 200px; font-size: 0.78rem; padding: 12px 14px; }
+            .top-bar .brand { font-size: 0.7rem; }
+            .settings-btn { width: 34px; height: 34px; font-size: 0.9rem; }
+            .lang-btn { font-size: 0.55rem; padding: 2px 8px; }
+            .theme-toggle-small { width: 28px; height: 28px; font-size: 0.75rem; }
+            .lightbox .lightbox-nav { width: 36px; height: 36px; font-size: 0.8rem; }
+            .lightbox .lightbox-nav.prev { left: 10px; }
+            .lightbox .lightbox-nav.next { right: 10px; }
+            .lightbox .close-lightbox { width: 36px; height: 36px; font-size: 1rem; top: 15px; right: 15px; }
+            .candles-container { gap: 15px; }
+            .candle .flame { font-size: 1.5rem; }
+            .candle .body { width: 8px; height: 22px; }
+            .petal { font-size: 1.2rem; }
+            .star { font-size: 0.7rem; }
+            .bubble { font-size: 0.9rem; }
+            .comments-section { padding: 10px 12px; }
+            .comment-item { padding: 6px 10px; }
+            .comment-input-area input { font-size: 0.65rem; padding: 6px 12px; }
+            .comment-input-area button { font-size: 0.65rem; padding: 6px 14px; }
         }
 
         @media (max-width: 400px) {
-            .hero-title h1 {
-                font-size: 1.3rem;
-            }
-            .age-counter {
-                gap: 2px 6px;
-                padding: 4px 8px;
-            }
-            .age-item .num {
-                font-size: 0.8rem;
-                min-width: 16px;
-            }
-            .age-item .label {
-                font-size: 0.5rem;
-            }
-            .love-letter {
-                font-size: 0.7rem;
-                padding: 10px 12px;
-                max-height: 160px;
-            }
-            .heart-btn {
-                width: 54px;
-                height: 54px;
-                font-size: 2.2rem;
-            }
-            .countdown-grid {
-                grid-template-columns: repeat(2, 1fr);
-                max-width: 200px;
-            }
+            .hero-title h1 { font-size: 1.3rem; }
+            .age-counter { gap: 2px 6px; padding: 4px 8px; }
+            .age-item .num { font-size: 0.8rem; min-width: 16px; }
+            .age-item .label { font-size: 0.5rem; }
+            .love-letter { font-size: 0.7rem; padding: 10px 12px; max-height: 160px; }
+            .heart-btn { width: 54px; height: 54px; font-size: 2.2rem; }
+            .comment-item .comment-text { font-size: 0.65rem; }
+            .comment-item .comment-name { font-size: 0.6rem; }
         }
     </style>
 </head>
 <body>
 
-    <!-- خلفيات -->
+    <!-- ===== بتلات الورد ===== -->
     <div class="petals-container" id="petalsContainer"></div>
+
+    <!-- ===== النجوم المتلألئة ===== -->
     <div class="stars-container" id="starsContainer"></div>
-    <div class="shooting-stars-container" id="shootingStarsContainer"></div>
-    <div class="bubbles-container" id="bubblesContainer"></div>
+
+    <!-- ===== الشموع ===== -->
     <div class="candles-container" id="candlesContainer">
         <div class="candle"><span class="flame">🕯️</span><div class="body"></div></div>
         <div class="candle"><span class="flame">🕯️</span><div class="body"></div></div>
         <div class="candle"><span class="flame">🕯️</span><div class="body"></div></div>
     </div>
 
-    <!-- Toast -->
+    <!-- ===== فقاعات الحب ===== -->
+    <div class="bubbles-container" id="bubblesContainer"></div>
+
+    <!-- ===== Toast ===== -->
     <div class="toast" id="toast">💖 مرحباً يا أجمل بنت في الدنيا 💖</div>
 
-    <!-- Lightbox -->
+    <!-- ===== Lightbox ===== -->
     <div class="lightbox" id="lightbox" onclick="closeLightbox(event)">
         <button class="close-lightbox" onclick="closeLightbox()"><i class="fas fa-times"></i></button>
         <button class="lightbox-nav prev" onclick="event.stopPropagation(); navigateLightbox(-1)"><i class="fas fa-chevron-right"></i></button>
@@ -1930,77 +1332,71 @@
         <div class="lightbox-counter" id="lightboxCounter">1 / 9</div>
     </div>
 
-    <!-- مودال التعليقات -->
-    <div class="modal-overlay" id="commentsModal">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h3><i class="fas fa-comments"></i> <span id="modalTitle">التعليقات</span> <span id="modalCount">(5)</span></h3>
-                <button class="modal-close" onclick="closeCommentsModal()"><i class="fas fa-times"></i></button>
-            </div>
-            <div class="modal-body" id="modalBody"></div>
-            <div class="modal-footer">
-                <input type="text" id="modalInput" placeholder="💬 اكتب تعليقاً جميلاً..." maxlength="100">
-                <button class="modal-send-btn" onclick="addModalComment()"><i class="fas fa-paper-plane"></i> <span id="modalSend">إرسال</span></button>
-            </div>
-        </div>
-    </div>
-
-    <!-- مودال الهدايا -->
-    <div class="gift-modal-overlay" id="giftModal">
-        <div class="gift-modal-content">
-            <span class="gift-big-icon" id="giftBigIcon">🎁</span>
-            <h3 id="giftModalTitle">🎁 هدية لحبيبتي</h3>
-            <p id="giftModalDesc">هل تريد إرسال هذه الهدية لحبيبتك؟</p>
-            <div class="gift-modal-actions">
-                <button class="btn-send" onclick="confirmSendGift()"><i class="fas fa-paper-plane"></i> <span id="giftSendBtn">إرسال</span></button>
-                <button class="btn-cancel" onclick="closeGiftModal()"><span id="giftCancelBtn">إلغاء</span></button>
-            </div>
-        </div>
-    </div>
-
-    <!-- البطاقة الرئيسية -->
+    <!-- ===== البطاقة الرئيسية ===== -->
     <div class="glass-card">
 
-        <!-- الشريط العلوي -->
+        <!-- ===== شريط علوي ===== -->
         <div class="top-bar">
-            <div class="brand"><i class="fas fa-heart"></i> <span id="brandText">❤️ حبيبتي</span></div>
+            <div class="brand">
+                <i class="fas fa-heart"></i>
+                <span>❤️ حبيبتي</span>
+            </div>
             <div class="controls-group">
-                <button class="settings-btn" onclick="toggleSettings()" title="الإعدادات"><i class="fas fa-cog"></i></button>
-                <div id="settingsPanel" style="display:none; align-items:center; gap:6px; background:rgba(255,255,255,0.05); border-radius:30px; padding:3px 10px; border:1px solid rgba(255,255,255,0.05);">
+                <!-- زر الإعدادات (درس) -->
+                <button class="settings-btn" onclick="toggleSettings()" title="الإعدادات">
+                    <i class="fas fa-cog"></i>
+                </button>
+                <!-- مجموعة اللغة والثيم (تظهر عند الضغط على الإعدادات) -->
+                <div id="settingsPanel" style="display: none; align-items: center; gap: 6px; background: rgba(255,255,255,0.05); border-radius: 30px; padding: 3px 10px; border: 1px solid rgba(255,255,255,0.05);">
                     <div class="lang-group">
                         <button class="lang-btn active" data-lang="ar" onclick="changeLanguage('ar')">ع</button>
                         <button class="lang-btn" data-lang="en" onclick="changeLanguage('en')">E</button>
                         <button class="lang-btn" data-lang="fr" onclick="changeLanguage('fr')">F</button>
                     </div>
-                    <button class="theme-toggle-small" onclick="toggleTheme()"><i class="fas fa-moon" id="themeIconSmall"></i></button>
+                    <button class="theme-toggle-small" onclick="toggleTheme()">
+                        <i class="fas fa-moon" id="themeIconSmall"></i>
+                    </button>
                 </div>
             </div>
         </div>
 
-        <!-- الإحصائيات -->
+        <!-- ===== شريط الإحصائيات ===== -->
         <div class="stats-bar">
             <div class="stat-item" id="likeBtn" onclick="toggleLike()">
-                <i class="fas fa-heart"></i> <span class="count" id="likeCount">600k</span>
+                <i class="fas fa-heart"></i>
+                <span class="count" id="likeCount">600k</span>
             </div>
-            <div class="stat-item"><i class="fas fa-eye"></i> <span class="count" id="viewCount">8.4k</span></div>
-            <div class="stat-item"><i class="fas fa-user-friends"></i> <span class="count">1.5k</span></div>
-            <div class="stat-item" onclick="openCommentsModal()">
-                <i class="fas fa-comment"></i> <span class="count" id="statCommentCount">342</span>
+            <div class="stat-item">
+                <i class="fas fa-eye"></i>
+                <span class="count" id="viewCount">8.4k</span>
+            </div>
+            <div class="stat-item">
+                <i class="fas fa-user-friends"></i>
+                <span class="count">1.5k</span>
+            </div>
+            <div class="stat-item">
+                <i class="fas fa-comment"></i>
+                <span class="count">342</span>
             </div>
         </div>
 
-        <!-- عداد الأيام -->
+        <!-- ===== عداد الأيام ===== -->
         <div class="days-counter">
-            <span class="days-label" id="daysLabel">💕 منذ لقائنا</span>
+            <span class="days-label">💕 منذ لقائنا</span>
             <span class="days-num" id="daysCount">0</span>
-            <span class="days-label" id="daysUnitLabel">يوم</span>
+            <span class="days-label">يوم</span>
             <span class="days-heart"><i class="fas fa-heart"></i></span>
         </div>
 
-        <!-- الموسيقى -->
+        <!-- ===== شريط الموسيقى ===== -->
         <div class="music-bar">
-            <div class="track-info"><i class="fas fa-compact-disc"></i> <span id="trackName">🎵 أغنية حبك ❤️</span></div>
-            <div class="music-progress" id="progressBar"><div class="progress-fill" id="progressFill"></div></div>
+            <div class="track-info">
+                <i class="fas fa-compact-disc"></i>
+                <span id="trackName">🎵 أغنية حبك ❤️</span>
+            </div>
+            <div class="music-progress" id="progressBar">
+                <div class="progress-fill" id="progressFill"></div>
+            </div>
             <div class="music-controls">
                 <button onclick="prevTrack()"><i class="fas fa-step-backward"></i></button>
                 <button id="playBtn" onclick="togglePlay()" class="playing"><i class="fas fa-pause"></i></button>
@@ -2008,19 +1404,22 @@
             </div>
         </div>
 
-        <!-- العنوان -->
+        <!-- ===== العنوان ===== -->
         <div class="hero-title">
             <h1 id="mainTitle">💖 دي اللي خطفت قلبي 💖</h1>
             <div class="sub-text" id="subTitle">✦ أنتِ كل شيء ✦</div>
         </div>
 
-        <!-- تاريخ الميلاد -->
-        <div style="text-align:center;">
-            <div class="birthday-box"><i class="fas fa-birthday-cake"></i> <span id="birthdayText">مايو 07, 2004</span></div>
+        <!-- ===== تاريخ الميلاد ===== -->
+        <div style="text-align: center;">
+            <div class="birthday-box">
+                <i class="fas fa-birthday-cake"></i>
+                <span id="birthdayText">مايو 07, 2004</span>
+            </div>
         </div>
 
-        <!-- العمر -->
-        <div class="age-counter">
+        <!-- ===== العمر ===== -->
+        <div class="age-counter" id="ageCounter">
             <div class="age-item"><span class="num" id="years">22</span><span class="label" id="lblYears">سنين</span></div>
             <div class="age-item"><span class="num" id="months">6</span><span class="label" id="lblMonths">شهور</span></div>
             <div class="age-item"><span class="num" id="weeks">28</span><span class="label" id="lblWeeks">أسابيع</span></div>
@@ -2028,18 +1427,7 @@
             <div class="age-item"><span class="num" id="hours">12</span><span class="label" id="lblHours">ساعات</span></div>
         </div>
 
-        <!-- عداد تنازلي -->
-        <div class="countdown-section" id="countdownSection">
-            <div class="countdown-title" id="countdownTitle">⏳ متبقي على عيد ميلاد حبيبتي</div>
-            <div class="countdown-grid" id="countdownGrid">
-                <div class="countdown-item"><span class="countdown-number" id="cdDays">0</span><span class="countdown-label" id="cdDaysLabel">أيام</span></div>
-                <div class="countdown-item"><span class="countdown-number" id="cdHours">0</span><span class="countdown-label" id="cdHoursLabel">ساعات</span></div>
-                <div class="countdown-item"><span class="countdown-number" id="cdMinutes">0</span><span class="countdown-label" id="cdMinutesLabel">دقائق</span></div>
-                <div class="countdown-item"><span class="countdown-number" id="cdSeconds">0</span><span class="countdown-label" id="cdSecondsLabel">ثواني</span></div>
-            </div>
-        </div>
-
-        <!-- معرض الصور -->
+        <!-- ===== معرض الصور ===== -->
         <div class="gallery-section">
             <div class="gallery-title" id="galleryTitle">📸 ذكرياتنا الجميلة</div>
             <div class="gallery-slider" id="gallerySlider" onclick="openLightbox(currentSlide)">
@@ -2052,75 +1440,59 @@
             <div class="gallery-dots" id="dotsContainer"></div>
         </div>
 
-        <!-- النص الطويل -->
+        <!-- ===== النص الكامل (في لوح زجاجي بدون تمرير) ===== -->
         <div class="love-letter" id="loveLetter">
             <p id="letterContent">
-                💬 عايز اقولك انك مش مجرد بنت بحبها انتي الحياه اللي اتمنيتها من سنين انتي الحلم اللي صحيت عليه ولقيته قدامي انتي الأمان اللي قلبي ارتاح فيه والدفا اللي بحس بيه انتي أجمل من كل الكلام اللي بيتقال واحن من كل حضن اتخيلته انتي مش بس حبيبتي انتي دنيتي انتي اخت روحي انتي ملاكي اللي ربنا بعتهو ليا 💫
+💬 عايز اقولك انك مش مجرد بنت بحبها انتي الحياه اللي اتمنيتها من سنين انتي الحلم اللي صحيت عليه ولقيته قدامي انتي الأمان اللي قلبي ارتاح فيه والدفا اللي بحس بيه انتي أجمل من كل الكلام اللي بيتقال واحن من كل حضن اتخيلته انتي مش بس حبيبتي انتي دنيتي انتي اخت روحي انتي ملاكي اللي ربنا بعتهو ليا 💫
 
-                من أول ما عرفتك وانا مش زي زمان كل حاجه بقت ليها طعم تاني الضحكه بقت من القلب والدنيا بقت فيها أمل بقيت بصحى وانا مبسوط عشان انتي في حياتي بقيت بحب اليوم اللي بيعدي وانتي فيه بقيت بضحك على حاجات بسيطة لان وجودك بيكفيني 💕
+من أول ما عرفتك وانا مش زي زمان كل حاجه بقت ليها طعم تاني الضحكه بقت من القلب والدنيا بقت فيها أمل بقيت بصحى وانا مبسوط عشان انتي في حياتي بقيت بحب اليوم اللي بيعدي وانتي فيه بقيت بضحك على حاجات بسيطة لان وجودك بيكفيني 💕
 
-                انتي اللي غيرتيني للأحسن انتي اللي خلتيني أعرف يعني ايه حب حقيقي انتي النور اللي دخل قلبي ومفارقنيش لما بشوفك بضحك من غير ما أحس لما يسمع صوتك بتهدى كل حاجة جوايا لما تبعتيلي مسدج قلبي بيرقص لما بتقوليلي وحشتني بحس اني أسعد إنسان 💖
+انتي اللي غيرتيني للأحسن انتي اللي خلتيني أعرف يعني ايه حب حقيقي انتي النور اللي دخل قلبي ومفارقنيش لما بشوفك بضحك من غير ما أحس لما يسمع صوتك بتهدى كل حاجة جوايا لما تبعتيلي مسدج قلبي بيرقص لما بتقوليلي وحشتني بحس اني أسعد إنسان 💖
 
-                انتي كل حاجه حلوة حصلتلي انتي اللي بخاف عليها من الهوا انتي اللي بحس اني مش عايز منها غير رضاها انا بحب كل تفاصيلك بحب صوتك بحب ضحكتك بحب عصبيتك بحب طريقتك وانتي بتزعلي وبتصالحيني بعدها زي الأطفال بحب عصبيتك لما بتغيري عليا و بحب طيبة قلبك بحب عيونك و بحب خوفك عليا بـ اهتمامك بيا انتي سبب ضحكتي انتي سندي في الوجع انتي كتفي بتعب انتي قلبي اللي بيدق عشانك كل ثانيه 💗
+انتي كل حاجه حلوة حصلتلي انتي اللي بخاف عليها من الهوا انتي اللي بحس اني مش عايز منها غير رضاها انا بحب كل تفاصيلك بحب صوتك بحب ضحكتك بحب عصبيتك بحب طريقتك وانتي بتزعلي وبتصالحيني بعدها زي الأطفال بحب عصبيتك لما بتغيري عليا و بحب طيبة قلبك بحب عيونك و بحب خوفك عليا بـ اهتمامك بيا انتي سبب ضحكتي انتي سندي في الوجع انتي كتفي بتعب انتي قلبي اللي بيدق عشانك كل ثانيه 💗
 
-                انتي بتملي حياتي فرحه وضحكة حقيقية من القلب انتي ملاك نزل عشاني انتي هدية ربنا ليا انا كل يوم بدعى انك تفضلي ليا كل يوم بشكر ربنا أنك في حياتي كل يوم بحبك أكثر كل ثانيه بتمر وانتي فيها بتكون أغلى من اللي قبلها انتي بتمثليلي حاجات كتير ميتكتبش عنها غير في كتب انتي معجزة حقيقية وجودك شفاء لقلبي وانتي روحي اللي سكنت جوايا نظرتك لما بتبصيلي كاني أهم حاجه في حياتك بحب خوفك عليا واهتمامك بيا انتي الشخص اللي يدعي يفضل معايا للآخر ده انتي اللي نفسي أعيش معاكي كل لحظه انتي اللي بستني اسمع صوتك كل يوم وكانها أول مرة انتي الحب اللي مستحيل يتكرر انتي حبيبتي ❤️
+انتي بتملي حياتي فرحه وضحكة حقيقية من القلب انتي ملاك نزل عشاني انتي هدية ربنا ليا انا كل يوم بدعى انك تفضلي ليا كل يوم بشكر ربنا أنك في حياتي كل يوم بحبك أكثر كل ثانيه بتمر وانتي فيها بتكون أغلى من اللي قبلها انتي بتمثليلي حاجات كتير ميتكتبش عنها غير في كتب انتي معجزة حقيقية وجودك شفاء لقلبي وانتي روحي اللي سكنت جوايا نظرتك لما بتبصيلي كاني أهم حاجه في حياتك بحب خوفك عليا واهتمامك بيا انتي الشخص اللي يدعي يفضل معايا للآخر ده انتي اللي نفسي أعيش معاكي كل لحظه انتي اللي بستني اسمع صوتك كل يوم وكانها أول مرة انتي الحب اللي مستحيل يتكرر انتي حبيبتي ❤️
 
-                انتي حبيبتي اللي بحبها من غير سبب انتي اللي مفيش منك 2 ف الدنيا هتفضلي ثابتة جوا قلبي انتي اللي وجودك بيهون عليا كل حاجه انتي اللي بفتكرها أول ما أصحى واخر ما أنام انتي اجد واحن حب واطيب قلب انتي روحي وسر سعادتي وسبب ضحكتي لو عشت الف سنه مش هيكفيني انتي اجمل من كل الوصف انتي اجمل كل الكلمات انتي دنيتي اللي بحمد ربنا عليها كل لحظه بحبك ومفضل احبك وهفضل أحميكي بحبك وحفضل أدعي ربنا يجمعني بيكي على طول بحبك ومفضل اكتب عنك الحد آخر نفس فيا بحبك يا كل حاجه حلا حصلتلي بحبككك ي ست البنات متزعليش 💋
+انتي حبيبتي اللي بحبها من غير سبب انتي اللي مفيش منك 2 ف الدنيا هتفضلي ثابتة جوا قلبي انتي اللي وجودك بيهون عليا كل حاجه انتي اللي بفتكرها أول ما أصحى واخر ما أنام انتي اجد واحن حب واطيب قلب انتي روحي وسر سعادتي وسبب ضحكتي لو عشت الف سنه مش هيكفيني انتي اجمل من كل الوصف انتي اجمل كل الكلمات انتي دنيتي اللي بحمد ربنا عليها كل لحظه بحبك ومفضل احبك وهفضل أحميكي بحبك وحفضل أدعي ربنا يجمعني بيكي على طول بحبك ومفضل اكتب عنك الحد آخر نفس فيا بحبك يا كل حاجه حلا حصلتلي بحبككك ي ست البنات متزعليش 💋
             </p>
         </div>
 
-        <!-- ركن الذكريات -->
-        <div class="memories-section">
-            <div class="memories-title" id="memoriesTitle">📖 ركن الذكريات</div>
-            <div class="memories-grid" id="memoriesGrid">
-                <div class="memory-card"><span class="memory-icon">💕</span><div class="memory-text" id="mem1">أول لقاء</div><div class="memory-date">15 يناير 2023</div></div>
-                <div class="memory-card"><span class="memory-icon">🌹</span><div class="memory-text" id="mem2">أول وردة</div><div class="memory-date">14 فبراير 2023</div></div>
-                <div class="memory-card"><span class="memory-icon">✨</span><div class="memory-text" id="mem3">أول قبلة</div><div class="memory-date">1 مارس 2023</div></div>
-                <div class="memory-card"><span class="memory-icon">💍</span><div class="memory-text" id="mem4">وعد الحب</div><div class="memory-date">7 مايو 2023</div></div>
+        <!-- ===== قسم التعليقات ===== -->
+        <div class="comments-section">
+            <div class="comments-header">
+                <h3><i class="fas fa-comments"></i> التعليقات <span id="commentCount">(5)</span></h3>
+                <i class="fas fa-heart" style="color: #c2185b;"></i>
+            </div>
+            <div id="commentsContainer">
+                <!-- سيتم إضافة التعليقات هنا بواسطة JavaScript -->
+            </div>
+            <div class="comment-input-area">
+                <input type="text" id="commentInput" placeholder="💬 اكتب تعليقاً جميلاً..." maxlength="100">
+                <button onclick="addComment()"><i class="fas fa-paper-plane"></i> إرسال</button>
             </div>
         </div>
 
-        <!-- مكتبة الرسائل -->
-        <div class="messages-section">
-            <div class="messages-title" id="messagesTitle">💌 مكتبة الرسائل</div>
-            <div id="messagesContainer">
-                <div class="message-card"><div class="message-text" id="msg1">"أنتِ أجمل شيء في حياتي، وكل يوم معك هو هدية."</div><div class="message-author">❤️ من قلبك</div></div>
-                <div class="message-card"><div class="message-text" id="msg2">"لو كان الحب يكتب، لكنت كتبت عنكِ آلاف الصفحات."</div><div class="message-author">❤️ من روحك</div></div>
-                <div class="message-card"><div class="message-text" id="msg3">"في عينيكِ أرى الكون كله، وفي قلبكِ أجد سعادتي."</div><div class="message-author">❤️ من عشقك</div></div>
-            </div>
-        </div>
-
-        <!-- قسم الهدايا -->
-        <div class="gifts-section">
-            <div class="gifts-title" id="giftsTitle">🎁 أرسل هدية لحبيبتي</div>
-            <div class="gifts-grid">
-                <div class="gift-card" onclick="openGiftModal('🌹', 'وردة حب')"><span class="gift-icon">🌹</span><span class="gift-name">وردة حب</span></div>
-                <div class="gift-card" onclick="openGiftModal('🍫', 'شوكولاتة')"><span class="gift-icon">🍫</span><span class="gift-name">شوكولاتة</span></div>
-                <div class="gift-card" onclick="openGiftModal('💎', 'خاتم')"><span class="gift-icon">💎</span><span class="gift-name">خاتم</span></div>
-                <div class="gift-card" onclick="openGiftModal('🧸', 'دبدوب')"><span class="gift-icon">🧸</span><span class="gift-name">دبدوب</span></div>
-                <div class="gift-card" onclick="openGiftModal('💌', 'رسالة حب')"><span class="gift-icon">💌</span><span class="gift-name">رسالة حب</span></div>
-                <div class="gift-card" onclick="openGiftModal('🌟', 'نجمة')"><span class="gift-icon">🌟</span><span class="gift-name">نجمة</span></div>
-            </div>
-        </div>
-
-        <!-- أيقونة التعليقات المنبثقة -->
-        <div class="comments-toggle" onclick="openCommentsModal()">
-            <i class="fas fa-comments"></i> <span id="commentsToggleText">💬 التعليقات</span> <span id="commentsToggleCount">(5)</span>
-        </div>
-
-        <!-- زر القلب -->
+        <!-- ===== زر القلب ===== -->
         <div class="heart-section">
-            <div class="heart-btn" id="heartButton"><i class="fas fa-heart"></i></div>
+            <div class="heart-btn" id="heartButton">
+                <i class="fas fa-heart"></i>
+            </div>
         </div>
 
-        <!-- أزرار الإجراءات -->
+        <!-- ===== أزرار الإجراءات ===== -->
         <div class="action-buttons">
-            <button class="action-btn" onclick="shareWebsite()"><i class="fas fa-share-alt"></i> <span id="shareBtnText">مشاركة</span></button>
-            <button class="action-btn" onclick="printPage()"><i class="fas fa-print"></i> <span id="printBtnText">طباعة</span></button>
-            <button class="action-btn" onclick="showLoveMessage()"><i class="fas fa-heart"></i> <span id="messageBtnText">رسالة</span></button>
+            <button class="action-btn" onclick="shareWebsite()">
+                <i class="fas fa-share-alt"></i> مشاركة
+            </button>
+            <button class="action-btn" onclick="printPage()">
+                <i class="fas fa-print"></i> طباعة
+            </button>
+            <button class="action-btn" onclick="showLoveMessage()">
+                <i class="fas fa-heart"></i> رسالة
+            </button>
         </div>
 
-        <!-- التذييل -->
+        <!-- ===== التذييل ===== -->
         <div class="footer-icons">
             <span class="icon-item"><i class="fas fa-infinity"></i></span>
             <span class="icon-item"><i class="fas fa-star"></i></span>
@@ -2131,7 +1503,7 @@
 
     </div>
 
-    <!-- الصوت -->
+    <!-- ===== Audio ===== -->
     <audio id="bgMusic" loop>
         <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
     </audio>
@@ -2141,164 +1513,60 @@
         // 0. المؤثرات البصرية
         // ============================================================
 
+        // === بتلات الورد ===
         function createPetals() {
-            const c = document.getElementById('petalsContainer');
-            const emojis = ['🌸', '🌹', '🌺', '💮', '🌷', '🪷', '🌼'];
-            for (let i = 0; i < 35; i++) {
-                const p = document.createElement('div');
-                p.className = 'petal';
-                p.textContent = emojis[Math.floor(Math.random() * emojis.length)];
-                p.style.left = Math.random() * 100 + '%';
-                p.style.animationDuration = (8 + Math.random() * 12) + 's';
-                p.style.animationDelay = (Math.random() * 20) + 's';
-                p.style.fontSize = (1.2 + Math.random() * 2.2) + 'rem';
-                p.style.opacity = 0.3 + Math.random() * 0.4;
-                c.appendChild(p);
+            const container = document.getElementById('petalsContainer');
+            const emojis = ['🌸', '🌹', '🌺', '💮', '🌷'];
+            for (let i = 0; i < 25; i++) {
+                const petal = document.createElement('div');
+                petal.className = 'petal';
+                petal.textContent = emojis[Math.floor(Math.random() * emojis.length)];
+                petal.style.left = Math.random() * 100 + '%';
+                petal.style.animationDuration = (6 + Math.random() * 8) + 's';
+                petal.style.animationDelay = (Math.random() * 15) + 's';
+                petal.style.fontSize = (1 + Math.random() * 1.8) + 'rem';
+                petal.style.opacity = 0.3 + Math.random() * 0.4;
+                container.appendChild(petal);
             }
         }
         createPetals();
 
+        // === النجوم المتلألئة ===
         function createStars() {
-            const c = document.getElementById('starsContainer');
-            const emojis = ['✦', '✧', '⭐', '🌟', '✨', '💫'];
-            for (let i = 0; i < 80; i++) {
-                const s = document.createElement('div');
-                s.className = 'star';
-                s.textContent = emojis[Math.floor(Math.random() * emojis.length)];
-                s.style.left = Math.random() * 100 + '%';
-                s.style.top = Math.random() * 100 + '%';
-                s.style.animationDelay = (Math.random() * 6) + 's';
-                s.style.animationDuration = (2 + Math.random() * 5) + 's';
-                s.style.fontSize = (0.6 + Math.random() * 1.6) + 'rem';
-                c.appendChild(s);
+            const container = document.getElementById('starsContainer');
+            for (let i = 0; i < 60; i++) {
+                const star = document.createElement('div');
+                star.className = 'star';
+                star.textContent = ['✦', '✧', '⭐', '🌟', '✨'][Math.floor(Math.random() * 5)];
+                star.style.left = Math.random() * 100 + '%';
+                star.style.top = Math.random() * 100 + '%';
+                star.style.animationDelay = (Math.random() * 5) + 's';
+                star.style.animationDuration = (1.5 + Math.random() * 3) + 's';
+                star.style.fontSize = (0.6 + Math.random() * 1.2) + 'rem';
+                container.appendChild(star);
             }
         }
         createStars();
 
-        function createShootingStars() {
-            const c = document.getElementById('shootingStarsContainer');
-            for (let i = 0; i < 10; i++) {
-                const s = document.createElement('div');
-                s.className = 'shooting-star';
-                s.style.left = (10 + Math.random() * 80) + '%';
-                s.style.top = (5 + Math.random() * 30) + '%';
-                s.style.animationDuration = (3 + Math.random() * 5) + 's';
-                s.style.animationDelay = (Math.random() * 15) + 's';
-                s.style.width = (2 + Math.random() * 3) + 'px';
-                s.style.height = (2 + Math.random() * 3) + 'px';
-                c.appendChild(s);
-            }
-        }
-        createShootingStars();
-
+        // === فقاعات الحب ===
         function createBubbles() {
-            const c = document.getElementById('bubblesContainer');
-            const emojis = ['💕', '💖', '💗', '💓', '❤️', '🩷', '🌸'];
-            for (let i = 0; i < 25; i++) {
-                const b = document.createElement('div');
-                b.className = 'bubble';
-                b.textContent = emojis[Math.floor(Math.random() * emojis.length)];
-                b.style.left = Math.random() * 100 + '%';
-                b.style.animationDuration = (10 + Math.random() * 18) + 's';
-                b.style.animationDelay = (Math.random() * 25) + 's';
-                b.style.fontSize = (0.8 + Math.random() * 2) + 'rem';
-                c.appendChild(b);
+            const container = document.getElementById('bubblesContainer');
+            const emojis = ['💕', '💖', '💗', '💓', '❤️', '🩷'];
+            for (let i = 0; i < 15; i++) {
+                const bubble = document.createElement('div');
+                bubble.className = 'bubble';
+                bubble.textContent = emojis[Math.floor(Math.random() * emojis.length)];
+                bubble.style.left = Math.random() * 100 + '%';
+                bubble.style.animationDuration = (8 + Math.random() * 12) + 's';
+                bubble.style.animationDelay = (Math.random() * 20) + 's';
+                bubble.style.fontSize = (0.8 + Math.random() * 1.5) + 'rem';
+                container.appendChild(bubble);
             }
         }
         createBubbles();
 
         // ============================================================
-        // 1. المؤثرات الصوتية (تعمل فقط عند التفاعل)
-        // ============================================================
-
-        let audioCtx = null;
-
-        function getAudioContext() {
-            if (!audioCtx) {
-                try {
-                    audioCtx = new(window.AudioContext || window.webkitAudioContext)();
-                } catch (e) {
-                    return null;
-                }
-            }
-            return audioCtx;
-        }
-
-        function playClickSound() {
-            try {
-                const ctx = getAudioContext();
-                if (!ctx) return;
-                const osc = ctx.createOscillator();
-                const gain = ctx.createGain();
-                osc.connect(gain);
-                gain.connect(ctx.destination);
-                osc.frequency.value = 800;
-                osc.type = 'sine';
-                gain.gain.setValueAtTime(0.08, ctx.currentTime);
-                gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + 0.08);
-                osc.start(ctx.currentTime);
-                osc.stop(ctx.currentTime + 0.08);
-            } catch (e) { /* silent */ }
-        }
-
-        function playHeartbeatSound() {
-            try {
-                const ctx = getAudioContext();
-                if (!ctx) return;
-                const osc = ctx.createOscillator();
-                const gain = ctx.createGain();
-                osc.connect(gain);
-                gain.connect(ctx.destination);
-                osc.frequency.value = 60;
-                osc.type = 'sine';
-                gain.gain.setValueAtTime(0.12, ctx.currentTime);
-                gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + 0.12);
-                osc.start(ctx.currentTime);
-                osc.stop(ctx.currentTime + 0.12);
-
-                setTimeout(() => {
-                    try {
-                        const osc2 = ctx.createOscillator();
-                        const gain2 = ctx.createGain();
-                        osc2.connect(gain2);
-                        gain2.connect(ctx.destination);
-                        osc2.frequency.value = 80;
-                        osc2.type = 'sine';
-                        gain2.gain.setValueAtTime(0.1, ctx.currentTime);
-                        gain2.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + 0.1);
-                        osc2.start(ctx.currentTime);
-                        osc2.stop(ctx.currentTime + 0.1);
-                    } catch (e) {}
-                }, 200);
-            } catch (e) { /* silent */ }
-        }
-
-        function playGiftSound() {
-            try {
-                const ctx = getAudioContext();
-                if (!ctx) return;
-                const notes = [523, 659, 784, 1047];
-                notes.forEach((freq, i) => {
-                    setTimeout(() => {
-                        try {
-                            const osc = ctx.createOscillator();
-                            const gain = ctx.createGain();
-                            osc.connect(gain);
-                            gain.connect(ctx.destination);
-                            osc.frequency.value = freq;
-                            osc.type = 'sine';
-                            gain.gain.setValueAtTime(0.06, ctx.currentTime);
-                            gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + 0.12);
-                            osc.start(ctx.currentTime);
-                            osc.stop(ctx.currentTime + 0.12);
-                        } catch (e) {}
-                    }, i * 100);
-                });
-            } catch (e) { /* silent */ }
-        }
-
-        // ============================================================
-        // 2. الثيمات
+        // 1. وضع ليلي/نهاري
         // ============================================================
         let isNight = false;
 
@@ -2308,16 +1576,15 @@
             const icon = document.querySelector('#themeIconSmall');
             if (isNight) {
                 icon.className = 'fas fa-sun';
-                showToast(getText('themeNight'));
+                showToast('🌙 تم تفعيل الوضع الليلي');
             } else {
                 icon.className = 'fas fa-moon';
-                showToast(getText('themeDay'));
+                showToast('☀️ تم تفعيل الوضع النهاري');
             }
-            playClickSound();
         }
 
         // ============================================================
-        // 3. الإعدادات
+        // 2. إظهار/إخفاء الإعدادات
         // ============================================================
         let settingsVisible = false;
 
@@ -2325,20 +1592,19 @@
             settingsVisible = !settingsVisible;
             document.getElementById('settingsPanel').style.display = settingsVisible ? 'flex' : 'none';
             if (settingsVisible) {
-                showToast('⚙️ ' + getText('settings'));
-                playClickSound();
+                showToast('⚙️ الإعدادات');
             }
         }
 
         // ============================================================
-        // 4. لايكات
+        // 3. لايكات
         // ============================================================
-        let likes = 1200,
-            isLiked = false;
+        let likes = 1200;
+        let isLiked = false;
 
         function toggleLike() {
-            const btn = document.getElementById('likeBtn'),
-                cnt = document.getElementById('likeCount');
+            const btn = document.getElementById('likeBtn');
+            const count = document.getElementById('likeCount');
             if (isLiked) {
                 likes--;
                 isLiked = false;
@@ -2347,74 +1613,33 @@
                 likes++;
                 isLiked = true;
                 btn.classList.add('liked');
-                showToast('❤️ ' + getText('likeMsg'));
+                showToast('❤️ شكراً لكِ يا حبيبتي!');
                 createHearts(12);
-                playHeartbeatSound();
             }
-            cnt.textContent = formatNumber(likes);
+            count.textContent = formatNumber(likes);
         }
 
-        function formatNumber(n) { return n >= 1000 ? (n / 1000).toFixed(1) + 'k' : n; }
+        function formatNumber(num) {
+            if (num >= 1000) return (num / 1000).toFixed(1) + 'k';
+            return num.toString();
+        }
 
         // ============================================================
-        // 5. عداد الأيام
+        // 4. عداد الأيام
         // ============================================================
         const meetingDate = new Date(2023, 0, 15);
 
         function updateDaysCounter() {
-            const now = new Date(),
-                diff = now - meetingDate;
-            const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+            const now = new Date();
+            const diffMs = now.getTime() - meetingDate.getTime();
+            const days = Math.floor(diffMs / (1000 * 60 * 60 * 24));
             document.getElementById('daysCount').textContent = days >= 0 ? days : 0;
         }
         updateDaysCounter();
         setInterval(updateDaysCounter, 60000);
 
         // ============================================================
-        // 6. عداد تنازلي (محسوب من تاريخ الميلاد 7 مايو)
-        // ============================================================
-        const birthDay = new Date(2004, 4, 7); // 7 مايو 2004
-
-        function getNextBirthday() {
-            const now = new Date();
-            const year = now.getFullYear();
-            let next = new Date(year, 4, 7);
-            if (next < now) {
-                next = new Date(year + 1, 4, 7);
-            }
-            return next;
-        }
-
-        function updateCountdown() {
-            const now = new Date();
-            const target = getNextBirthday();
-            let diff = target - now;
-            if (diff < 0) diff = 0;
-
-            const days = Math.floor(diff / (1000 * 60 * 60 * 24));
-            const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-            const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
-            const seconds = Math.floor((diff % (1000 * 60)) / 1000);
-
-            document.getElementById('cdDays').textContent = String(days).padStart(2, '0');
-            document.getElementById('cdHours').textContent = String(hours).padStart(2, '0');
-            document.getElementById('cdMinutes').textContent = String(minutes).padStart(2, '0');
-            document.getElementById('cdSeconds').textContent = String(seconds).padStart(2, '0');
-
-            if (diff === 0) {
-                showToast('🎉 عيد ميلاد سعيد يا حبيبتي! 🎉');
-                createHearts(50);
-                playGiftSound();
-                setTimeout(() => {
-                    showToast('💖 كل عام وأنتِ بخير يا أجمل بنت 💖');
-                }, 2000);
-            }
-        }
-        updateCountdown();
-        setInterval(updateCountdown, 1000);
-
-        // ============================================================
-        // 7. معرض الصور (تم إصلاح الحركة)
+        // 5. معرض الصور
         // ============================================================
         const imageUrls = [
             'https://qu.ax/0gKPn.jpg',
@@ -2428,19 +1653,11 @@
             'https://qu.ax/joJjb.jpg'
         ];
 
-        const slideTexts = {
-            ar: ['❤️ حبيبتي الجميلة', '🌹 وردة حياتي', '💕 حبّي الأبدي', '✨ نور عيني', '🌸 أجمل بنت', '💖 روحي وحياتي', '🌺 أنتِ ملاكي',
-                '💗 عشق عمري', '🌟 نجمة قلبي'
-            ],
-            en: ['❤️ My Beautiful Love', '🌹 Rose of My Life', '💕 My Eternal Love', '✨ Light of My Eyes',
-                '🌸 Most Beautiful Girl', '💖 My Soul and Life', '🌺 You Are My Angel', '💗 Love of My Life',
-                '🌟 Star of My Heart'
-            ],
-            fr: ['❤️ Mon Bel Amour', '🌹 Rose de Ma Vie', '💕 Mon Amour Éternel', '✨ Lumière de Mes Yeux',
-                '🌸 La Plus Belle Fille', '💖 Mon Âme et Ma Vie', '🌺 Tu Es Mon Ange', '💗 Amour de Ma Vie',
-                '🌟 Étoile de Mon Cœur'
-            ]
-        };
+        const slideTexts = [
+            '❤️ حبيبتي الجميلة', '🌹 وردة حياتي', '💕 حبّي الأبدي',
+            '✨ نور عيني', '🌸 أجمل بنت', '💖 روحي وحياتي',
+            '🌺 أنتِ ملاكي', '💗 عشق عمري', '🌟 نجمة قلبي'
+        ];
 
         let currentSlide = 0;
         const slidesContainer = document.getElementById('slidesContainer');
@@ -2450,29 +1667,32 @@
         function buildGallery() {
             slidesContainer.innerHTML = '';
             dotsContainer.innerHTML = '';
-            const shuffled = imageUrls.map((_, i) => i);
-            for (let i = shuffled.length - 1; i > 0; i--) {
+
+            const shuffledIndices = imageUrls.map((_, i) => i);
+            for (let i = shuffledIndices.length - 1; i > 0; i--) {
                 const j = Math.floor(Math.random() * (i + 1));
-                [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+                [shuffledIndices[i], shuffledIndices[j]] = [shuffledIndices[j], shuffledIndices[i]];
             }
-            const texts = slideTexts[currentLang] || slideTexts.ar;
-            shuffled.forEach((idx, index) => {
+
+            shuffledIndices.forEach((idx, index) => {
                 const slide = document.createElement('div');
                 slide.className = 'slide';
-                slide.innerHTML =
-                    `<img src="${imageUrls[idx]}" alt="صورة" loading="lazy"/><div class="slide-text">${texts[idx % texts.length]}</div>`;
+                slide.innerHTML = `
+                    <img src="${imageUrls[idx]}" alt="صورة حبيبتي" loading="lazy" />
+                    <div class="slide-text">${slideTexts[idx % slideTexts.length]}</div>
+                `;
                 slidesContainer.appendChild(slide);
+
                 const dot = document.createElement('div');
                 dot.className = 'dot' + (index === 0 ? ' active' : '');
-                dot.onclick = (e) => { e.stopPropagation();
-                    goToSlide(index); };
+                dot.onclick = (e) => { e.stopPropagation(); goToSlide(index); };
                 dotsContainer.appendChild(dot);
             });
+
             updateSlide();
         }
 
         function updateSlide() {
-            if (!slidesContainer) return;
             slidesContainer.style.transform = `translateX(-${currentSlide * 100}%)`;
             document.querySelectorAll('.dot').forEach((d, i) => {
                 d.className = 'dot' + (i === currentSlide ? ' active' : '');
@@ -2482,37 +1702,33 @@
         function goToSlide(index) {
             currentSlide = index;
             updateSlide();
-            resetSlideInterval();
-            playClickSound();
+            resetInterval();
         }
 
         function nextSlide() {
             const total = slidesContainer.children.length;
-            if (total === 0) return;
             currentSlide = (currentSlide + 1) % total;
             updateSlide();
-            resetSlideInterval();
+            resetInterval();
         }
 
         function prevSlide() {
             const total = slidesContainer.children.length;
-            if (total === 0) return;
             currentSlide = (currentSlide - 1 + total) % total;
             updateSlide();
-            resetSlideInterval();
-            playClickSound();
+            resetInterval();
         }
 
-        function resetSlideInterval() {
-            if (slideInterval) clearInterval(slideInterval);
+        function resetInterval() {
+            clearInterval(slideInterval);
             slideInterval = setInterval(nextSlide, 4500);
         }
 
         buildGallery();
-        resetSlideInterval();
+        slideInterval = setInterval(nextSlide, 4500);
 
         // ============================================================
-        // 8. Lightbox
+        // 6. Lightbox
         // ============================================================
         const lightbox = document.getElementById('lightbox');
         const lightboxImg = document.getElementById('lightboxImg');
@@ -2525,7 +1741,6 @@
             lightboxCounter.textContent = `${index + 1} / ${imageUrls.length}`;
             lightbox.classList.add('show');
             document.body.style.overflow = 'hidden';
-            playClickSound();
         }
 
         function closeLightbox(e) {
@@ -2534,46 +1749,50 @@
             document.body.style.overflow = '';
         }
 
-        function navigateLightbox(d) {
-            lightboxIndex = (lightboxIndex + d + imageUrls.length) % imageUrls.length;
+        function navigateLightbox(direction) {
+            lightboxIndex = (lightboxIndex + direction + imageUrls.length) % imageUrls.length;
             lightboxImg.src = imageUrls[lightboxIndex];
             lightboxCounter.textContent = `${lightboxIndex + 1} / ${imageUrls.length}`;
-            playClickSound();
         }
 
-        document.addEventListener('keydown', e => {
+        document.addEventListener('keydown', (e) => {
             if (e.key === 'Escape') closeLightbox();
             if (e.key === 'ArrowRight') navigateLightbox(1);
             if (e.key === 'ArrowLeft') navigateLightbox(-1);
         });
 
         // ============================================================
-        // 9. العمر
+        // 7. العمر
         // ============================================================
+        const birthDate = new Date(2004, 4, 7, 0, 0, 0, 0);
+
         function updateAge() {
             const now = new Date();
-            let diff = now - birthDay;
-            if (diff < 0) diff = 0;
-            const totalDays = Math.floor(diff / (1000 * 60 * 60 * 24));
+            let diffMs = now.getTime() - birthDate.getTime();
+            if (diffMs < 0) diffMs = 0;
+
+            const totalDays = Math.floor(diffMs / (1000 * 60 * 60 * 24));
             const years = Math.floor(totalDays / 365.2425);
-            let rem = totalDays - years * 365.2425;
+            let rem = totalDays - (years * 365.2425);
             if (rem < 0) rem = 0;
             const months = Math.floor(rem / 30.436875);
-            const remDays = Math.floor(rem - months * 30.436875);
+            const remDays = Math.floor(rem - (months * 30.436875));
             const weeks = Math.floor(remDays / 7);
             const daysFinal = remDays % 7;
             const hours = now.getHours();
+
             document.getElementById('years').innerText = years;
             document.getElementById('months').innerText = months;
             document.getElementById('weeks').innerText = weeks;
             document.getElementById('days').innerText = daysFinal;
             document.getElementById('hours').innerText = hours;
         }
+
         updateAge();
         setInterval(updateAge, 60000);
 
         // ============================================================
-        // 10. الموسيقى
+        // 8. الموسيقى
         // ============================================================
         const music = document.getElementById('bgMusic');
         let isPlaying = false;
@@ -2591,7 +1810,6 @@
                 playBtn.innerHTML = '<i class="fas fa-pause"></i>';
                 playBtn.classList.add('playing');
             }
-            playClickSound();
         }
 
         music.addEventListener('timeupdate', () => {
@@ -2601,109 +1819,68 @@
             }
         });
 
-        document.getElementById('progressBar').addEventListener('click', e => {
+        document.getElementById('progressBar').addEventListener('click', (e) => {
             const rect = e.currentTarget.getBoundingClientRect();
             const pct = (e.clientX - rect.left) / rect.width;
-            if (music.duration) music.currentTime = pct * music.duration;
-            playClickSound();
+            if (music.duration) {
+                music.currentTime = pct * music.duration;
+            }
         });
 
-        function prevTrack() { music.currentTime = 0;
-            playClickSound(); }
+        function prevTrack() {
+            music.currentTime = 0;
+        }
 
-        function nextTrack() { music.currentTime = music.duration * 0.8;
-            playClickSound(); }
+        function nextTrack() {
+            music.currentTime = music.duration * 0.8;
+        }
 
         // ============================================================
-        // 11. زر القلب + قلوب متطايرة
+        // 9. زر القلب + قلوب متطايرة
         // ============================================================
         const heartBtn = document.getElementById('heartButton');
         let heartCount = 0;
 
         function createHearts(count = 15) {
-            const c = document.getElementById('petalsContainer');
-            const emojis = ['❤️', '💖', '💕', '💗', '💓', '🌸', '✨', '⭐', '🌹', '🩷'];
+            const container = document.getElementById('petalsContainer');
+            const emojis = ['❤️', '💖', '💕', '💗', '💓', '🌸', '✨', '⭐'];
             for (let i = 0; i < count; i++) {
-                const h = document.createElement('div');
-                h.className = 'petal';
-                h.textContent = emojis[Math.floor(Math.random() * emojis.length)];
-                h.style.left = (10 + Math.random() * 80) + '%';
-                h.style.top = (30 + Math.random() * 40) + '%';
-                h.style.fontSize = (0.8 + Math.random() * 2) + 'rem';
-                h.style.animationDuration = (1.8 + Math.random() * 1.8) + 's';
-                h.style.animationDelay = (Math.random() * 0.4) + 's';
-                h.style.opacity = 0.7 + Math.random() * 0.3;
-                c.appendChild(h);
-                setTimeout(() => h.remove(), 4000);
+                const heart = document.createElement('div');
+                heart.className = 'petal';
+                heart.textContent = emojis[Math.floor(Math.random() * emojis.length)];
+                heart.style.left = (10 + Math.random() * 80) + '%';
+                heart.style.top = (30 + Math.random() * 40) + '%';
+                heart.style.fontSize = (0.8 + Math.random() * 1.5) + 'rem';
+                heart.style.animationDuration = (1.8 + Math.random() * 1.5) + 's';
+                heart.style.animationDelay = (Math.random() * 0.3) + 's';
+                heart.style.opacity = 0.7 + Math.random() * 0.3;
+                container.appendChild(heart);
+                setTimeout(() => heart.remove(), 3500);
             }
         }
 
         heartBtn.addEventListener('click', function() {
             heartCount++;
             const icon = this.querySelector('i');
-            const colors = ['#c2185b', '#ff4757', '#ff6b81', '#ff9ff3', '#feca57', '#ff4081'];
+            const colors = ['#c2185b', '#ff4757', '#ff6b81', '#ff9ff3', '#feca57'];
             icon.style.color = colors[heartCount % colors.length];
             this.style.transform = 'scale(0.7)';
             setTimeout(() => { this.style.transform = ''; }, 200);
-            createHearts(30);
-            playHeartbeatSound();
-            const msgs = ['heartMsg1', 'heartMsg2', 'heartMsg3', 'heartMsg4', 'heartMsg5'];
-            showToast('❤️ ' + getText(msgs[heartCount % msgs.length]));
-        });
 
-        // ============================================================
-        // 12. الهدايا (مع مودال منبثق)
-        // ============================================================
-        let selectedGift = { icon: '🎁', name: 'هدية' };
-
-        function openGiftModal(icon, name) {
-            selectedGift = { icon, name };
-            document.getElementById('giftBigIcon').textContent = icon;
-            document.getElementById('giftModalTitle').textContent = `🎁 ${name}`;
-            document.getElementById('giftModalDesc').textContent = getText('giftConfirm') || 'هل تريد إرسال هذه الهدية لحبيبتك؟';
-            document.getElementById('giftModal').classList.add('show');
-            document.body.style.overflow = 'hidden';
-            playClickSound();
-        }
-
-        function closeGiftModal() {
-            document.getElementById('giftModal').classList.remove('show');
-            document.body.style.overflow = '';
-            playClickSound();
-        }
-
-        function confirmSendGift() {
-            const name = selectedGift.name;
-            showToast(`🎁 تم إرسال ${name} لحبيبتي!`);
             createHearts(25);
-            playGiftSound();
-            closeGiftModal();
 
-            // تأثير إضافي: نجوم متطايرة
-            const emojis = ['✨', '⭐', '🌟', '💫'];
-            for (let i = 0; i < 15; i++) {
-                setTimeout(() => {
-                    const el = document.createElement('div');
-                    el.className = 'petal';
-                    el.textContent = emojis[Math.floor(Math.random() * emojis.length)];
-                    el.style.left = (10 + Math.random() * 80) + '%';
-                    el.style.top = (30 + Math.random() * 40) + '%';
-                    el.style.fontSize = (1 + Math.random() * 2) + 'rem';
-                    el.style.animationDuration = (1 + Math.random() * 1.5) + 's';
-                    el.style.opacity = 0.8;
-                    document.getElementById('petalsContainer').appendChild(el);
-                    setTimeout(() => el.remove(), 2500);
-                }, i * 80);
-            }
-        }
-
-        // إغلاق مودال الهدايا بالضغط خارج المحتوى
-        document.getElementById('giftModal').addEventListener('click', e => {
-            if (e.target === e.currentTarget) closeGiftModal();
+            const msgs = [
+                '❤️ أحبك يا أجمل بنت!',
+                '💖 أنتِ كل شيء في حياتي!',
+                '💕 روحي وحياتي!',
+                '✨ أنتِ ملاكي!',
+                '🌹 وردة عمري!'
+            ];
+            showToast(msgs[heartCount % msgs.length]);
         });
 
         // ============================================================
-        // 13. الترجمة الكاملة (جميع النصوص)
+        // 10. تغيير اللغة
         // ============================================================
         const translations = {
             ar: {
@@ -2717,68 +1894,7 @@
                 hours: 'ساعات',
                 gallery: '📸 ذكرياتنا الجميلة',
                 track: '🎵 أغنية حبك ❤️',
-                daysLabel: '💕 منذ لقائنا',
-                daysUnit: 'يوم',
-                brand: '❤️ حبيبتي',
-                comments: '💬 التعليقات',
-                share: 'مشاركة',
-                print: 'طباعة',
-                message: 'رسالة',
-                settings: 'الإعدادات',
-                themeNight: '🌙 تم تفعيل الوضع الليلي',
-                themeDay: '☀️ تم تفعيل الوضع النهاري',
-                likeMsg: 'شكراً لكِ يا حبيبتي!',
-                heartMsg1: 'أحبك يا أجمل بنت!',
-                heartMsg2: 'أنتِ كل شيء في حياتي!',
-                heartMsg3: 'روحي وحياتي!',
-                heartMsg4: 'أنتِ ملاكي!',
-                heartMsg5: 'وردة عمري!',
-                modalTitle: 'التعليقات',
-                modalSend: 'إرسال',
-                modalPlaceholder: '💬 اكتب تعليقاً جميلاً...',
-                commentAdded: '✅ تم إضافة تعليقك الجميل!',
-                writeFirst: '💬 اكتب تعليقاً أولاً!',
-                toastWelcome: '💖 مرحباً يا أجمل بنت في الدنيا 💖',
-                toastLang: '✅ تم التبديل إلى العربية',
-                shareMsg: 'شوف هذا الموقع الجميل عن حبيبتي 💕',
-                copyLink: '✅ تم نسخ الرابط! شاركه مع من تحب ❤️',
-                linkCopied: '📋 الرابط: ',
-                loveMsg1: '💖 أنتِ أجمل شيء في حياتي',
-                loveMsg2: '❤️ بحبك أكثر من أي شيء',
-                loveMsg3: '💕 أنتِ كل شيء بالنسبة لي',
-                loveMsg4: '🌸 وجودك في حياتي نعمة',
-                loveMsg5: '💗 أنتِ حلمي اللي تحقق',
-                loveMsg6: '✨ أنتِ نور عيني',
-                loveMsg7: '🌺 أنتِ أجمل بنت في الدنيا',
-                countdownTitle: '⏳ متبقي على عيد ميلاد حبيبتي',
-                cdDays: 'أيام',
-                cdHours: 'ساعات',
-                cdMinutes: 'دقائق',
-                cdSeconds: 'ثواني',
-                memoriesTitle: '📖 ركن الذكريات',
-                messagesTitle: '💌 مكتبة الرسائل',
-                giftsTitle: '🎁 أرسل هدية لحبيبتي',
-                giftConfirm: 'هل تريد إرسال هذه الهدية لحبيبتك؟',
-                giftSend: 'إرسال',
-                giftCancel: 'إلغاء',
-                mem1: 'أول لقاء',
-                mem2: 'أول وردة',
-                mem3: 'أول قبلة',
-                mem4: 'وعد الحب',
-                msg1: '"أنتِ أجمل شيء في حياتي، وكل يوم معك هو هدية."',
-                msg2: '"لو كان الحب يكتب، لكنت كتبت عنكِ آلاف الصفحات."',
-                msg3: '"في عينيكِ أرى الكون كله، وفي قلبكِ أجد سعادتي."',
-                letterText: `💬 عايز اقولك انك مش مجرد بنت بحبها انتي الحياه اللي اتمنيتها من سنين انتي الحلم اللي صحيت عليه ولقيته قدامي انتي الأمان اللي قلبي ارتاح فيه والدفا اللي بحس بيه انتي أجمل من كل الكلام اللي بيتقال واحن من كل حضن اتخيلته انتي مش بس حبيبتي انتي دنيتي انتي اخت روحي انتي ملاكي اللي ربنا بعتهو ليا 💫
-
-من أول ما عرفتك وانا مش زي زمان كل حاجه بقت ليها طعم تاني الضحكه بقت من القلب والدنيا بقت فيها أمل بقيت بصحى وانا مبسوط عشان انتي في حياتي بقيت بحب اليوم اللي بيعدي وانتي فيه بقيت بضحك على حاجات بسيطة لان وجودك بيكفيني 💕
-
-انتي اللي غيرتيني للأحسن انتي اللي خلتيني أعرف يعني ايه حب حقيقي انتي النور اللي دخل قلبي ومفارقنيش لما بشوفك بضحك من غير ما أحس لما يسمع صوتك بتهدى كل حاجة جوايا لما تبعتيلي مسدج قلبي بيرقص لما بتقوليلي وحشتني بحس اني أسعد إنسان 💖
-
-انتي كل حاجه حلوة حصلتلي انتي اللي بخاف عليها من الهوا انتي اللي بحس اني مش عايز منها غير رضاها انا بحب كل تفاصيلك بحب صوتك بحب ضحكتك بحب عصبيتك بحب طريقتك وانتي بتزعلي وبتصالحيني بعدها زي الأطفال بحب عصبيتك لما بتغيري عليا و بحب طيبة قلبك بحب عيونك و بحب خوفك عليا بـ اهتمامك بيا انتي سبب ضحكتي انتي سندي في الوجع انتي كتفي بتعب انتي قلبي اللي بيدق عشانك كل ثانيه 💗
-
-انتي بتملي حياتي فرحه وضحكة حقيقية من القلب انتي ملاك نزل عشاني انتي هدية ربنا ليا انا كل يوم بدعى انك تفضلي ليا كل يوم بشكر ربنا أنك في حياتي كل يوم بحبك أكثر كل ثانيه بتمر وانتي فيها بتكون أغلى من اللي قبلها انتي بتمثليلي حاجات كتير ميتكتبش عنها غير في كتب انتي معجزة حقيقية وجودك شفاء لقلبي وانتي روحي اللي سكنت جوايا نظرتك لما بتبصيلي كاني أهم حاجه في حياتك بحب خوفك عليا واهتمامك بيا انتي الشخص اللي يدعي يفضل معايا للآخر ده انتي اللي نفسي أعيش معاكي كل لحظه انتي اللي بستني اسمع صوتك كل يوم وكانها أول مرة انتي الحب اللي مستحيل يتكرر انتي حبيبتي ❤️
-
-انتي حبيبتي اللي بحبها من غير سبب انتي اللي مفيش منك 2 ف الدنيا هتفضلي ثابتة جوا قلبي انتي اللي وجودك بيهون عليا كل حاجه انتي اللي بفتكرها أول ما أصحى واخر ما أنام انتي اجد واحن حب واطيب قلب انتي روحي وسر سعادتي وسبب ضحكتي لو عشت الف سنه مش هيكفيني انتي اجمل من كل الوصف انتي اجمل كل الكلمات انتي دنيتي اللي بحمد ربنا عليها كل لحظه بحبك ومفضل احبك وهفضل أحميكي بحبك وحفضل أدعي ربنا يجمعني بيكي على طول بحبك ومفضل اكتب عنك الحد آخر نفس فيا بحبك يا كل حاجه حلا حصلتلي بحبككك ي ست البنات متزعليش 💋`
+                daysLabel: '💕 منذ لقائنا'
             },
             en: {
                 title: '💖 The One Who Stole My Heart 💖',
@@ -2791,68 +1907,7 @@
                 hours: 'Hours',
                 gallery: '📸 Our Beautiful Memories',
                 track: '🎵 Your Love Song ❤️',
-                daysLabel: '💕 Since We Met',
-                daysUnit: 'Day',
-                brand: '❤️ My Love',
-                comments: '💬 Comments',
-                share: 'Share',
-                print: 'Print',
-                message: 'Message',
-                settings: 'Settings',
-                themeNight: '🌙 Night mode activated',
-                themeDay: '☀️ Day mode activated',
-                likeMsg: 'Thank you my love!',
-                heartMsg1: 'I love you, most beautiful girl!',
-                heartMsg2: 'You are everything in my life!',
-                heartMsg3: 'My soul and life!',
-                heartMsg4: 'You are my angel!',
-                heartMsg5: 'Rose of my life!',
-                modalTitle: 'Comments',
-                modalSend: 'Send',
-                modalPlaceholder: '💬 Write a beautiful comment...',
-                commentAdded: '✅ Your beautiful comment has been added!',
-                writeFirst: '💬 Please write a comment first!',
-                toastWelcome: '💖 Welcome, most beautiful girl in the world 💖',
-                toastLang: '✅ Switched to English',
-                shareMsg: 'Check out this beautiful website about my love 💕',
-                copyLink: '✅ Link copied! Share it with someone you love ❤️',
-                linkCopied: '📋 Link: ',
-                loveMsg1: '💖 You are the most beautiful thing in my life',
-                loveMsg2: '❤️ I love you more than anything',
-                loveMsg3: '💕 You are everything to me',
-                loveMsg4: '🌸 Having you in my life is a blessing',
-                loveMsg5: '💗 You are my dream come true',
-                loveMsg6: '✨ You are the light of my eyes',
-                loveMsg7: '🌺 You are the most beautiful girl in the world',
-                countdownTitle: '⏳ Countdown to my love\'s birthday',
-                cdDays: 'Days',
-                cdHours: 'Hours',
-                cdMinutes: 'Minutes',
-                cdSeconds: 'Seconds',
-                memoriesTitle: '📖 Memories Corner',
-                messagesTitle: '💌 Message Library',
-                giftsTitle: '🎁 Send a gift to my love',
-                giftConfirm: 'Do you want to send this gift to your love?',
-                giftSend: 'Send',
-                giftCancel: 'Cancel',
-                mem1: 'First Meeting',
-                mem2: 'First Rose',
-                mem3: 'First Kiss',
-                mem4: 'Love Promise',
-                msg1: '"You are the most beautiful thing in my life, every day with you is a gift."',
-                msg2: '"If love could be written, I would write thousands of pages about you."',
-                msg3: '"In your eyes I see the whole universe, and in your heart I find my happiness."',
-                letterText: `💬 I want to tell you that you are not just a girl I love, you are the life I have dreamed of for years. You are the dream I woke up to and found in front of me. You are the safety my heart found comfort in, and the warmth I feel. You are more beautiful than all the words that are said, and more tender than any embrace I could imagine. You are not just my love, you are my world, you are my soul's sister, you are my angel that God sent to me 💫
-
-From the first moment I knew you, I was not the same as before. Everything had a different taste. Laughter came from the heart, and the world had hope in it. I started waking up happy because you are in my life. I started loving the day that passes with you in it. I started laughing at simple things because your presence is enough for me 💕
-
-You are the one who changed me for the better. You are the one who made me know what true love means. You are the light that entered my heart and never left. When I see you, I smile without realizing it. When I hear your voice, everything inside me calms down. When you send me a message, my heart dances. When you say you missed me, I feel I am the happiest person 💖
-
-You are every beautiful thing that has happened to me. You are the one I fear the wind might harm. You are the one I don't want anything from but your satisfaction. I love every detail of you. I love your voice, I love your laugh, I love your temper, I love your way when you get upset and then make up with me like children. I love your jealousy when you get jealous over me, and I love your kind heart. I love your eyes, and I love your fear for me, your care for me. You are the reason for my smile, you are my support in pain, you are my shoulder when I'm tired, you are my heart that beats for you every second 💗
-
-You fill my life with joy and genuine laughter from the heart. You are an angel sent for me. You are God's gift to me. Every day I pray that you stay for me. Every day I thank God that you are in my life. Every day I love you more. Every second that passes and you are in it, you become more precious than the one before. You represent so many things to me that cannot be written except in books. You are a true miracle. Your presence is healing for my heart, and you are my soul that has settled inside me. Your look when you look at me, as if I am the most important thing in your life. I love your fear for me and your care for me. You are the person I pray stays with me until the end. You are the one I want to live every moment with. You are the one I wait to hear your voice every day as if it's the first time. You are the love that can never be repeated. You are my love ❤️
-
-You are my love whom I love without a reason. You are the one of whom there is no second in this world. You will remain fixed inside my heart. You are the one whose presence makes everything easier for me. You are the one I think of when I wake up and before I sleep. You are the most precious and tender love, and the kindest heart. You are my soul, the secret of my happiness, and the reason for my smile. If I lived a thousand years, it would not be enough for me. You are more beautiful than any description. You are more beautiful than all words. You are my world for which I thank God every moment. I love you and I will always love you, and I will always protect you with my love. I will always pray that God brings us together forever. I love you and I will keep writing about you until my last breath. I love you, oh everything beautiful that has happened to me. I love you, oh queen of all girls, don't be upset 💋`
+                daysLabel: '💕 Since We Met'
             },
             fr: {
                 title: '💖 Celle qui a volé mon cœur 💖',
@@ -2865,83 +1920,20 @@ You are my love whom I love without a reason. You are the one of whom there is n
                 hours: 'Heures',
                 gallery: '📸 Nos Beaux Souvenirs',
                 track: '🎵 Ta Chanson d\'Amour ❤️',
-                daysLabel: '💕 Depuis Notre Rencontre',
-                daysUnit: 'Jour',
-                brand: '❤️ Mon Amour',
-                comments: '💬 Commentaires',
-                share: 'Partager',
-                print: 'Imprimer',
-                message: 'Message',
-                settings: 'Paramètres',
-                themeNight: '🌙 Mode nuit activé',
-                themeDay: '☀️ Mode jour activé',
-                likeMsg: 'Merci ma chérie!',
-                heartMsg1: 'Je t\'aime, la plus belle fille!',
-                heartMsg2: 'Tu es tout dans ma vie!',
-                heartMsg3: 'Mon âme et ma vie!',
-                heartMsg4: 'Tu es mon ange!',
-                heartMsg5: 'Rose de ma vie!',
-                modalTitle: 'Commentaires',
-                modalSend: 'Envoyer',
-                modalPlaceholder: '💬 Écris un beau commentaire...',
-                commentAdded: '✅ Ton beau commentaire a été ajouté!',
-                writeFirst: '💬 Écris un commentaire d\'abord!',
-                toastWelcome: '💖 Bienvenue, la plus belle fille du monde 💖',
-                toastLang: '✅ Passé au français',
-                shareMsg: 'Regarde ce beau site sur mon amour 💕',
-                copyLink: '✅ Lien copié! Partage-le avec quelqu\'un que tu aimes ❤️',
-                linkCopied: '📋 Lien: ',
-                loveMsg1: '💖 Tu es la plus belle chose dans ma vie',
-                loveMsg2: '❤️ Je t\'aime plus que tout',
-                loveMsg3: '💕 Tu es tout pour moi',
-                loveMsg4: '🌸 T\'avoir dans ma vie est une bénédiction',
-                loveMsg5: '💗 Tu es mon rêve devenu réalité',
-                loveMsg6: '✨ Tu es la lumière de mes yeux',
-                loveMsg7: '🌺 Tu es la plus belle fille du monde',
-                countdownTitle: '⏳ Compte à rebours pour l\'anniversaire de mon amour',
-                cdDays: 'Jours',
-                cdHours: 'Heures',
-                cdMinutes: 'Minutes',
-                cdSeconds: 'Secondes',
-                memoriesTitle: '📖 Coin des Souvenirs',
-                messagesTitle: '💌 Bibliothèque de Messages',
-                giftsTitle: '🎁 Envoie un cadeau à mon amour',
-                giftConfirm: 'Veux-tu envoyer ce cadeau à ton amour?',
-                giftSend: 'Envoyer',
-                giftCancel: 'Annuler',
-                mem1: 'Première Rencontre',
-                mem2: 'Première Rose',
-                mem3: 'Premier Baiser',
-                mem4: 'Promesse d\'Amour',
-                msg1: '"Tu es la plus belle chose dans ma vie, chaque jour avec toi est un cadeau."',
-                msg2: '"Si l\'amour pouvait s\'écrire, j\'écrirais des milliers de pages sur toi."',
-                msg3: '"Dans tes yeux je vois tout l\'univers, et dans ton cœur je trouve mon bonheur."',
-                letterText: `💬 Je veux te dire que tu n'es pas juste une fille que j'aime, tu es la vie que j'ai rêvée depuis des années. Tu es le rêve dont je me suis réveillé et que j'ai trouvé devant moi. Tu es la sécurité dans laquelle mon cœur s'est reposé, et la chaleur que je ressens. Tu es plus belle que tous les mots qui sont dits, et plus tendre que toute étreinte que j'aurais pu imaginer. Tu n'es pas seulement mon amour, tu es mon monde, tu es la sœur de mon âme, tu es mon ange que Dieu m'a envoyé 💫
-
-Dès le premier moment où je t'ai connue, je n'étais plus comme avant. Tout avait un goût différent. Le rire venait du cœur, et le monde avait de l'espoir. Je me suis réveillé heureux parce que tu es dans ma vie. J'ai commencé à aimer la journée qui passe avec toi dedans. Je me suis mis à rire des choses simples parce que ta présence me suffit 💕
-
-C'est toi qui m'as changé pour le meilleur. C'est toi qui m'as fait savoir ce qu'est le véritable amour. Tu es la lumière qui est entrée dans mon cœur et qui ne l'a jamais quitté. Quand je te vois, je souris sans m'en rendre compte. Quand j'entends ta voix, tout en moi s'apaise. Quand tu m'envoies un message, mon cœur danse. Quand tu me dis que je t'ai manqué, je me sens la personne la plus heureuse 💖
-
-Tu es chaque belle chose qui m'est arrivée. Tu es celle dont j'ai peur que le vent ne la blesse. Tu es celle dont je ne veux rien d'autre que ta satisfaction. J'aime chaque détail de toi. J'aime ta voix, j'aime ton rire, j'aime ton caractère, j'aime ta façon de te fâcher et de te réconcilier avec moi comme des enfants. J'aime ta jalousie quand tu es jalouse de moi, et j'aime la gentillesse de ton cœur. J'aime tes yeux, et j'aime ta peur pour moi, ton attention pour moi. Tu es la raison de mon sourire, tu es mon soutien dans la douleur, tu es mon épaule quand je suis fatigué, tu es mon cœur qui bat pour toi à chaque seconde 💗
-
-Tu remplis ma vie de joie et de rires sincères venant du cœur. Tu es un ange envoyé pour moi. Tu es le cadeau de Dieu pour moi. Chaque jour je prie pour que tu restes pour moi. Chaque jour je remercie Dieu que tu sois dans ma vie. Chaque jour je t'aime davantage. Chaque seconde qui passe et où tu es, tu deviens plus précieuse que la précédente. Tu représentes tant de choses pour moi qui ne peuvent être écrites que dans des livres. Tu es un véritable miracle. Ta présence est une guérison pour mon cœur, et tu es mon âme qui s'est installée en moi. Ton regard quand tu me regardes, comme si j'étais la chose la plus importante dans ta vie. J'aime ta peur pour moi et ton attention pour moi. Tu es la personne pour qui je prie qu'elle reste avec moi jusqu'à la fin. Tu es celle avec qui je veux vivre chaque moment. Tu es celle dont j'attends d'entendre ta voix chaque jour comme si c'était la première fois. Tu es l'amour qui ne peut jamais être répété. Tu es mon amour ❤️
-
-Tu es mon amour que j'aime sans raison. Tu es celle dont il n'y a pas de seconde dans ce monde. Tu resteras fixée dans mon cœur. Tu es celle dont la présence rend tout plus facile pour moi. Tu es celle à qui je pense quand je me réveille et avant de dormir. Tu es l'amour le plus précieux et le plus tendre, et le cœur le plus gentil. Tu es mon âme, le secret de mon bonheur, et la raison de mon sourire. Si je vivais mille ans, cela ne me suffirait pas. Tu es plus belle que toute description. Tu es plus belle que tous les mots. Tu es mon monde pour lequel je remercie Dieu à chaque instant. Je t'aime et je t'aimerai toujours, et je te protégerai toujours avec mon amour. Je prierai toujours pour que Dieu nous réunisse pour toujours. Je t'aime et je continuerai à écrire sur toi jusqu'à mon dernier souffle. Je t'aime, toi tout ce qui est beau qui m'est arrivé. Je t'aime, ô reine de toutes les filles, ne sois pas triste 💋`
+                daysLabel: '💕 Depuis Notre Rencontre'
             }
         };
 
         let currentLang = 'ar';
 
-        function getText(key) {
-            return (translations[currentLang] && translations[currentLang][key]) || translations.ar[key] || key;
-        }
-
         function changeLanguage(lang) {
             currentLang = lang;
             const t = translations[lang];
-            document.querySelectorAll('.lang-btn').forEach(b => b.classList.toggle('active', b.dataset.lang === lang));
 
-            // تحديث جميع النصوص
+            document.querySelectorAll('.lang-btn').forEach(btn => {
+                btn.classList.toggle('active', btn.dataset.lang === lang);
+            });
+
             document.getElementById('mainTitle').innerHTML = t.title;
             document.getElementById('subTitle').innerHTML = t.sub;
             document.getElementById('birthdayText').innerHTML = t.birthday;
@@ -2952,42 +1944,8 @@ Tu es mon amour que j'aime sans raison. Tu es celle dont il n'y a pas de seconde
             document.getElementById('lblHours').innerHTML = t.hours;
             document.getElementById('galleryTitle').innerHTML = t.gallery;
             document.getElementById('trackName').innerHTML = t.track;
-            document.getElementById('daysLabel').innerHTML = t.daysLabel;
-            document.getElementById('daysUnitLabel').innerHTML = t.daysUnit;
-            document.getElementById('brandText').innerHTML = t.brand;
-            document.getElementById('commentsToggleText').innerHTML = t.comments;
-            document.getElementById('shareBtnText').innerHTML = t.share;
-            document.getElementById('printBtnText').innerHTML = t.print;
-            document.getElementById('messageBtnText').innerHTML = t.message;
-            document.getElementById('modalTitle').innerHTML = t.modalTitle;
-            document.getElementById('modalSend').innerHTML = t.modalSend;
-            document.getElementById('modalInput').placeholder = t.modalPlaceholder;
-            document.getElementById('countdownTitle').innerHTML = t.countdownTitle;
-            document.getElementById('cdDaysLabel').innerHTML = t.cdDays;
-            document.getElementById('cdHoursLabel').innerHTML = t.cdHours;
-            document.getElementById('cdMinutesLabel').innerHTML = t.cdMinutes;
-            document.getElementById('cdSecondsLabel').innerHTML = t.cdSeconds;
-            document.getElementById('memoriesTitle').innerHTML = t.memoriesTitle;
-            document.getElementById('messagesTitle').innerHTML = t.messagesTitle;
-            document.getElementById('giftsTitle').innerHTML = t.giftsTitle;
-            document.getElementById('giftSendBtn').innerHTML = t.giftSend;
-            document.getElementById('giftCancelBtn').innerHTML = t.giftCancel;
-            document.getElementById('mem1').innerHTML = t.mem1;
-            document.getElementById('mem2').innerHTML = t.mem2;
-            document.getElementById('mem3').innerHTML = t.mem3;
-            document.getElementById('mem4').innerHTML = t.mem4;
-            document.getElementById('msg1').innerHTML = t.msg1;
-            document.getElementById('msg2').innerHTML = t.msg2;
-            document.getElementById('msg3').innerHTML = t.msg3;
-            document.getElementById('letterContent').innerHTML = t.letterText;
+            document.querySelector('.days-label').innerHTML = t.daysLabel;
 
-            // تحديث نصوص معرض الصور
-            const texts = slideTexts[lang] || slideTexts.ar;
-            document.querySelectorAll('.slide .slide-text').forEach((el, idx) => {
-                if (el) el.textContent = texts[idx % texts.length];
-            });
-
-            // اتجاه النص
             if (lang === 'ar') {
                 document.body.style.direction = 'rtl';
                 document.querySelector('.glass-card').style.direction = 'rtl';
@@ -2996,72 +1954,96 @@ Tu es mon amour que j'aime sans raison. Tu es celle dont il n'y a pas de seconde
                 document.querySelector('.glass-card').style.direction = 'ltr';
             }
 
-            showToast('✅ ' + getText('toastLang'));
-            playClickSound();
+            showToast(`✅ تم التبديل إلى ${lang === 'ar' ? 'العربية' : lang === 'en' ? 'الإنجليزية' : 'الفرنسية'}`);
         }
 
         // ============================================================
-        // 14. التعليقات
+        // 11. الإجراءات
+        // ============================================================
+        function showToast(message) {
+            const toast = document.getElementById('toast');
+            toast.textContent = message;
+            toast.classList.add('show');
+            clearTimeout(toast._timeout);
+            toast._timeout = setTimeout(() => {
+                toast.classList.remove('show');
+            }, 3000);
+        }
+
+        function shareWebsite() {
+            if (navigator.share) {
+                navigator.share({
+                    title: '❤️ حبيبتي الغالية ❤️',
+                    text: 'شوف هذا الموقع الجميل عن حبيبتي 💕',
+                    url: window.location.href,
+                }).catch(() => {});
+            } else {
+                navigator.clipboard.writeText(window.location.href).then(() => {
+                    showToast('✅ تم نسخ الرابط! شاركه مع من تحب ❤️');
+                }).catch(() => {
+                    showToast('📋 الرابط: ' + window.location.href);
+                });
+            }
+        }
+
+        function printPage() {
+            window.print();
+        }
+
+        const loveMessages = [
+            '💖 أنتِ أجمل شيء في حياتي',
+            '❤️ بحبك أكثر من أي شيء',
+            '💕 أنتِ كل شيء بالنسبة لي',
+            '🌸 وجودك في حياتي نعمة',
+            '💗 أنتِ حلمي اللي تحقق',
+            '✨ أنتِ نور عيني',
+            '🌺 أنتِ أجمل بنت في الدنيا'
+        ];
+
+        function showLoveMessage() {
+            const msg = loveMessages[Math.floor(Math.random() * loveMessages.length)];
+            showToast(msg);
+        }
+
+        // ============================================================
+        // 12. التعليقات
         // ============================================================
         const defaultComments = [
-            { name: '🌸 نور', text: '💕 كلامك جميل جداً، أنتِ محظوظة بهذا الحب', avatar: '🌸', likes: 5, replies: [] },
-            { name: '💖 سارة', text: '❤️ ما شاء الله، حب نقي و صادق', avatar: '💖', likes: 3, replies: [] },
-            { name: '🌟 ليلى', text: '✨ أنتِ فعلاً أجمل بنت في الدنيا', avatar: '🌟', likes: 8, replies: [] },
-            { name: '🌹 رنا', text: '💗 كلماتك وصلت للقلب، الله يسعدكم', avatar: '🌹', likes: 4, replies: [] },
-            { name: '💫 مريم', text: '🌺 حب يستحق كل هذه المشاعر الجميلة', avatar: '💫', likes: 6, replies: [] }
+            { name: '🌸 نور', text: '💕 كلامك جميل جداً، أنتِ محظوظة بهذا الحب' },
+            { name: '💖 سارة', text: '❤️ ما شاء الله، حب نقي و صادق' },
+            { name: '🌟 ليلى', text: '✨ أنتِ فعلاً أجمل بنت في الدنيا' },
+            { name: '🌹 رنا', text: '💗 كلماتك وصلت للقلب، الله يسعدكم' },
+            { name: '💫 مريم', text: '🌺 حب يستحق كل هذه المشاعر الجميلة' }
         ];
 
         let comments = [];
         let commentInterval;
 
         function loadComments() {
-            comments = defaultComments.map(c => ({ ...c, time: new Date(), id: Date.now() + Math.random() * 1000 }));
-            renderAllComments();
+            comments = defaultComments.map(c => ({ ...c, time: new Date() }));
+            renderComments();
             startCommentRotation();
         }
 
-        function renderAllComments() {
-            renderModalComments();
-            updateCommentCounts();
-        }
-
-        function renderModalComments() {
-            const container = document.getElementById('modalBody');
+        function renderComments() {
+            const container = document.getElementById('commentsContainer');
             container.innerHTML = '';
             const sorted = [...comments].reverse();
-            sorted.forEach(c => {
+            sorted.forEach((comment, index) => {
                 const div = document.createElement('div');
-                div.className = 'modal-comment-item';
+                div.className = 'comment-item';
+                div.style.animationDelay = (index * 0.05) + 's';
                 div.innerHTML = `
-                    <div class="avatar">${c.avatar || c.name.charAt(0)}</div>
+                    <div class="avatar">${comment.name.charAt(0)}</div>
                     <div class="comment-content">
-                        <div class="comment-name">${c.name}</div>
-                        <div class="comment-text">${c.text}</div>
-                        <div class="comment-time">${formatTime(c.time)}</div>
-                        <div class="comment-actions">
-                            <button onclick="likeComment('${c.id}')" id="likeBtn-${c.id}">
-                                <i class="fas fa-heart"></i> <span id="likeCount-${c.id}">${c.likes || 0}</span>
-                            </button>
-                            <button onclick="replyToComment('${c.id}')"><i class="fas fa-reply"></i> رد</button>
-                        </div>
-                        ${c.replies && c.replies.length > 0 ? c.replies.map(r => `
-                            <div style="margin-right:30px;margin-top:6px;padding:4px 8px;background:rgba(255,255,255,0.03);border-radius:12px;font-size:0.7rem;border-right:2px solid #c2185b;">
-                                <strong style="color:#c2185b;">${r.name}</strong>
-                                <span style="color:rgba(74,26,44,0.6);">${r.text}</span>
-                                <div style="font-size:0.5rem;color:rgba(74,26,44,0.3);">${formatTime(r.time)}</div>
-                            </div>
-                        `).join('') : ''}
+                        <div class="comment-name">${comment.name}</div>
+                        <div class="comment-text">${comment.text}</div>
+                        <div class="comment-time">${formatTime(comment.time)}</div>
                     </div>
                 `;
                 container.appendChild(div);
             });
-        }
-
-        function updateCommentCounts() {
-            const count = comments.length;
-            document.getElementById('modalCount').textContent = `(${count})`;
-            document.getElementById('commentsToggleCount').textContent = `(${count})`;
-            document.getElementById('statCommentCount').textContent = formatNumber(count);
+            document.getElementById('commentCount').textContent = `(${comments.length})`;
         }
 
         function formatTime(date) {
@@ -3079,134 +2061,65 @@ Tu es mon amour que j'aime sans raison. Tu es celle dont il n'y a pas de seconde
             commentInterval = setInterval(() => {
                 if (comments.length > 0) {
                     const newComment = defaultComments[index % defaultComments.length];
-                    comments.push({ ...newComment, time: new Date(), id: Date.now() + Math.random() * 1000,
-                        likes: 0, replies: [] });
-                    renderAllComments();
+                    comments.push({ ...newComment, time: new Date() });
+                    renderComments();
                     index++;
-                    if (comments.length > 25) { comments.splice(0, 5);
-                        renderAllComments(); }
+                    // إبقاء عدد التعليقات معقولاً
+                    if (comments.length > 20) {
+                        comments.splice(0, 5);
+                        renderComments();
+                    }
                 }
-            }, 6000);
+            }, 5000);
         }
 
-        function openCommentsModal() {
-            document.getElementById('commentsModal').classList.add('show');
-            document.body.style.overflow = 'hidden';
-            renderModalComments();
-            setTimeout(() => document.getElementById('modalInput').focus(), 300);
-            playClickSound();
-        }
-
-        function closeCommentsModal() {
-            document.getElementById('commentsModal').classList.remove('show');
-            document.body.style.overflow = '';
-            playClickSound();
-        }
-
-        function addModalComment() {
-            const input = document.getElementById('modalInput');
+        function addComment() {
+            const input = document.getElementById('commentInput');
             const text = input.value.trim();
-            if (!text) { showToast('💬 ' + getText('writeFirst')); return; }
-            const names = ['💝 محب', '💝 معجب', '💝 قلب', '💝 روح', '💝 عاشق', '🌸 زهرة', '🌹 وردة', '✨ نجمة'];
-            const name = names[Math.floor(Math.random() * names.length)] + ' ❤️';
-            const avatars = ['🌸', '🌹', '💖', '🌟', '✨', '💫', '🌺', '💗'];
-            comments.push({ name, text, avatar: avatars[Math.floor(Math.random() * avatars.length)], time: new Date(),
-                id: Date.now() + Math.random() * 1000, likes: 0, replies: [] });
-            renderAllComments();
+            if (!text) {
+                showToast('💬 اكتب تعليقاً أولاً!');
+                return;
+            }
+
+            const name = '💝 ' + ['محب', 'معجب', 'قلب', 'روح', 'عاشق'][Math.floor(Math.random() * 5)];
+            comments.push({ name: name + ' ❤️', text: text, time: new Date() });
+            renderComments();
             input.value = '';
-            showToast('✅ ' + getText('commentAdded'));
-            playClickSound();
+            showToast('✅ تم إضافة تعليقك الجميل!');
+
+            // إعادة تعيين المؤقت لإعطاء الأولوية للتعليقات الجديدة
             startCommentRotation();
         }
 
-        function likeComment(id) {
-            const comment = comments.find(c => c.id === id);
-            if (comment) {
-                comment.likes = (comment.likes || 0) + 1;
-                renderAllComments();
-                playClickSound();
+        // إضافة التعليق عند الضغط على Enter
+        document.getElementById('commentInput').addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') {
+                e.preventDefault();
+                addComment();
             }
-        }
-
-        function replyToComment(id) {
-            const replyText = prompt('💬 اكتب ردك على هذا التعليق:');
-            if (replyText && replyText.trim()) {
-                const comment = comments.find(c => c.id === id);
-                if (comment) {
-                    if (!comment.replies) comment.replies = [];
-                    comment.replies.push({ name: '💝 أنت', text: replyText.trim(), time: new Date() });
-                    renderAllComments();
-                    showToast('✅ تم إضافة الرد!');
-                    playClickSound();
-                }
-            }
-        }
-
-        document.getElementById('modalInput').addEventListener('keypress', e => {
-            if (e.key === 'Enter') { e.preventDefault();
-                addModalComment(); }
         });
 
-        document.getElementById('commentsModal').addEventListener('click', e => {
-            if (e.target === e.currentTarget) closeCommentsModal();
-        });
-
+        // تحميل التعليقات
         loadComments();
 
         // ============================================================
-        // 15. الإجراءات العامة
-        // ============================================================
-        function showToast(msg) {
-            const t = document.getElementById('toast');
-            t.textContent = msg;
-            t.classList.add('show');
-            clearTimeout(t._timeout);
-            t._timeout = setTimeout(() => t.classList.remove('show'), 3000);
-        }
-
-        function shareWebsite() {
-            if (navigator.share) {
-                navigator.share({ title: '❤️ حبيبتي الغالية ❤️', text: getText('shareMsg'), url: window.location.href })
-                    .catch(() => {});
-            } else {
-                navigator.clipboard.writeText(window.location.href)
-                    .then(() => showToast('✅ ' + getText('copyLink')))
-                    .catch(() => showToast('📋 ' + getText('linkCopied') + window.location.href));
-            }
-            playClickSound();
-        }
-
-        function printPage() { window.print();
-            playClickSound(); }
-
-        const loveKeys = ['loveMsg1', 'loveMsg2', 'loveMsg3', 'loveMsg4', 'loveMsg5', 'loveMsg6', 'loveMsg7'];
-
-        function showLoveMessage() {
-            const key = loveKeys[Math.floor(Math.random() * loveKeys.length)];
-            showToast(getText(key));
-            playClickSound();
-            createHearts(8);
-        }
-
-        // ============================================================
-        // 16. تشغيل تلقائي للموسيقى
+        // 13. تشغيل تلقائي للموسيقى
         // ============================================================
         document.addEventListener('click', function firstClick() {
-            if (!isPlaying) togglePlay();
+            if (!isPlaying) {
+                togglePlay();
+            }
             document.removeEventListener('click', firstClick);
         }, { once: true });
 
         // ============================================================
-        // 17. الترحيب
+        // 14. الترحيب
         // ============================================================
-        setTimeout(() => showToast(getText('toastWelcome')), 1000);
+        setTimeout(() => {
+            showToast('💖 مرحباً يا أجمل بنت في الدنيا 💖');
+        }, 1000);
 
-        console.log('❤️ تم إصلاح جميع المشاكل بنجاح!');
-        console.log('✅ صوت النقرات يعمل فقط عند التفاعل');
-        console.log('✅ معرض الصور يعمل ويتحرك تلقائياً');
-        console.log('✅ الترجمة تعمل لكل النصوص بما فيها النص الطويل');
-        console.log('✅ الهدايا تعمل مع مودال منبثق وزر إرسال');
-        console.log('✅ العداد التنازلي يحسب من تاريخ الميلاد (7 مايو)');
+        console.log('❤️ موقع حبك لحبيبتي - تصميم جديد بالكامل مع كل المؤثرات ❤️');
     </script>
 </body>
 </html>
